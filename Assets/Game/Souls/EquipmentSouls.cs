@@ -56,6 +56,7 @@ public class EquipmentSouls : MonoBehaviour
             _soul = null;
             _isPickUp = false;
             UIManager.UpdateSoulsCount(SoulsId.Count.ToString());
+            Debug.Log(SoulsId.Count.ToString());
 
         }
         if(Input.GetKeyDown(KeyCode.F) && _isMarina && !_isPickUp && SoulsId.Count > 0)
