@@ -5,8 +5,11 @@ namespace Haron
     internal class HaronFloatingBehavior : IHaronBehavior
     {
         private HaronController hc;
-        private float timeMove = 0;
-        private float currentRotateAngle;
+        private float timeA = 0;
+        private float timeD = 0;
+        // private float timeR = 0;
+        private Vector2 dirDeaceleration;
+
         public HaronFloatingBehavior(HaronController hc)
         {
             this.hc = hc;
@@ -29,33 +32,67 @@ namespace Haron
             if (hc.direction != Vector2.zero)
             {
                 Rotation();
-                
+
             }
 
-            if (hc.isMoving )
+            if (hc.direction != Vector2.zero)
             {
-                Move();                
+                Acceleration();
+                //Rowing();
             }
             else
             {
-                timeMove = 0;
+                Deaceleration();
             }
         }
 
+        //private void Rowing()
+        //{
+
+        //}
+
         private void Rotation()
-        {   
-            float angle = AccessoryMetods.GetAngleFromVectorFloat(hc.direction) + 90;
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            hc.transform.rotation = Quaternion.Slerp(hc.transform.rotation, rotation, hc.speedRotation * Time.fixedDeltaTime); ;
-            currentRotateAngle = hc.transform.localEulerAngles.z - 90;
-            Debug.Log(currentRotateAngle);
+        {
+            float angle = AccessoryMetods.GetAngleFromVectorFloat(hc.direction);
+            if ((angle < 45) || (angle >= 315))
+            {
+                hc.transform.rotation = Quaternion.Euler(0,0,0);
+                hc.DirectionState = DirectionState.right;
+            }
+            else if ((angle >= 45) && (angle < 135))
+            {
+                hc.transform.rotation = Quaternion.Euler(0,0,90);
+                hc.DirectionState = DirectionState.up;
+            }
+            else if ((angle >= 135) && (angle < 225))
+            {
+                hc.transform.rotation = Quaternion.Euler(0, 0, 180);
+                hc.DirectionState = DirectionState.left;
+            }
+            else if ((angle >= 225) && (angle < 315))
+            {
+                hc.transform.rotation = Quaternion.Euler(0, 0, 270);
+                hc.DirectionState = DirectionState.down;
+            }
         }
 
-        private void Move()
+        private void Acceleration()
         {
-            var currentSpeed = hc.acceleration.Evaluate(timeMove) * hc.speedmove;
-            timeMove += Time.fixedDeltaTime;
-            hc.rb.velocity = hc.direction * currentSpeed * Time.fixedDeltaTime;
+            var currentSpeed = hc.acceleration.Evaluate(timeA) * hc.speedmove;
+            Debug.Log(currentSpeed);
+            timeA += Time.fixedDeltaTime;
+            hc.rb.velocity = hc.direction * currentSpeed;
+            timeD = 0;
+            dirDeaceleration = hc.direction;
+        }
+
+        private void Deaceleration()
+        {
+            var currentSpeed = hc.deaceleration.Evaluate(timeD) * hc.speedmove;
+            Debug.Log(currentSpeed);
+            timeD += Time.fixedDeltaTime;
+            hc.rb.velocity = dirDeaceleration * currentSpeed;
+            timeA = 0;
         }
     }
 }

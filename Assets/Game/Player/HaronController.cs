@@ -8,7 +8,7 @@ namespace Haron
 {
     public enum DirectionState
     {
-        up,down, left, right
+        right, up, left, down 
     }
 
     public enum HaronBehavior
@@ -22,7 +22,7 @@ namespace Haron
         //inspector
         [SerializeField] internal float speedmove;
         [SerializeField] internal AnimationCurve acceleration;
-        [SerializeField] internal float speedRotation;
+        [SerializeField] internal AnimationCurve deaceleration;
 
         //debug
         [SerializeField] private DirectionState directionState;
@@ -30,7 +30,7 @@ namespace Haron
         [SerializeField] internal Vector2 direction;
         [SerializeField] internal Rigidbody2D rb;
         [SerializeField] Vector2 velosity;
-        [SerializeField] internal bool isMoving = false;
+        [SerializeField] internal bool isAttacking = false;
         //local
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
@@ -50,6 +50,7 @@ namespace Haron
         {
             this.behavioraMap = new Dictionary<Type, IHaronBehavior>();
             this.behavioraMap[typeof(HaronFloatingBehavior)] = new HaronFloatingBehavior(this);
+            this.behavioraMap[typeof(HaronAttackBehavior)] = new HaronAttackBehavior(this);
             //this.behavioraMap[typeof(HookAIMBehavior)] = new HookAIMBehavior(this);
             //this.behavioraMap[typeof(HookRotationBehavior)] = new HookRotationBehavior(this);
             //this.behavioraMap[typeof(HookCatcEmptyhBehavior)] = new HookCatcEmptyhBehavior(this);
