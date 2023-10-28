@@ -1,7 +1,7 @@
 using Haron;
 using UnityEngine;
 
-public class EnemyPoints : MonoBehaviour, IDamagable
+public class EnemyPoints : MonoBehaviour, IDamagable, IHPÑontroller
 {
     private GameObject _player;
     [SerializeField] private int health;
@@ -21,6 +21,8 @@ public class EnemyPoints : MonoBehaviour, IDamagable
     private int currentPoint;
     [SerializeField]private Animator _anim;
 
+    public int MaxHP { get => maxHealth; }
+    public int CurrentHP { get => health; }
 
     private void Start()
     {
