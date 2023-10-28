@@ -50,7 +50,7 @@ public class KeySystem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F) && _key != null)
         {
             ChangeKey();
-            LevelDirector.GetKey();
+            
             
             Destroy(_key.gameObject);
             _key = null;

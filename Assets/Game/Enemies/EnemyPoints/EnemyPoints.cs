@@ -1,7 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyPoints : MonoBehaviour
+public class EnemyPoints : MonoBehaviour, IDamagable
 {
     private GameObject _player;
     [SerializeField] private float health;
@@ -91,5 +90,10 @@ public class EnemyPoints : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _distanceVisible);
+    }
+
+    public void GetDamage(int damage)
+    {
+        health = Mathf.Clamp(health - damage, 0, maxHealth);
     }
 }

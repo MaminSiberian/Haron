@@ -17,6 +17,7 @@ public class Door : MonoBehaviour
         {
             _anim.SetBool("Open", true);
             isOpen = true;
+            LevelDirector.WasteKey();
             Destroy(this);
         }
     }
