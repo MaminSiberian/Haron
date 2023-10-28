@@ -7,6 +7,7 @@ namespace UI
     public class UIDirector : MonoBehaviour
     {
         #region FIELDS
+        [SerializeField] private Transform player;
         [SerializeField] private GameObject _pauseButton;
         [SerializeField] private GameObject _mapButton;
         [SerializeField] private GameObject _pauseScreen;
@@ -15,6 +16,8 @@ namespace UI
         [SerializeField] private GameObject _shopScreen;
 
         [SerializeField] private GameObject _map;
+        [SerializeField] private Camera _mapCam;
+        [SerializeField] private Camera _minimapCam;
 
         private static GameObject pauseButton;
         private static GameObject mapButton;
@@ -49,6 +52,11 @@ namespace UI
         {
             //TestPlayer.OnPlayerDeath -= OnPlayerDeath;
             LevelDirector.OnGameFinishedEvent -= OnGameFinished;
+        }
+        private void Update()
+        {
+            _mapCam.transform.position = new Vector3(player.position.x, player.position.y, _mapCam.transform.position.z);
+            _minimapCam.transform.position = new Vector3(player.position.x, player.position.y, _minimapCam.transform.position.z);
         }
         #endregion
 
