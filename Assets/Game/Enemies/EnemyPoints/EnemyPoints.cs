@@ -1,11 +1,13 @@
+using Haron;
 using UnityEngine;
 
 public class EnemyPoints : MonoBehaviour, IDamagable
 {
     private GameObject _player;
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
+    [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private int damage;
     [SerializeField] private float _distanceVisible;
     [SerializeField] private float _cooldownTime;
     private float currentCooldownTime;
@@ -16,6 +18,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable
     private bool canMoveToPoints;
     private bool cooldown;
     private int currentPoint;
+    [SerializeField]private Animator _anim;
 
 
     private void Start()
@@ -45,19 +48,34 @@ public class EnemyPoints : MonoBehaviour, IDamagable
         {
             if (distance < 0.5f)
             {
-                Debug.Log("l");
+                if(currentCooldownTime < 0)
+                {
+                    //PlayAnimation with event
+                    
+                }
             }
             else
             {
                 transform.position = Vector2.Lerp(transform.position,
-                    _player.transform.position, _moveSpeed * Time.deltaTime);
+                    _player.transform.position, _moveSpeed * Time.deltaTime * 0.2f);
             }
             canMoveToPoints = false;
         }
+        if(!canMoveToPoints)
+        {
+            currentCooldownTime -= Time.deltaTime;
+        }
+        
         
 
     }
 
+    private void Attack()
+    {
+        _player.GetComponent<HaronController>().GetDamage(damage);
+        currentCooldownTime = _cooldownTime;
+
+    }
     
 
     private void Move()
@@ -86,6 +104,11 @@ public class EnemyPoints : MonoBehaviour, IDamagable
         }
     }
 
+    public void Death()
+    {
+        Debug.Log("Death");
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -94,6 +117,11 @@ public class EnemyPoints : MonoBehaviour, IDamagable
 
     public void GetDamage(int damage)
     {
-        health = Mathf.Clamp(health - damage, 0, maxHealth);
+        health -= damage;
+        if(health <= 0)
+        {
+            Death();
+        }
+        Debug.Log("x");
     }
 }
