@@ -55,9 +55,9 @@ MonoBehaviour:
   areaAttack: {fileID: 6567053885362655993}
   pivotAttack: {fileID: 4508641738642488700}
   distanceAttack: 2
-  durationAttack: 0
+  durationAttack: 1
   cooldownAttack: 0.5
-  damage: 2
+  damage: 10
   timeCaiot: 0.1
   speedMove: 50
   dashCurve:
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d06f6c95cffe7418af44f01b4cded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hc: {fileID: 4250359074123360334}
 --- !u!1 &5589022110370193099
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +387,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 110
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.8584906, g: 0.070191, b: 0.070191, a: 1}
   m_FlipX: 0
