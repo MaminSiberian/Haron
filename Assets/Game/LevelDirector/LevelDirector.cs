@@ -23,11 +23,11 @@ public class LevelDirector : MonoBehaviour
     }
     private void OnEnable()
     {
-        Shop.OnItemPurchased += OnItemPurchased;
+        Shop.OnItemPurchasedEvent += OnItemPurchased;
     }
     private void OnDisable()
     {
-        Shop.OnItemPurchased -= OnItemPurchased;
+        Shop.OnItemPurchasedEvent -= OnItemPurchased;
     }
 
 
@@ -46,10 +46,12 @@ public class LevelDirector : MonoBehaviour
     }
     private void OnItemPurchased(Item item)
     {
+        Debug.Log(item == Item.Key);
         if (item == Item.Key) GetKey();
     }
     private void GetKey()
     {
+        Debug.Log("got key");
         keysCounter++;
         OnKeysValueChangedEvent?.Invoke();
     }

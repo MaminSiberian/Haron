@@ -15,7 +15,7 @@ public static class Shop
 {
     public static Dictionary<Item, int> shopItems {  get { return _shopItems; } }
 
-    public static event Action<Item> OnItemPurchased;
+    public static event Action<Item> OnItemPurchasedEvent;
 
     private static Dictionary<Item, int> _shopItems = new Dictionary<Item, int>()
     {
@@ -30,7 +30,7 @@ public static class Shop
         if (!GotItem(item)) return;
 
         _shopItems = _shopItems.ToDictionary( i => i.Key, i => i.Key == item ? i.Value - 1 : i.Value);
-        OnItemPurchased?.Invoke(item);
+        OnItemPurchasedEvent?.Invoke(item);
         Wallet.WasteCoin();
         Debug.Log(item + " purchased");
     }
