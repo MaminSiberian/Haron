@@ -10,12 +10,16 @@ public class EquipmentSouls : MonoBehaviour
     private Marina _marina;
     private bool _isPickUp = false;
     private bool _isMarina = false;
+    [SerializeField] private Transform _soulPos;
+    private bool isSoul;
     private Marina[] marinas;
 
     private void Start()
     {
-        
+
         _soul = null;
+        _isPickUp = false;
+        isSoul = false;
         marinas = GameObject.FindObjectsOfType<Marina>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,10 +34,9 @@ public class EquipmentSouls : MonoBehaviour
         {
             _marina = collision.GetComponent<Marina>();
             _isMarina = true;
-            for (int i = 0; i < SoulsId.Count; i++)
+            if(_soul != null)
             {
-                SoulsInfo soul = SoulsId[i];
-                if (soul.Marinaid == _marina.index)
+                if(_soul.GetMarinaId() == _marina.index)
                 {
                     UIDirector.ActivePressF();
                 }
@@ -45,8 +48,12 @@ public class EquipmentSouls : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Soul"))
         {
+            if (!isSoul)
+            {
+                
+                _soul = null;
+            }
             _isPickUp = false;
-            _soul = null;
         }
         if (collision.gameObject.CompareTag("Marina"))
         {
@@ -61,45 +68,41 @@ public class EquipmentSouls : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && _isPickUp)
+        if (Input.GetKeyDown(KeyCode.F) && _isPickUp && !isSoul)
         {
-            SoulsId.Add(_soul.GetSoulsInfo());
-            
-            foreach(var marina in marinas)
+
+            foreach (var marina in marinas)
             {
-                if(marina.index == _soul.GetMarinaId())
+                if (marina.index == _soul.GetMarinaId())
                 {
                     LevelDirector.SendNewQuestTarget(marina.transform);
                 }
             }
             LevelDirector.OnSoulDelivered();
-            Destroy(_soul.gameObject);
-            _soul = null;
+            _soul.gameObject.transform.position = _soulPos.position;
+
             _isPickUp = false;
-            
-            
+            isSoul = true;
+
+
 
         }
-        if(Input.GetKeyDown(KeyCode.F) && _isMarina && !_isPickUp && SoulsId.Count > 0)
+        if (Input.GetKeyDown(KeyCode.F) && _isMarina && !_isPickUp && isSoul)
         {
-            
-            for (int i = 0; i < SoulsId.Count; i++)
+
+            if (_soul.GetMarinaId() == _marina.index)
             {
-                SoulsInfo soul = SoulsId[i];
-                if (soul.Marinaid == _marina.index)
-                {
-                   _marina.countSouls++;
-                   SoulsId.Remove(soul);
-                    Wallet.GetCoins(2);
-                }
+                Wallet.GetCoins(2);
+                LevelDirector.SendNewQuestTarget(null);
+                Destroy(_soul.gameObject);
+                _soul = null;
+                isSoul = false;
             }
-            LevelDirector.SendNewQuestTarget(null);
             UIDirector.DisablePressF();
-
-
-
-
-
+        }
+        if (_soul != null)
+        {
+            _soul.gameObject.transform.position = _soulPos.position;
         }
     }
 
@@ -107,19 +110,23 @@ public class EquipmentSouls : MonoBehaviour
     
     public void test(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Soul"))
+        for (int i = 0; i < SoulsId.Count; i++)
         {
-            _isPickUp = true;
-            if (Input.GetKeyDown(KeyCode.F) && _isPickUp)
+            SoulsInfo soul = SoulsId[i];
+            if (soul.Marinaid == _marina.index)
             {
-                //Souls.Add(Souls.Count + 1, collision.GetComponent<Soul>().GetMarinaId());
-                //Destroy(collision.gameObject);
-                //UIManager.UpdateSoulsCount(Souls.Count.ToString());
+                UIDirector.ActivePressF();
+            }
+        }
 
-                SoulsId.Add(collision.GetComponent<Soul>().GetSoulsInfo());
-                Destroy(collision.gameObject);
-                Debug.Log("x");
-                _isPickUp = false;
+        for (int i = 0; i < SoulsId.Count; i++)
+        {
+            SoulsInfo soul = SoulsId[i];
+            if (soul.Marinaid == _marina.index)
+            {
+                _marina.countSouls++;
+                SoulsId.Remove(soul);
+                Wallet.GetCoins(2);
             }
         }
     }

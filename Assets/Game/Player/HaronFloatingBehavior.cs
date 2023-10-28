@@ -8,6 +8,7 @@ namespace Haron
         private HaronController hc;
         private float timeA = 0;
         private float timeD = 0;
+        private SpriteRenderer spriteRenderer;
         // private float timeR = 0;
         private Vector2 dirDeaceleration;
         
@@ -16,6 +17,7 @@ namespace Haron
         public HaronFloatingBehavior(HaronController hc)
         {
             this.hc = hc;
+            spriteRenderer = hc.spriteRenderer;
         }
 
         public void Enter()
@@ -73,6 +75,7 @@ namespace Haron
             if ((angle < 90) || (angle >= 270))
             {
                 hc.transform.rotation = Quaternion.Euler(0,0,0);
+                
                 hc.DirectionState = DirectionState.right;
             }
             //else if ((angle >= 45) && (angle < 135))
@@ -82,7 +85,8 @@ namespace Haron
             //}
             else if ((angle >= 90) && (angle < 270))
             {
-                hc.transform.rotation = Quaternion.Euler(0, 0, 180);
+                hc.transform.rotation = Quaternion.Euler(0, 180, 0);
+                
                 hc.DirectionState = DirectionState.left;
             }
             //else if ((angle >= 225) && (angle < 315))

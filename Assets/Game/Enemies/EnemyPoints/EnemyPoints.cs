@@ -12,6 +12,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPÑontroller
     [SerializeField] private float _cooldownTime;
     private float currentCooldownTime;
     [SerializeField] private Transform[] _points;
+    [SerializeField, Range(0.5f, 5f)] private float distanceForDamage = 0.7f;
     [SerializeField] private GameObject _parentGameObject;
     
     [SerializeField] private Rigidbody2D _rb;
@@ -50,7 +51,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPÑontroller
         }
         if (isAttack)
         {
-            if (distance < 0.5f)
+            if (distance < distanceForDamage)
             {
                 if(currentCooldownTime < 0)
                 {
@@ -58,7 +59,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPÑontroller
                     
                 }
             }
-            else
+            else if(distance > distanceForDamage)
             {
                 transform.position = Vector2.Lerp(transform.position,
                     _player.transform.position, _moveSpeed * Time.deltaTime * 0.2f);
@@ -110,7 +111,6 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPÑontroller
 
     public void Death()
     {
-        Debug.Log("Death enemy");
         Destroy(_parentGameObject);
     }
 
@@ -118,6 +118,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPÑontroller
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _distanceVisible);
+        Gizmos.DrawWireSphere(transform.position, distanceForDamage);
     }
 
     public void GetDamage(int damage)

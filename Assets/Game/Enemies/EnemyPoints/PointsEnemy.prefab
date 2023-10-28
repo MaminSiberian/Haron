@@ -243,7 +243,7 @@ Transform:
   - {fileID: 8652059222466401844}
   - {fileID: 5110281664609249539}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7107493108130261363
 GameObject:
@@ -335,7 +335,8 @@ MonoBehaviour:
   - {fileID: 720062648816440030}
   - {fileID: 2555838855818545157}
   - {fileID: 7228624218362008302}
-  _parentGameObject: {fileID: 0}
+  distanceForDamage: 3.31
+  _parentGameObject: {fileID: 5670907837631848384}
   _rb: {fileID: 1004250095876534139}
   _anim: {fileID: 0}
 --- !u!50 &1004250095876534139
@@ -399,7 +400,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.16
+  m_Radius: 1.04
 --- !u!1 &8945083912377936603
 GameObject:
   m_ObjectHideFlags: 0

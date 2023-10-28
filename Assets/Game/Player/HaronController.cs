@@ -54,6 +54,7 @@ namespace Haron
         [SerializeField] internal bool isDash;
         [SerializeField] internal bool isReloadDash;
         [SerializeField] internal float currentTimeCooldawnDash;
+        [SerializeField] internal SpriteRenderer spriteRenderer;
         //local
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
