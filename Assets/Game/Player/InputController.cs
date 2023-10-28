@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
 
     [SerializeField] private HaronController hc;
     [SerializeField] internal Camera mainCamera;
+    [SerializeField] private Animator _anim;
     private Ray ray;
 
     private void Start()
@@ -20,6 +21,7 @@ public class InputController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             hc.isAttacking = true;
+            _anim.CrossFade("Attack", 0.01f);
         }
         if (Input.GetMouseButton(1))
         {
