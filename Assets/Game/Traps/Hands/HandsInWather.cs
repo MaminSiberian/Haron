@@ -1,11 +1,12 @@
 using Haron;
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.Windows;
 
-public class Whirlpool : MonoBehaviour
+public class HandsInWather : MonoBehaviour
 {
+    [SerializeField] private int damage;
+    [SerializeField] private int cooldownDamage;
     [SerializeField] private float forceAttraction;
     [SerializeField] private Vector3 direction;
     [Range(0f, 100f)][SerializeField] public float targetForceQTE;
@@ -16,9 +17,9 @@ public class Whirlpool : MonoBehaviour
     [SerializeField] private float forceToPushObject;
     [SerializeField] private AnimationCurve forceCurve;
 
+    //private float startTime;
     private HaronController hc;
-
-    
+    private IDamagable targetDamage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,9 +28,11 @@ public class Whirlpool : MonoBehaviour
         {
             currentForceQTE = 0;
             hc = collision.GetComponent<HaronController>();
+            targetDamage = collision.GetComponent<IDamagable>();
             hc.SetBehaviorQTE();
-            Rotation( hc.transform.position - transform.position);
+            Rotation(hc.transform.position - transform.position);
             StartCoroutine(QTE());
+            StartCoroutine(Damage());
         }
     }
 
@@ -41,10 +44,22 @@ public class Whirlpool : MonoBehaviour
             hc.rb.velocity = direction * forceAttraction * Time.deltaTime;
             hc.rb.AddForce(forceAttraction * direction);
         }
+
     }
-    private IEnumerator QTE ()
+
+
+    private IEnumerator Damage()
     {
-        while (currentForceQTE < targetForceQTE)         
+        while (targetDamage != null)
+        {
+            targetDamage.GetDamage(damage);
+            yield return new WaitForSeconds(cooldownDamage);
+        }
+    }
+    private IEnumerator QTE()
+    {
+        //currentForceQTE = targetForceQTE / 3;
+        while (currentForceQTE < targetForceQTE)
         {
             if (currentForceQTE > 0)
                 currentForceQTE -= reductionForceQTE * Time.fixedDeltaTime;
@@ -55,14 +70,14 @@ public class Whirlpool : MonoBehaviour
                 currentForceQTE += forceQTE;
             }
             yield return new WaitForSeconds(Time.fixedDeltaTime);
-            
+
         }
 
         if (currentForceQTE > targetForceQTE)
         {
+            targetDamage = null;
             StartCoroutine(PushObject());
         }
-
         StopCoroutine(QTE());
     }
 
@@ -83,7 +98,7 @@ public class Whirlpool : MonoBehaviour
     private void Rotation(Vector2 direction)
     {
         float angle = AccessoryMetods.GetAngleFromVectorFloat(direction);
-        Debug.Log(angle); 
+        Debug.Log(angle);
         if ((angle < 45) || (angle >= 315))
         {
             hc.transform.rotation = Quaternion.Euler(0, 0, 0);
