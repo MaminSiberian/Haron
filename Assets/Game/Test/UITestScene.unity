@@ -1309,10 +1309,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4255742658862995835, guid: 45d302a41bcf26d4c93eef955a8bb9cb, type: 3}
-      propertyPath: _shopScreen
-      value: 
-      objectReference: {fileID: 7480704581289978632}
     - target: {fileID: 6504530409045283323, guid: 45d302a41bcf26d4c93eef955a8bb9cb, type: 3}
       propertyPath: m_Name
       value: '[INTERFACE]'
@@ -1322,8 +1318,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45d302a41bcf26d4c93eef955a8bb9cb, type: 3}
---- !u!1 &7480704581289978632 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1838167875752834384, guid: 45d302a41bcf26d4c93eef955a8bb9cb, type: 3}
-  m_PrefabInstance: {fileID: 7480704581289978630}
-  m_PrefabAsset: {fileID: 0}

@@ -29,7 +29,7 @@ public static class Shop
         if (!Wallet.IsEnoughMoney(1)) return;
         if (!GotItem(item)) return;
 
-        _shopItems.ToDictionary( i => i.Key, i => i.Key == item ? i.Value - 1 : i.Value);
+        _shopItems = _shopItems.ToDictionary( i => i.Key, i => i.Key == item ? i.Value - 1 : i.Value);
         OnItemPurchased?.Invoke(item);
         Wallet.WasteCoin();
         Debug.Log(item + " purchased");

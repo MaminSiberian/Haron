@@ -5489,7 +5489,7 @@ MonoBehaviour:
   _pauseScreen: {fileID: 1627439183488098165}
   _gameOverScreen: {fileID: 7320878038704111039}
   _winScreen: {fileID: 623788447293427020}
-  _shopScreen: {fileID: 0}
+  _shopScreen: {fileID: 1838167875752834384}
 --- !u!1 &8632168668129134908
 GameObject:
   m_ObjectHideFlags: 0

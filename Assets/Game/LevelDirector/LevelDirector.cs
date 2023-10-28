@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -52,6 +53,7 @@ public class LevelDirector : MonoBehaviour
         keysCounter++;
         OnKeysValueChangedEvent?.Invoke();
     }
+    [Button]
     public static void WasteKey()
     {
         if (!GotKey()) return;
