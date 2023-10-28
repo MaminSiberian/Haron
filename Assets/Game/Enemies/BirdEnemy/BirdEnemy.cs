@@ -67,7 +67,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPÑontroller
 
     public void Death()
     {
-        Debug.Log("Enemy death");
+        Destroy(gameObject);
     }
 
     public void Attack()
