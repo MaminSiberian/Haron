@@ -1,18 +1,22 @@
 using Haron;
 using UnityEngine;
 
-public class BirdEnemy : MonoBehaviour, IDamagable
+public class BirdEnemy : MonoBehaviour, IDamagable, IHPÑontroller
 {
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
     [SerializeField, Range(0.5f, 10)] private float moveSpeed = 1.5f;
     [SerializeField, Range(1, 7)] private float distanceVisible = 4f;
-    [SerializeField, Range(1,10)] private int damage = 2;
+    [SerializeField, Range(1, 10)] private int damage = 2;
     [SerializeField] private float cooldownTime = 1f;
-    [SerializeField, Range(0.5f, 2f)] private float distanceForDamage = 0.7f; 
+    [SerializeField, Range(0.5f, 2f)] private float distanceForDamage = 0.7f;
     private float currentcdTime;
     private bool isAttack;
     private GameObject _player;
+
+    public int MaxHP { get => maxHealth;  }
+    public int CurrentHP { get => health; }
+
 
     public void GetDamage(int damage)
     {

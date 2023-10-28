@@ -15,6 +15,7 @@ public class DamageArea : MonoBehaviour
     {
         if (collision.GetComponent<IDamagable>() != null)
         {
+            Debug.Log(1);
             collision.GetComponent<IDamagable>().GetDamage(hc.damage);
         }
         
