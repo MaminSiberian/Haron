@@ -20,11 +20,11 @@ public class QuestPointer : MonoBehaviour
     }
     private void OnEnable()
     {
-        LevelDirector.OnQuestTargetChanged += SetQuestTarget;
+        LevelDirector.OnQuestTargetChangedEvent += SetQuestTarget;
     }
     private void OnDisable()
     {
-        LevelDirector.OnQuestTargetChanged -= SetQuestTarget;
+        LevelDirector.OnQuestTargetChangedEvent -= SetQuestTarget;
     }
     private void Update()
     {
