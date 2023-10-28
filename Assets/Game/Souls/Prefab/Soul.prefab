@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soulData: {fileID: 0}
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 5866144041191446675}
 --- !u!50 &1779114254158785159
 Rigidbody2D:
   serializedVersion: 4

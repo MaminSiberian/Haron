@@ -15,6 +15,7 @@ namespace UI
         [SerializeField] private GameObject _gameOverScreen;
         [SerializeField] private GameObject _winScreen;
         [SerializeField] private GameObject _shopScreen;
+        [SerializeField] private GameObject _pressFScreen;
 
         [SerializeField] private GameObject _map;
         [SerializeField] private Camera _mapCam;
@@ -26,6 +27,7 @@ namespace UI
         private static GameObject gameOverScreen;
         private static GameObject winScreen;
         private static GameObject shopScreen;
+        private static GameObject pressFScreen;
 
         private static GameObject map;
 
@@ -45,6 +47,7 @@ namespace UI
             winScreen = _winScreen;
             shopScreen = _shopScreen;
             map = _map;
+            pressFScreen = _pressFScreen;
         }
         private void OnEnable()
         {
@@ -126,5 +129,15 @@ namespace UI
             shopScreen.SetActive(false);
             map.SetActive(false);
         }
-    }
+
+        public static void ActivePressF()
+        {
+            pressFScreen.SetActive(true);
+        }
+
+        public static void DisablePressF()
+        {
+            pressFScreen.SetActive(false);
+        }
+     }
 }

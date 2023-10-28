@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class EquipmentSouls : MonoBehaviour
@@ -29,6 +30,15 @@ public class EquipmentSouls : MonoBehaviour
         {
             _marina = collision.GetComponent<Marina>();
             _isMarina = true;
+            for (int i = 0; i < SoulsId.Count; i++)
+            {
+                SoulsInfo soul = SoulsId[i];
+                if (soul.Marinaid == _marina.index)
+                {
+                    UIDirector.ActivePressF();
+                }
+            }
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -42,6 +52,7 @@ public class EquipmentSouls : MonoBehaviour
         {
             _isMarina = false;
             _marina = null;
+            UIDirector.DisablePressF();
         }
 
     }
@@ -83,6 +94,7 @@ public class EquipmentSouls : MonoBehaviour
                 }
             }
             LevelDirector.SendNewQuestTarget(null);
+            UIDirector.DisablePressF();
 
 
 
