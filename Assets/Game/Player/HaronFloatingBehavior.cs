@@ -9,6 +9,7 @@ namespace Haron
         private float timeD = 0;
         // private float timeR = 0;
         private Vector2 dirDeaceleration;
+        
 
 
         public HaronFloatingBehavior(HaronController hc)
@@ -43,7 +44,7 @@ namespace Haron
             }
             else
             {
-              //  Deaceleration();
+                Deaceleration();
             }
 
             if ((hc.isAttacking))
@@ -100,7 +101,6 @@ namespace Haron
 
         private void Deaceleration()
         {
-
             var currentSpeed = hc.deaceleration.Evaluate(timeD) * hc.speedmove;
             timeD += Time.fixedDeltaTime;
             hc.rb.velocity = dirDeaceleration * currentSpeed;
