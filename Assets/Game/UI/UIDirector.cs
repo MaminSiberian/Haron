@@ -11,11 +11,13 @@ namespace UI
         [SerializeField] private GameObject _pauseScreen;
         [SerializeField] private GameObject _gameOverScreen;
         [SerializeField] private GameObject _winScreen;
+        [SerializeField] private GameObject _shopScreen;
 
         private static GameObject pauseButton;
         private static GameObject pauseScreen;
         private static GameObject gameOverScreen;
         private static GameObject winScreen;
+        private static GameObject shopScreen;
 
         //public static event Action OnGamePaused;
         //public static event Action OnGameUnpaused;
@@ -28,16 +30,17 @@ namespace UI
             pauseScreen = _pauseScreen;
             gameOverScreen = _gameOverScreen;
             winScreen = _winScreen;
+            shopScreen = _shopScreen;
         }
         private void OnEnable()
         {
             //TestPlayer.OnPlayerDeath += OnPlayerDeath;
-            LevelDirector.OnGameFinished += OnGameFinished;
+            LevelDirector.OnGameFinishedEvent += OnGameFinished;
         }
         private void OnDisable()
         {
             //TestPlayer.OnPlayerDeath -= OnPlayerDeath;
-            LevelDirector.OnGameFinished -= OnGameFinished;
+            LevelDirector.OnGameFinishedEvent -= OnGameFinished;
         }
         #endregion
 
@@ -65,12 +68,19 @@ namespace UI
             TurnOffAll();
             winScreen.SetActive(true);
         }
+        [Button]
+        public static void OpenShop()
+        {
+            TurnOffAll();
+            shopScreen.SetActive(true);
+        }
         private static void TurnOffAll()
         {
             pauseButton.SetActive(false);
             pauseScreen.SetActive(false);
             gameOverScreen.SetActive(false);
             winScreen.SetActive(false);
+            shopScreen.SetActive(false);
         }
     }
 }
