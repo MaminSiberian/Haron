@@ -20,6 +20,13 @@ public class HandsInWather : MonoBehaviour
     //private float startTime;
     private HaronController hc;
     private IDamagable targetDamage;
+    private GameplayUI UI;
+    private bool isQTE  =false;
+
+    private void Start()
+    {
+        UI = FindObjectOfType<GameplayUI>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,6 +65,9 @@ public class HandsInWather : MonoBehaviour
     }
     private IEnumerator QTE()
     {
+        isQTE = true;
+        UI.SetActiveQTE();
+        StartCoroutine(BlinkF());
         //currentForceQTE = targetForceQTE / 3;
         while (currentForceQTE < targetForceQTE)
         {
@@ -69,32 +79,49 @@ public class HandsInWather : MonoBehaviour
             {
                 currentForceQTE += forceQTE;
             }
+            UI.SetQTEValue(currentForceQTE);
             yield return new WaitForSeconds(Time.fixedDeltaTime);
 
         }
-
         if (currentForceQTE > targetForceQTE)
         {
             targetDamage = null;
             StartCoroutine(PushObject());
         }
-        StopCoroutine(QTE());
+        UI.SetDeactiveQTE();
+        isQTE = false;
+        StopCoroutine(BlinkF());
     }
 
+
+    private IEnumerator BlinkF()
+    {
+        while (isQTE)
+        {
+            UI.SetQTEpresFEnable();
+            yield return new WaitForSeconds(0.3f);
+            UI.SetQTEpresFDisable();
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
     private IEnumerator PushObject()
     {
         var startTime = Time.time;
+        hc.SetBehaviorFloating();
         while (Time.time < startTime + duration)
         {
             var t = (Time.time - startTime) / duration;
             hc.rb.velocity = -direction * forceToPushObject * forceCurve.Evaluate(t);
             yield return new WaitForFixedUpdate();
         }
-        hc.SetBehaviorFloating();
-        hc = null;
+        StopCoroutine(QTE());
+
         StopCoroutine(PushObject());
+
     }
 
+
+    
     private void Rotation(Vector2 direction)
     {
         float angle = AccessoryMetods.GetAngleFromVectorFloat(direction);

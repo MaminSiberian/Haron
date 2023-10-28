@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameplayUI : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class GameplayUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coins;
     [SerializeField] private TextMeshProUGUI souls;
     [SerializeField] private TextMeshProUGUI keys;
+    [SerializeField] private Slider QTEBar;
+    [SerializeField] private GameObject QTE;
+    [SerializeField] private GameObject QTEpresF;
 
     private int maxHP = 100;
+    private int maxQTE = 100;
 
     private void Awake()
     {
@@ -18,7 +23,16 @@ public class GameplayUI : MonoBehaviour
         SetCoinsValue();
         SetSoulsValue();
         SetKeysValue();
+        SetQTEValye();
     }
+
+    private void SetQTEValye()
+    {
+        Wallet.OnCoinsValueChanged += SetCoinsValue;
+        LevelDirector.OnSoulDeliveredEvent += SetSoulsValue;
+        LevelDirector.OnKeysValueChangedEvent += SetKeysValue;
+    }
+
     private void OnEnable()
     {
         Wallet.OnCoinsValueChanged += SetCoinsValue;
@@ -38,7 +52,32 @@ public class GameplayUI : MonoBehaviour
 
         healthBar.value = value / maxHP;
         health.text = value.ToString();
-    }    
+    }
+
+
+    public void SetQTEValue(float value)
+    {
+        QTEBar.value = value / maxQTE;
+    }
+    public void SetActiveQTE()
+    {
+        QTE.SetActive(true);
+    }
+    public void SetDeactiveQTE()
+    {
+        QTE.SetActive(false);
+    }
+
+    public void SetQTEpresFEnable()
+    {
+        QTEpresF.SetActive(true);
+    }
+
+    public void SetQTEpresFDisable()
+    {
+        QTEpresF.SetActive(false);
+    }
+
     public void SetCoinsValue()
     {
         coins.text = "Coins: " + Wallet.coinsValue.ToString();
