@@ -57,7 +57,7 @@ MonoBehaviour:
   distanceAttack: 2
   durationAttack: 0.3
   cooldownAttack: 0.5
-  damage: 7
+  damage: 10
   timeCaiot: 0.1
   speedMove: 50
   dashCurve:

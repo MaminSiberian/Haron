@@ -48,9 +48,11 @@ MonoBehaviour:
   reduceUpgradeHP: 1
   minIinkreaseHP: 4
   reduceCooldownDash: 0.2
-  increaseDurationDash: 0.2
+  increaseDurationDash: 0.02
   reduceUpgradeDash: 0.05
   minReduceCooldownDash: 0.05
   increaseDamage: 10
   reduceUpgradeDamage: 1
   minIncreaseDamage: 4
+  hc: {fileID: 0}
+  UI: {fileID: 0}
