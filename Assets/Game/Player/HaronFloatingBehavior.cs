@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Haron
 {
@@ -9,6 +10,7 @@ namespace Haron
         private float timeD = 0;
         // private float timeR = 0;
         private Vector2 dirDeaceleration;
+        
 
 
         public HaronFloatingBehavior(HaronController hc)
@@ -38,13 +40,13 @@ namespace Haron
 
             if (hc.directionMove != Vector2.zero)
             {
-                Acceleration();
+                MoveDirection();
                 //Rowing();
             }
-            else
-            {
-                Deaceleration();
-            }
+            //else
+            //{
+            //    Deaceleration();
+            //}
 
             if ((hc.isAttacking))
             {
@@ -59,10 +61,11 @@ namespace Haron
             }
         }
 
-        //private void Rowing()
-        //{
-
-        //}
+        private void MoveDirection()
+        {
+            hc.rb.AddForce(hc.directionMove * hc.speedMove);//, ForceMode2D.Impulse);
+           // hc.rb.velocity = hc.directionMove * hc.speedMove;
+        }
 
         private void Rotation()
         {
@@ -89,21 +92,23 @@ namespace Haron
             }
         }
 
-        private void Acceleration()
-        {
-            var currentSpeed = hc.acceleration.Evaluate(timeA) * hc.speedmove;
-            timeA += Time.fixedDeltaTime;
-            hc.rb.velocity = hc.directionMove * currentSpeed;
-            timeD = 0;
-            dirDeaceleration = hc.directionMove;
-        }
 
-        private void Deaceleration()
-        {
-            var currentSpeed = hc.deaceleration.Evaluate(timeD) * hc.speedmove;
-            timeD += Time.fixedDeltaTime;
-            hc.rb.velocity = dirDeaceleration * currentSpeed;
-            timeA = 0;
-        }
+
+        //private void Acceleration()
+        //{
+        //    var currentSpeed = hc.acceleration.Evaluate(timeA) * hc.speedmove;
+        //    timeA += Time.fixedDeltaTime;
+        //    hc.rb.velocity = hc.directionMove * currentSpeed;
+        //    timeD = 0;
+        //    dirDeaceleration = hc.directionMove;
+        //}
+
+        //private void Deaceleration()
+        //{
+        //    var currentSpeed = hc.deaceleration.Evaluate(timeD) * hc.speedmove;
+        //    timeD += Time.fixedDeltaTime;
+        //    hc.rb.velocity = dirDeaceleration * currentSpeed;
+        //    timeA = 0;
+        //}
     }
 }

@@ -8,21 +8,23 @@ namespace Haron
 {
     public enum DirectionState
     {
-        right, up, left, down 
+        right, up, left, down
     }
 
     public enum HaronBehavior
     {
-        Floating, Attack, Dash,
+        Floating, Attack, Dash, QTE, Death
     }
 
-    public class HaronController : MonoBehaviour
+    public class HaronController : MonoBehaviour, IDamagable, IHealing
     {
 
         //inspector
+        [SerializeField] internal int maxHP;
+        [SerializeField] internal int CurrentHP;
+
         [SerializeField] internal Transform areaAttack;
         [SerializeField] internal Transform pivotAttack;
-        //[SerializeField] internal tra colliderAttack;
         [Range(0f, 3f)][SerializeField] internal float distanceAttack;
         [Range(0f, 1f)][SerializeField] internal float durationAttack;
         [Range(0f, 1f)][SerializeField] internal float cooldownAttack;
@@ -30,14 +32,17 @@ namespace Haron
         [Range(0, 10)][SerializeField] internal int damage;
         [Range(0f, 1f)][SerializeField] private float timeCaiot;
         [Space(10)]
-        [Range(0f, 10f)][SerializeField] internal float speedmove;
-        [SerializeField] internal AnimationCurve acceleration;
-        [SerializeField] internal AnimationCurve deaceleration;
+        [Range(0f, 50f)][SerializeField] internal float speedMove;
+        //[SerializeField] internal AnimationCurve acceleration;
+        //[SerializeField] internal AnimationCurve deaceleration;
         [Space]
         [SerializeField] internal AnimationCurve dashCurve;
         [Range(0f, 100f)][SerializeField] internal float forceDash;
         [Range(0f, 3f)][SerializeField] internal float cooldownDash;
         [Range(0f, 1f)][SerializeField] internal float durationDash;
+        [Space]
+
+
         //debug
         [SerializeField] private DirectionState directionState;
         [SerializeField] private HaronBehavior state;
@@ -53,7 +58,7 @@ namespace Haron
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
 
-        public DirectionState DirectionState {  get => directionState; internal set => directionState = value; }
+        public DirectionState DirectionState { get => directionState; internal set => directionState = value; }
         public HaronBehavior State { get => state; internal set => state = value; }
 
         private void Start()
@@ -61,6 +66,7 @@ namespace Haron
             this.InitBehaviors();
             this.SetBehaviorDefault();
             rb = GetComponent<Rigidbody2D>();
+            CurrentHP = maxHP;
         }
 
         private void InitBehaviors()
@@ -69,6 +75,8 @@ namespace Haron
             this.behavioraMap[typeof(HaronFloatingBehavior)] = new HaronFloatingBehavior(this);
             this.behavioraMap[typeof(HaronAttackBehavior)] = new HaronAttackBehavior(this);
             this.behavioraMap[typeof(HaronDashBehavior)] = new HaronDashBehavior(this);
+            this.behavioraMap[typeof(HaronQTEBehavior)] = new HaronQTEBehavior(this);
+            this.behavioraMap[typeof(HaronDeathBehavior)] = new HaronDeathBehavior(this);
             //this.behavioraMap[typeof(HookAIMBehavior)] = new HookAIMBehavior(this);
             //this.behavioraMap[typeof(HookRotationBehavior)] = new HookRotationBehavior(this);
             //this.behavioraMap[typeof(HookCatcEmptyhBehavior)] = new HookCatcEmptyhBehavior(this);
@@ -135,7 +143,7 @@ namespace Haron
         private void ResetIsActiveAttack()
         {
             isAttacking = false;
-            
+
         }
         private void ResetIsActiveDash()
         {
@@ -146,6 +154,12 @@ namespace Haron
         public void SetBehaviorFloating()
         {
             var behavior = this.GetBehavior<HaronFloatingBehavior>();
+            this.SetBehavior(behavior);
+        }
+
+        public void SetBehaviorQTE()
+        {
+            var behavior = this.GetBehavior<HaronQTEBehavior>();
             this.SetBehavior(behavior);
         }
 
@@ -160,49 +174,36 @@ namespace Haron
             this.SetBehavior(behavior);
         }
 
+        public void SetBehaviorDeath()
+        {
+            var behavior = this.GetBehavior<HaronDeathBehavior>();
+            this.SetBehavior(behavior);
+        }
 
-        //public void SetBehaviorStan()
-        //{
-        //    var behavior = this.GetBehavior<HookStunBehavior>();
-        //    this.SetBehavior(behavior);
-        //}
+        public void GetDamage(int damage)
+        {
+            if (CurrentHP - damage > 0)
+            {
+                CurrentHP -= damage;
+            }
+            else
+            {
+                CurrentHP = 0;
+                SetBehaviorDeath();
+            }
 
-        //public void SetBehaviorThrowCaptureObject()
-        //{
-        //    var behavior = this.GetBehavior<HookThrowCaptureObject>();
-        //    this.SetBehavior(behavior);
-        //}
+        }
 
-        //public void SetBehaviorRotationWithObject()
-        //{
-        //    var behavior = this.GetBehavior<HookRotationWithObjectBehavior>();
-        //    this.SetBehavior(behavior);
-        //}
-
-        //public void SetBehaviorCatchEnemyAndProjectile()
-        //{
-        //    var behavior = this.GetBehavior<HookCathcEnemyAndProjectileBehavior>();
-        //    this.SetBehavior(behavior);
-        //}
-
-        //public void SetBehaviorCarchPoint()
-        //{
-        //    var behavior = this.GetBehavior<HookCatchPointBehavior>();
-        //    this.SetBehavior(behavior);
-        //}
-
-        //public void SetBehaviorAIM()
-        //{
-        //    var behavior = this.GetBehavior<HookAIMBehavior>();
-        //    this.SetBehavior(behavior);
-        //}
-
-        //public void SetBehaviorCatchEmpty()
-        //{
-        //    var behavior = this.GetBehavior<HookCatcEmptyhBehavior>();
-        //    this.SetBehavior(behavior);
-        //}
-
-
+        public void GetHeal(int healPoint)
+        {
+            if (CurrentHP + healPoint < maxHP)
+            {
+                CurrentHP += healPoint;
+            }
+            else
+            {
+                CurrentHP = maxHP;
+            }
+        }
     }
 }

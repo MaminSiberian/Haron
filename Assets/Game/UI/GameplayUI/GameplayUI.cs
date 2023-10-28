@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameplayUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI health;
+    [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI coins;
     [SerializeField] private TextMeshProUGUI souls;
     [SerializeField] private TextMeshProUGUI keys;
+
+    private int maxHP = 100;
 
     private void Awake()
     {
@@ -28,9 +32,12 @@ public class GameplayUI : MonoBehaviour
         LevelDirector.OnKeysValueChangedEvent -= SetKeysValue;
     }
 
-    public void SetHPValue(int value)
+    public void SetHPValue(float value)
     {
-        health.text = "HP: " + value.ToString();
+        if (value > maxHP) maxHP = (int)value;
+
+        healthBar.value = value / maxHP;
+        health.text = value.ToString();
     }    
     public void SetCoinsValue()
     {
