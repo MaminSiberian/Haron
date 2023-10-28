@@ -16,8 +16,8 @@ public class BirdEnemy : MonoBehaviour, IDamagable
 
     public void GetDamage(int damage)
     {
-        health = Mathf.Clamp(health - damage, 0, maxHealth);
-        if(health == 0f)
+        health -= damage;
+        if(health <= 0f)
         {
             Death();
         }

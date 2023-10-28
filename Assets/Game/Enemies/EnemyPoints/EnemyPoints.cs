@@ -32,6 +32,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable
 
     private void Update()
     {
+        
         float distance = Vector2.Distance(_player.transform.position, transform.position);
         if(distance < _distanceVisible)
         {
@@ -122,6 +123,6 @@ public class EnemyPoints : MonoBehaviour, IDamagable
         {
             Death();
         }
-        Debug.Log("x");
+        
     }
 }
