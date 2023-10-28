@@ -43,7 +43,7 @@ namespace Haron
             }
             else
             {
-                Deaceleration();
+              //  Deaceleration();
             }
 
             if ((hc.isAttacking))
@@ -100,6 +100,7 @@ namespace Haron
 
         private void Deaceleration()
         {
+
             var currentSpeed = hc.deaceleration.Evaluate(timeD) * hc.speedmove;
             timeD += Time.fixedDeltaTime;
             hc.rb.velocity = dirDeaceleration * currentSpeed;
