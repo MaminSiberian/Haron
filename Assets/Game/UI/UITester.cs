@@ -9,7 +9,7 @@ public class UITester : MonoBehaviour
 
     private GameplayUI gameplayUI;
 
-    private void Awake()
+    private void Start()
     {
         gameplayUI = FindAnyObjectByType<GameplayUI>();
         LevelDirector.SendNewQuestTarget(target);

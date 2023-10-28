@@ -8,6 +8,7 @@ namespace UI
     {
         #region FIELDS
         [SerializeField] private Transform player;
+        [SerializeField] private GameObject target;
         [SerializeField] private GameObject _pauseButton;
         [SerializeField] private GameObject _mapButton;
         [SerializeField] private GameObject _pauseScreen;
@@ -35,6 +36,8 @@ namespace UI
         #region MONOBEHS
         private void Awake()
         {
+            target.SetActive(false);
+
             pauseButton = _pauseButton;
             mapButton = _mapButton;
             pauseScreen = _pauseScreen;
@@ -47,11 +50,13 @@ namespace UI
         {
             //TestPlayer.OnPlayerDeath += OnPlayerDeath;
             LevelDirector.OnGameFinishedEvent += OnGameFinished;
+            LevelDirector.OnQuestTargetChangedEvent += OnQuestTargetChanged;
         }
         private void OnDisable()
         {
             //TestPlayer.OnPlayerDeath -= OnPlayerDeath;
             LevelDirector.OnGameFinishedEvent -= OnGameFinished;
+            LevelDirector.OnQuestTargetChangedEvent -= OnQuestTargetChanged;
         }
         private void Update()
         {
@@ -60,6 +65,18 @@ namespace UI
         }
         #endregion
 
+        private void OnQuestTargetChanged(Transform target)
+        {
+            if (target == null)
+            {
+                this.target.transform.SetParent(transform);
+                this.target.SetActive(false);
+                return;
+            }
+            this.target.SetActive(true);
+            this.target.transform.position = target.transform.position;
+            this.target.transform.SetParent(target);
+        }
         public static void PauseGame()
         {
             Time.timeScale = 0f;
