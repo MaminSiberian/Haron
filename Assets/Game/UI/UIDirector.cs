@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 using NaughtyAttributes;
+using Haron;
+using TMPro;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace UI
 {
@@ -20,6 +23,10 @@ namespace UI
         [SerializeField] private Camera _mapCam;
         [SerializeField] private Camera _minimapCam;
 
+        [SerializeField] private TextMeshProUGUI maxHPText;
+        [SerializeField] private TextMeshProUGUI damageText;
+        [SerializeField] private TextMeshProUGUI cooldawnDashText;
+
         private static GameObject pauseButton;
         private static GameObject mapButton;
         private static GameObject pauseScreen;
@@ -29,10 +36,16 @@ namespace UI
 
         private static GameObject map;
 
+        private HaronController hc;
+        private static bool isSetText = false;
         //public static event Action OnGamePaused;
         //public static event Action OnGameUnpaused;
         #endregion
 
+        private void Start()
+        {
+            hc = FindObjectOfType<HaronController>();
+        }
         #region MONOBEHS
         private void Awake()
         {
@@ -62,6 +75,11 @@ namespace UI
         {
             _mapCam.transform.position = new Vector3(player.position.x, player.position.y, _mapCam.transform.position.z);
             _minimapCam.transform.position = new Vector3(player.position.x, player.position.y, _minimapCam.transform.position.z);
+            if (isSetText)
+            {
+                SetText();
+                isSetText = false;
+            }
         }
         #endregion
 
@@ -82,7 +100,18 @@ namespace UI
             Time.timeScale = 0f;
             TurnOffAll();
             pauseScreen.SetActive(true);
+            isSetText = true;
+            //maxHPText.text = value.ToString();
+
         }
+
+        private void SetText()
+        {
+            maxHPText.text = "Max HP - " + hc.maxHP.ToString();
+            damageText.text = "Damage - " + hc.damage.ToString();
+            cooldawnDashText.text = "Cooldawn Dash - " + hc.cooldownDash.ToString();
+        }
+
         public static void UnpauseGame()
         {
             TurnOffAll();
