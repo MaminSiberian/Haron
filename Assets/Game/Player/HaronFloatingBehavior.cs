@@ -70,26 +70,26 @@ namespace Haron
         private void Rotation()
         {
             float angle = AccessoryMetods.GetAngleFromVectorFloat(hc.directionMove);
-            if ((angle < 45) || (angle >= 315))
+            if ((angle < 90) || (angle >= 270))
             {
                 hc.transform.rotation = Quaternion.Euler(0,0,0);
                 hc.DirectionState = DirectionState.right;
             }
-            else if ((angle >= 45) && (angle < 135))
-            {
-                hc.transform.rotation = Quaternion.Euler(0,0,90);
-                hc.DirectionState = DirectionState.up;
-            }
-            else if ((angle >= 135) && (angle < 225))
+            //else if ((angle >= 45) && (angle < 135))
+            //{
+            //    hc.transform.rotation = Quaternion.Euler(0,0,90);
+            //    hc.DirectionState = DirectionState.up;
+            //}
+            else if ((angle >= 90) && (angle < 270))
             {
                 hc.transform.rotation = Quaternion.Euler(0, 0, 180);
                 hc.DirectionState = DirectionState.left;
             }
-            else if ((angle >= 225) && (angle < 315))
-            {
-                hc.transform.rotation = Quaternion.Euler(0, 0, 270);
-                hc.DirectionState = DirectionState.down;
-            }
+            //else if ((angle >= 225) && (angle < 315))
+            //{
+            //    hc.transform.rotation = Quaternion.Euler(0, 0, 270);
+            //    hc.DirectionState = DirectionState.down;
+            //}
         }
 
 

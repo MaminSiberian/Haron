@@ -8,7 +8,7 @@ namespace Haron
 {
     public enum DirectionState
     {
-        right, up, left, down
+        right,left
     }
 
     public enum HaronBehavior

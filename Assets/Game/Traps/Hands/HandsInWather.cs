@@ -21,7 +21,7 @@ public class HandsInWather : MonoBehaviour
     private HaronController hc;
     private IDamagable targetDamage;
     private GameplayUI UI;
-    private bool isQTE  =false;
+    private bool isQTE = false;
 
     private void Start()
     {
@@ -121,29 +121,20 @@ public class HandsInWather : MonoBehaviour
     }
 
 
-    
+
     private void Rotation(Vector2 direction)
     {
         float angle = AccessoryMetods.GetAngleFromVectorFloat(direction);
-        if ((angle < 45) || (angle >= 315))
+        if ((angle < 90) || (angle >= 270))
         {
             hc.transform.rotation = Quaternion.Euler(0, 0, 0);
             hc.DirectionState = DirectionState.right;
         }
-        else if ((angle >= 45) && (angle < 135))
-        {
-            hc.transform.rotation = Quaternion.Euler(0, 0, 90);
-            hc.DirectionState = DirectionState.up;
-        }
-        else if ((angle >= 135) && (angle < 225))
+        else if ((angle >= 90) && (angle < 270))
         {
             hc.transform.rotation = Quaternion.Euler(0, 0, 180);
             hc.DirectionState = DirectionState.left;
         }
-        else if ((angle >= 225) && (angle < 315))
-        {
-            hc.transform.rotation = Quaternion.Euler(0, 0, 270);
-            hc.DirectionState = DirectionState.down;
-        }
+
     }
 }
