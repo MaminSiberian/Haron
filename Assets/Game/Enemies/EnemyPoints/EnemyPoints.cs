@@ -12,6 +12,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable
     [SerializeField] private float _cooldownTime;
     private float currentCooldownTime;
     [SerializeField] private Transform[] _points;
+    [SerializeField] private GameObject _parentGameObject;
     
     [SerializeField] private Rigidbody2D _rb;
     private bool isAttack;
@@ -107,7 +108,8 @@ public class EnemyPoints : MonoBehaviour, IDamagable
 
     public void Death()
     {
-        Debug.Log("Death");
+        Debug.Log("Death enemy");
+        Destroy(_parentGameObject);
     }
 
     private void OnDrawGizmos()
