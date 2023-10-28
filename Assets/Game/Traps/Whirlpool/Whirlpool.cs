@@ -25,8 +25,8 @@ public class Whirlpool : MonoBehaviour
         {
             Debug.Log("attraction");
             direction = (transform.position - collision.transform.position).normalized;
-            rb.velocity = direction * forceAttraction * Time.deltaTime;
-            //rb.AddForce(forceAttraction * direction * Time.deltaTime);
+            //rb.velocity = direction * forceAttraction * Time.deltaTime;
+            rb.AddForce(forceAttraction * direction);//, ForceMode2D.Impulse);
         }
     }
 
