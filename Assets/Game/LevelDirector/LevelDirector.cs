@@ -1,11 +1,13 @@
 using NaughtyAttributes;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class LevelDirector : MonoBehaviour
 {
-    public static int soulsGoal { get { return 10; } }
+    public static int soulsGoal { get { return 5; } }
     public static int deliveredSoulsCounter {  get; private set; }
     public static int keysCounter { get; private set; }
 
@@ -18,8 +20,9 @@ public class LevelDirector : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null) Destroy(gameObject); 
+        if (instance != null) Destroy(gameObject);
         instance = this;
+        deliveredSoulsCounter = 0;
     }
     private void OnEnable()
     {
@@ -29,19 +32,20 @@ public class LevelDirector : MonoBehaviour
     {
         Shop.OnItemPurchasedEvent -= OnItemPurchased;
     }
-
     public static void SendNewQuestTarget(Transform target)
     {
         OnQuestTargetChangedEvent?.Invoke(target);
     }
+    [Button]
     public static void OnSoulDelivered()
     {
-        OnSoulDeliveredEvent?.Invoke();
         deliveredSoulsCounter++;
         if (deliveredSoulsCounter >= soulsGoal)
         {
             FinishGame();
         }
+        OnSoulDeliveredEvent?.Invoke();
+        Debug.Log("delivered");
     }
     private void OnItemPurchased(Item item)
     {
