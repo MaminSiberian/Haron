@@ -1,4 +1,3 @@
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -18,8 +17,10 @@ public class Door : MonoBehaviour
         {
             _anim.SetBool("Open", true);
             isOpen = true;
+            Destroy(this);
         }
     }
+
     
 
 

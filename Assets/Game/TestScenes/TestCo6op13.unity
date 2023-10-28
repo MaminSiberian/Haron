@@ -378,6 +378,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3c2a34f35e83a429c5d7e1a335dcf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  areaAttack: {fileID: 323195226}
+  pivotAttack: {fileID: 647963471}
+  distanceAttack: 0
+  durationAttack: 0
+  cooldownAttack: 0
+  damage: 0
+  timeCaiot: 0
   speedmove: 5
   acceleration:
     serializedVersion: 2
@@ -427,12 +434,25 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  dashCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  forceDash: 0
+  cooldownDash: 0
+  durationDash: 0
   directionState: 3
   state: 0
-  direction: {x: 0, y: 0}
+  directionMove: {x: 0, y: 0}
+  directionAttack: {x: 0, y: 0}
   rb: {fileID: 647113756}
   velosity: {x: -0, y: -0}
   isAttacking: 0
+  isDash: 0
+  isReloadDash: 0
+  currentTimeCooldawnDash: 0
 --- !u!4 &647113755
 Transform:
   m_ObjectHideFlags: 0

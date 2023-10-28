@@ -28,6 +28,7 @@ public class LevelDirector : MonoBehaviour
     private void OnDisable()
     {
         Shop.OnItemPurchased -= OnItemPurchased;
+        
     }
 
 
@@ -48,7 +49,7 @@ public class LevelDirector : MonoBehaviour
     {
         if (item == Item.Key) GetKey();
     }
-    private void GetKey()
+    public static void GetKey()
     {
         keysCounter++;
         OnKeysValueChangedEvent?.Invoke();

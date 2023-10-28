@@ -9,11 +9,13 @@ public class EquipmentSouls : MonoBehaviour
     private Marina _marina;
     private bool _isPickUp = false;
     private bool _isMarina = false;
+    private Marina[] marinas;
 
     private void Start()
     {
-        UIManager.SendCountSouls(SoulsId.Count);
+        
         _soul = null;
+        marinas = GameObject.FindObjectsOfType<Marina>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,10 +53,19 @@ public class EquipmentSouls : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F) && _isPickUp)
         {
             SoulsId.Add(_soul.GetSoulsInfo());
+            
+            foreach(var marina in marinas)
+            {
+                if(marina.index == _soul.GetMarinaId())
+                {
+                    LevelDirector.SendNewQuestTarget(marina.transform);
+                }
+            }
+            LevelDirector.OnSoulDelivered();
             Destroy(_soul.gameObject);
             _soul = null;
             _isPickUp = false;
-            UIManager.SendCountSouls(SoulsId.Count);
+            
             
 
         }
@@ -68,11 +79,13 @@ public class EquipmentSouls : MonoBehaviour
                 {
                    _marina.countSouls++;
                    SoulsId.Remove(soul);
-                    UIManager.SendCountSouls(SoulsId.Count);
+                    Wallet.GetCoins(2);
                 }
             }
-            
-            
+            LevelDirector.SendNewQuestTarget(null);
+
+
+
 
 
         }
@@ -98,6 +111,13 @@ public class EquipmentSouls : MonoBehaviour
             }
         }
     }
-
+    public void AddSoul(SoulsInfo info)
+    {
+        SoulsId.Add(info);
+    }
+    public void RemoveSoul(SoulsInfo info)
+    {
+        SoulsId.Remove(info);
+    }
     
 }

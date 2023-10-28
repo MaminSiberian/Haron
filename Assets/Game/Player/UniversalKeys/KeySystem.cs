@@ -13,13 +13,20 @@ public class KeySystem : MonoBehaviour
     {
         canOpenDoor = false;
     }
-
+    private void OnEnable()
+    {
+        LevelDirector.OnKeysValueChangedEvent += ChangeKey;
+    }
+    private void OnDisable()
+    {
+        LevelDirector.OnKeysValueChangedEvent -= ChangeKey;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Door"))
         {
             canOpenDoor = true;
-            _door = GetComponent<Door>();
+            _door = collision.GetComponent<Door>();
             Debug.Log("Coll");
         }
         if(collision.CompareTag("Key"))
@@ -31,20 +38,22 @@ public class KeySystem : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && _door != null && keys.Count > 0)
+        if(Input.GetKeyDown(KeyCode.F) && keys.Count > 0 && _door != null)
         {
             _door.Open();
             
             keys.Remove(keys[Random.Range(0, keys.Count)]);
-            Debug.Log(keys.Count);
+            LevelDirector.WasteKey();
+            Debug.Log("Open");
         }
 
         if(Input.GetKeyDown(KeyCode.F) && _key != null)
         {
-            keys.Add(keys.Count + 1);
+            ChangeKey();
+            LevelDirector.GetKey();
+            
             Destroy(_key.gameObject);
             _key = null;
-            Debug.Log(keys.Count);
         }
     }
 
@@ -54,6 +63,7 @@ public class KeySystem : MonoBehaviour
         if (collision.CompareTag("Key") && _key == null)
         {
             _key = collision.GetComponent<UniversalKey>();
+            
         }
 
 
@@ -71,6 +81,11 @@ public class KeySystem : MonoBehaviour
         {
             _key = null;
         }
+    }
+
+    public void ChangeKey()
+    {
+        keys.Add(keys.Count + 1);
     }
     
     
