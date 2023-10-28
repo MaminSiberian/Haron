@@ -16,6 +16,12 @@ public class UITester : MonoBehaviour
     }
 
     [Button]
+    private void OnSoulDelivered()
+    {
+        LevelDirector.OnSoulDelivered();
+        Debug.Log(LevelDirector.deliveredSoulsCounter);
+    }
+    [Button]
     private void WasteCoin()
     {
         Wallet.WasteCoin();
