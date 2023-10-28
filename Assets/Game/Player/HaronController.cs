@@ -29,7 +29,7 @@ namespace Haron
         [Range(0f, 1f)][SerializeField] internal float durationAttack;
         [Range(0f, 1f)][SerializeField] internal float cooldownAttack;
 
-        [Range(0, 10)][SerializeField] internal int damage;
+        [Range(0, 50)][SerializeField] internal int damage;
         [Range(0f, 1f)][SerializeField] private float timeCaiot;
         [Space(10)]
         [Range(0f, 50f)][SerializeField] internal float speedMove;

@@ -125,7 +125,6 @@ public class HandsInWather : MonoBehaviour
     private void Rotation(Vector2 direction)
     {
         float angle = AccessoryMetods.GetAngleFromVectorFloat(direction);
-        Debug.Log(angle);
         if ((angle < 45) || (angle >= 315))
         {
             hc.transform.rotation = Quaternion.Euler(0, 0, 0);
