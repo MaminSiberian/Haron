@@ -50,14 +50,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3c2a34f35e83a429c5d7e1a335dcf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 120
-  CurrentHP: 2
+  maxHP: 100
+  CurrentHP: 0
   areaAttack: {fileID: 6567053885362655993}
   pivotAttack: {fileID: 4508641738642488700}
   distanceAttack: 2
-  durationAttack: 1
+  durationAttack: 0.3
   cooldownAttack: 0.5
-  damage: 10
+  damage: 7
   timeCaiot: 0.1
   speedMove: 50
   dashCurve:
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   forceDash: 30
-  cooldownDash: 1
+  cooldownDash: 1.5
   durationDash: 0.2
   directionState: 0
   state: 0
