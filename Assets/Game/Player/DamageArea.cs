@@ -1,11 +1,22 @@
+using Haron;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageArea : MonoBehaviour
 {
+    [SerializeField] private HaronController hc;
+
+    private void Start()
+    {        
+        hc = FindObjectOfType<HaronController>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("TakeDamage for "  + collision.gameObject);
+        if (collision.GetComponent<IDamagable>() != null)
+        {
+            collision.GetComponent<IDamagable>().GetDamage(hc.damage);
+        }
+        
     }
 }

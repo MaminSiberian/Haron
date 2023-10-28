@@ -57,16 +57,19 @@ namespace Haron
         //local
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
+        private GameplayUI UI;
 
         public DirectionState DirectionState { get => directionState; internal set => directionState = value; }
         public HaronBehavior State { get => state; internal set => state = value; }
 
         private void Start()
         {
+            UI = FindObjectOfType<GameplayUI>();
             this.InitBehaviors();
             this.SetBehaviorDefault();
             rb = GetComponent<Rigidbody2D>();
             CurrentHP = maxHP;
+            UI.SetHPValue(CurrentHP);
         }
 
         private void InitBehaviors()
@@ -185,12 +188,14 @@ namespace Haron
             if (CurrentHP - damage > 0)
             {
                 CurrentHP -= damage;
+                
             }
             else
             {
                 CurrentHP = 0;
                 SetBehaviorDeath();
             }
+            UI.SetHPValue(CurrentHP);
 
         }
 
@@ -204,6 +209,7 @@ namespace Haron
             {
                 CurrentHP = maxHP;
             }
+            UI.SetHPValue(CurrentHP);
         }
     }
 }

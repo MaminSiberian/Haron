@@ -16,9 +16,15 @@ public class Whirlpool : MonoBehaviour
     [SerializeField] private float forceToPushObject;
     [SerializeField] private AnimationCurve forceCurve;
 
+    private bool isQTE = false;
     private HaronController hc;
+    private GameplayUI UI;
 
-    
+    private void Start()
+    {
+        UI = FindObjectOfType<GameplayUI>();
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +34,7 @@ public class Whirlpool : MonoBehaviour
             currentForceQTE = 0;
             hc = collision.GetComponent<HaronController>();
             hc.SetBehaviorQTE();
-            Rotation( hc.transform.position - transform.position);
+            Rotation(hc.transform.position - transform.position);
             StartCoroutine(QTE());
         }
     }
@@ -42,9 +48,12 @@ public class Whirlpool : MonoBehaviour
             hc.rb.AddForce(forceAttraction * direction);
         }
     }
-    private IEnumerator QTE ()
+    private IEnumerator QTE()
     {
-        while (currentForceQTE < targetForceQTE)         
+        isQTE = true;
+        UI.SetActiveQTE();
+        StartCoroutine(BlinkF());
+        while (currentForceQTE < targetForceQTE)
         {
             if (currentForceQTE > 0)
                 currentForceQTE -= reductionForceQTE * Time.fixedDeltaTime;
@@ -54,16 +63,30 @@ public class Whirlpool : MonoBehaviour
             {
                 currentForceQTE += forceQTE;
             }
+            UI.SetQTEValue(currentForceQTE);
             yield return new WaitForSeconds(Time.fixedDeltaTime);
-            
+
         }
 
         if (currentForceQTE > targetForceQTE)
         {
             StartCoroutine(PushObject());
         }
+        UI.SetDeactiveQTE();
+        isQTE = false;
+        StopCoroutine(BlinkF());
 
-        StopCoroutine(QTE());
+    }
+
+    private IEnumerator BlinkF()
+    {
+        while (isQTE)
+        {
+            UI.SetQTEpresFEnable();
+            yield return new WaitForSeconds(0.3f);
+            UI.SetQTEpresFDisable();
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     private IEnumerator PushObject()
@@ -76,14 +99,13 @@ public class Whirlpool : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         hc.SetBehaviorFloating();
-        hc = null;
+        StopCoroutine(QTE());
         StopCoroutine(PushObject());
     }
 
     private void Rotation(Vector2 direction)
     {
         float angle = AccessoryMetods.GetAngleFromVectorFloat(direction);
-        Debug.Log(angle); 
         if ((angle < 45) || (angle >= 315))
         {
             hc.transform.rotation = Quaternion.Euler(0, 0, 0);
