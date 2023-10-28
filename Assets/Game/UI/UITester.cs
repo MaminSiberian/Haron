@@ -1,12 +1,17 @@
 using NaughtyAttributes;
+using UI;
 using UnityEngine;
 
 public class UITester : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private float hpChange;
+
+    private GameplayUI gameplayUI;
 
     private void Awake()
     {
+        gameplayUI = FindAnyObjectByType<GameplayUI>();
         LevelDirector.SendNewQuestTarget(target);
     }
 
@@ -19,5 +24,10 @@ public class UITester : MonoBehaviour
     private void GetCoin()
     {
         Wallet.GetCoins();
+    }
+    [Button]
+    private void ChangeHP()
+    {
+        gameplayUI.SetHPValue(hpChange);
     }
 }
