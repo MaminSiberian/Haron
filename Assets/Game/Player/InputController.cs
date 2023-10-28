@@ -21,18 +21,30 @@ public class InputController : MonoBehaviour
         {
             hc.isAttacking = true;
         }
-        else
-            hc.isAttacking = false;
+        if (Input.GetMouseButton(1))
+        {
+            hc.isDash = true;
+        }
 
+        DirectionAttack();
+        DirectionMove();
+    }
+
+    private void DirectionMove()
+    {
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
 
-        hc.direction = new Vector2(x, y).normalized;
-        //Vector2 mousePos = Input.mousePosition;
-        //mousePos = mainCamera.ScreenToWorldPoint(mousePos);
+        hc.directionMove = new Vector2(x, y).normalized;
+    }
 
-        //hc.direction = new Vector2(mousePos.x - hc.transform.position.x,
-        //   mousePos.y - hc.transform.position.y).normalized;
+    private void DirectionAttack()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        mousePos = mainCamera.ScreenToWorldPoint(mousePos);
+
+        hc.directionAttack = new Vector2(mousePos.x - hc.transform.position.x,
+           mousePos.y - hc.transform.position.y).normalized;
 
     }
 }

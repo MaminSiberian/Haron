@@ -10,6 +10,7 @@ namespace Haron
         // private float timeR = 0;
         private Vector2 dirDeaceleration;
 
+
         public HaronFloatingBehavior(HaronController hc)
         {
             this.hc = hc;
@@ -29,13 +30,13 @@ namespace Haron
 
         public void UpdateBehavior()
         {
-            if (hc.direction != Vector2.zero)
+            if (hc.directionMove != Vector2.zero)
             {
                 Rotation();
 
             }
 
-            if (hc.direction != Vector2.zero)
+            if (hc.directionMove != Vector2.zero)
             {
                 Acceleration();
                 //Rowing();
@@ -43,6 +44,18 @@ namespace Haron
             else
             {
                 Deaceleration();
+            }
+
+            if ((hc.isAttacking))
+            {
+                hc.isAttacking = false;
+                hc.SetBehaviorAttack();
+            }
+
+            if (hc.isDash && hc.isReloadDash)
+            {
+                hc.isDash = false;
+                hc.SetBehaviorDash();
             }
         }
 
@@ -53,7 +66,7 @@ namespace Haron
 
         private void Rotation()
         {
-            float angle = AccessoryMetods.GetAngleFromVectorFloat(hc.direction);
+            float angle = AccessoryMetods.GetAngleFromVectorFloat(hc.directionMove);
             if ((angle < 45) || (angle >= 315))
             {
                 hc.transform.rotation = Quaternion.Euler(0,0,0);
@@ -79,17 +92,15 @@ namespace Haron
         private void Acceleration()
         {
             var currentSpeed = hc.acceleration.Evaluate(timeA) * hc.speedmove;
-            Debug.Log(currentSpeed);
             timeA += Time.fixedDeltaTime;
-            hc.rb.velocity = hc.direction * currentSpeed;
+            hc.rb.velocity = hc.directionMove * currentSpeed;
             timeD = 0;
-            dirDeaceleration = hc.direction;
+            dirDeaceleration = hc.directionMove;
         }
 
         private void Deaceleration()
         {
             var currentSpeed = hc.deaceleration.Evaluate(timeD) * hc.speedmove;
-            Debug.Log(currentSpeed);
             timeD += Time.fixedDeltaTime;
             hc.rb.velocity = dirDeaceleration * currentSpeed;
             timeA = 0;
