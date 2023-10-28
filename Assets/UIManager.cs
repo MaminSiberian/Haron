@@ -1,12 +1,20 @@
-using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.Rendering;
 
-public class UIManager : MonoBehaviour
+public static class UIManager
 {
-    public Text countSouls;
+    public static UnityEvent<int, int> onChangedHP;
+    
+    public static UnityEvent<int> onChangeCountSouls;
 
-    public void UpdateSoulsCount(string text)
+    public static void SendCountSouls(int count)
     {
-        countSouls.text = "Count: " + text; 
+        onChangeCountSouls?.Invoke(count);
     }
+
+    public static void SendHP(int hp, int maxhp)
+    {
+        onChangedHP?.Invoke(hp, maxhp);
+    }
+    
 }

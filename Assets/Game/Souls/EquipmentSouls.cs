@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class EquipmentSouls : MonoBehaviour
 {
-    public Dictionary<int, int> Souls = new Dictionary<int, int>();
+    public int countSoul;
     public List<SoulsInfo> SoulsId = new List<SoulsInfo>();
-    public UIManager UIManager;
     private Soul _soul;
     private Marina _marina;
     private bool _isPickUp = false;
@@ -13,7 +12,7 @@ public class EquipmentSouls : MonoBehaviour
 
     private void Start()
     {
-        UIManager.UpdateSoulsCount(SoulsId.Count.ToString());
+        UIManager.SendCountSouls(SoulsId.Count);
         _soul = null;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +21,7 @@ public class EquipmentSouls : MonoBehaviour
         {
             _isPickUp = true;
             _soul = collision.GetComponent<Soul>();
-            Debug.Log("x");
+           
         }
         if(collision.gameObject.CompareTag("Marina"))
         {
@@ -55,8 +54,8 @@ public class EquipmentSouls : MonoBehaviour
             Destroy(_soul.gameObject);
             _soul = null;
             _isPickUp = false;
-            UIManager.UpdateSoulsCount(SoulsId.Count.ToString());
-            Debug.Log(SoulsId.Count.ToString());
+            UIManager.SendCountSouls(SoulsId.Count);
+            
 
         }
         if(Input.GetKeyDown(KeyCode.F) && _isMarina && !_isPickUp && SoulsId.Count > 0)
@@ -69,11 +68,11 @@ public class EquipmentSouls : MonoBehaviour
                 {
                    _marina.countSouls++;
                    SoulsId.Remove(soul);
-                   UIManager.UpdateSoulsCount(SoulsId.Count.ToString());
+                    UIManager.SendCountSouls(SoulsId.Count);
                 }
             }
             
-            UIManager.UpdateSoulsCount(SoulsId.Count.ToString());
+            
 
 
         }
@@ -94,10 +93,11 @@ public class EquipmentSouls : MonoBehaviour
 
                 SoulsId.Add(collision.GetComponent<Soul>().GetSoulsInfo());
                 Destroy(collision.gameObject);
-                UIManager.UpdateSoulsCount(SoulsId.Count.ToString());
                 Debug.Log("x");
                 _isPickUp = false;
             }
         }
     }
+
+    
 }
