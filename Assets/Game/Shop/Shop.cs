@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public enum Item
 {
@@ -30,9 +31,11 @@ public static class Shop
 
         _shopItems.ToDictionary( i => i.Key, i => i.Key == item ? i.Value - 1 : i.Value);
         OnItemPurchased?.Invoke(item);
+        Wallet.WasteCoin();
+        Debug.Log(item + " purchased");
     }
     public static bool GotItem(Item item)
     {
-        return _shopItems.FirstOrDefault(i => i.Key == item).Value <= 0;
+        return _shopItems.FirstOrDefault(i => i.Key == item).Value > 0;
     }
 }

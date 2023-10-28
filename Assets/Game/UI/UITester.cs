@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class UITester : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Button]
+    private void WasteCoin()
     {
-        
+        Wallet.WasteCoin();
     }
-
-    // Update is called once per frame
-    void Update()
+    [Button]
+    private void GetCoin()
     {
-        
+        Wallet.GetCoins();
     }
 }

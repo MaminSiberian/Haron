@@ -10,9 +10,16 @@ namespace UI
 
         public Item item { get { return _item; } }
 
-        private void Start()
+        protected override void OnEnable()
         {
-            BlockButton();
+            base.OnEnable();
+            CheckButton();
+            Wallet.OnCoinsValueChanged += CheckButton;
+        }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            Wallet.OnCoinsValueChanged -= CheckButton;
         }
         public void BlockButton()
         {
@@ -26,7 +33,18 @@ namespace UI
         }
         protected override void OnButtonClick()
         {
-            Debug.Log("click");
+            Shop.BuyItem(item);
+        }
+        private void CheckButton()
+        {
+            if (!Wallet.IsEnoughMoney(1) || !Shop.GotItem(item))
+            {
+                BlockButton();
+            }
+            else
+            {
+                UnblockButton();
+            }
         }
     }
 }
