@@ -47,14 +47,14 @@ public class KeySystem : MonoBehaviour
             Debug.Log("Open");
         }
 
-        if(Input.GetKeyDown(KeyCode.F) && _key != null)
+        /*if(Input.GetKeyDown(KeyCode.F) && _key != null)
         {
             ChangeKey();
             LevelDirector.GetKey();
             
             Destroy(_key.gameObject);
             _key = null;
-        }
+        }*/
     }
 
     private void OnTriggerStay2D(Collider2D collision)
