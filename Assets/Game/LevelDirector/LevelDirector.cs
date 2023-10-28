@@ -30,7 +30,6 @@ public class LevelDirector : MonoBehaviour
         Shop.OnItemPurchasedEvent -= OnItemPurchased;
     }
 
-
     public static void SendNewQuestTarget(Transform target)
     {
         OnQuestTargetChangedEvent?.Invoke(target);
@@ -46,12 +45,11 @@ public class LevelDirector : MonoBehaviour
     }
     private void OnItemPurchased(Item item)
     {
-        Debug.Log(item == Item.Key);
         if (item == Item.Key) GetKey();
     }
+    [Button]
     private void GetKey()
     {
-        Debug.Log("got key");
         keysCounter++;
         OnKeysValueChangedEvent?.Invoke();
     }
