@@ -20,9 +20,9 @@ public static class Shop
     private static Dictionary<Item, int> _shopItems = new Dictionary<Item, int>()
     {
         { Item.HP, 3 },
-        { Item.Dash, 3 },
-        { Item.Damage, 3 },
-        { Item.Key, 4 },
+        { Item.Dash, 2 },
+        { Item.Damage, 2 },
+        { Item.Key, 5 },
     };
     public static void BuyItem(Item item)
     {
