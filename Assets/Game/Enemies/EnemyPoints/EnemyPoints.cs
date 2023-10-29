@@ -20,6 +20,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     [SerializeField] private AudioClip _soundDeath;
     [SerializeField] private AudioClip _soundAttack;
     [SerializeField] private float cooldownSound;
+    
 
     [SerializeField] private Rigidbody2D _rb;
     private bool isAttack;
@@ -27,6 +28,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     private float currentsoundCooldown;
     private int currentPoint;
     private AudioSource _source;
+    private Transform _startpos;
     [SerializeField] private Animator _anim;
     [SerializeField] private float animOffsetTakeDamage;
 
@@ -38,6 +40,15 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     {
         
     }
+
+    private void OnDisable()
+    {
+        LevelDirector.OnRespawn -= Reset;
+    }
+    private void OnEnable()
+    {
+        LevelDirector.OnRespawn += Reset;
+    }
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -46,6 +57,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
         isAttack = false;
         currentCooldownTime = _cooldownTime;
         LevelDirector.AddObject(this.gameObject);
+        _startpos = transform;
     }
 
     private void Update()
@@ -164,5 +176,12 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
             Death();
         }
         
+    }
+    public void Reset()
+    {
+        transform.position = _startpos.position;
+        health = maxHealth;
+        canMoveToPoints = true;
+        isAttack = false;
     }
 }

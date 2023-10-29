@@ -21,7 +21,6 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     private bool isAttack;
     private GameObject _player;
     private bool isAlive = true;
-    private bool isVisible;
 
     public int MaxHP { get => maxHealth;  }
     public int CurrentHP { get => health; }
@@ -44,7 +43,14 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
         }
         LevelDirector.AddObject(this.gameObject);
     }
-
+    private void OnEnable()
+    {
+        LevelDirector.OnRespawn += Reset;
+    }
+    private void OnDisable()
+    {
+        LevelDirector.OnRespawn -= Reset;
+    }
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -60,7 +66,6 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             float distance = Vector2.Distance(transform.position, _player.transform.position);
             if (distance < distanceVisible)
             {
-                isVisible = true;
                 
                 if (distance > distanceForDamage)
                 {
@@ -76,7 +81,6 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             }
             else
             {
-                isVisible = false;
                 isAttack = false;
             }
             currentcdTime -= Time.deltaTime;
@@ -118,5 +122,12 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     {
         yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
+    }
+
+    public void Reset()
+    {
+        isAlive = true;
+        isAttack = false;
+        health = maxHealth;
     }
 }
