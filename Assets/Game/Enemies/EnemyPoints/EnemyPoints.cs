@@ -16,12 +16,16 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     [SerializeField] private Transform[] _points;
     [SerializeField, Range(0.5f, 5f)] private float distanceForDamage = 0.7f;
     [SerializeField] private GameObject _parentGameObject;
-    
+    [SerializeField] private AudioClip[] _soundsIdle;
+    [SerializeField] private AudioClip _soundDeath;
+    [SerializeField] private float cooldownSound;
+
     [SerializeField] private Rigidbody2D _rb;
     private bool isAttack;
     private bool canMoveToPoints;
-    private bool cooldown;
+    private float currentsoundCooldown;
     private int currentPoint;
+    private AudioSource _source;
     [SerializeField] private Animator _anim;
     [SerializeField] private float animOffsetTakeDamage;
 
@@ -31,9 +35,9 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");
+        _source = GetComponent<AudioSource>();
         canMoveToPoints = true;
         isAttack = false;
-        cooldown = false;
         currentCooldownTime = _cooldownTime;
     }
 
@@ -77,7 +81,15 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
             currentCooldownTime -= Time.deltaTime;
         }
         
-        
+        if(currentsoundCooldown < 0)
+        {
+            _source.PlayOneShot(_soundsIdle[Random.Range(0, _soundsIdle.Length - 1)]);
+            currentsoundCooldown = cooldownSound;
+        }
+        else
+        {
+            currentsoundCooldown -= Time.deltaTime;
+        }
 
     }
 
@@ -118,7 +130,15 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
 
     public void Death()
     {
-        Destroy(_parentGameObject);
+        StartCoroutine(StartDeath());
+    }
+
+    private IEnumerator StartDeath()
+    {
+        _source.PlayOneShot(_soundDeath);
+        _anim.SetTrigger("Death");
+        yield return new WaitForSeconds(0.4f);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()
