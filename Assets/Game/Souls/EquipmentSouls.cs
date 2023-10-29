@@ -8,15 +8,18 @@ public class EquipmentSouls : MonoBehaviour
     public List<SoulsInfo> SoulsId = new List<SoulsInfo>();
     private Soul _soul;
     private Marina _marina;
+    public float moveSpeed;
     private bool _isPickUp = false;
     private bool _isMarina = false;
     [SerializeField] private Transform _soulPos;
+    private AudioSource _source;
+    public AudioClip _deliveredSoul;
     private bool isSoul;
     private Marina[] marinas;
 
     private void Start()
     {
-
+        _source = GetComponent<AudioSource>();
         _soul = null;
         _isPickUp = false;
         isSoul = false;
@@ -96,7 +99,7 @@ public class EquipmentSouls : MonoBehaviour
             {
                 Wallet.GetCoins(2);
                 LevelDirector.SendNewQuestTarget(null);
-                Destroy(_soul.gameObject);
+                _soul.StartMarinaMove(_marina.posForSoulDelivired);
                 _soul = null;
                 isSoul = false;
             }
@@ -110,28 +113,7 @@ public class EquipmentSouls : MonoBehaviour
 
     
     
-    public void test(Collider2D collision)
-    {
-        for (int i = 0; i < SoulsId.Count; i++)
-        {
-            SoulsInfo soul = SoulsId[i];
-            if (soul.Marinaid == _marina.index)
-            {
-                
-            }
-        }
-
-        for (int i = 0; i < SoulsId.Count; i++)
-        {
-            SoulsInfo soul = SoulsId[i];
-            if (soul.Marinaid == _marina.index)
-            {
-                _marina.countSouls++;
-                SoulsId.Remove(soul);
-                Wallet.GetCoins(2);
-            }
-        }
-    }
+    
     public void AddSoul(SoulsInfo info)
     {
         SoulsId.Add(info);

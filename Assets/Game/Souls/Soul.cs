@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Soul : MonoBehaviour
@@ -10,6 +11,7 @@ public class Soul : MonoBehaviour
     public SpriteRenderer _renderer;
     [Range(9, 14)]public float minCooldown;
     [Range(15, 30)]public float maxCooldown;
+    public float moveSpeed;
     private float cooldown;
     public AudioClip[] FX;
     private AudioSource _source;
@@ -54,6 +56,27 @@ public class Soul : MonoBehaviour
    
     public SoulsInfo GetSoulsInfo() { return _soulData; }
     public void SetSoulsInfo(SoulsInfo info) { _soulData = info; }
+
+    public void StartMarinaMove(Transform pos)
+    {
+        StartCoroutine(MarinaMove(pos));
+    }
+
+    private IEnumerator MarinaMove(Transform pos)
+    {
+        while(true)
+        {
+            transform.position = Vector2.Lerp(transform.position, pos.position, Time.deltaTime * moveSpeed);
+            yield return new WaitForSeconds(Time.deltaTime);
+            if(transform.position == pos.position)
+            {
+                yield return new WaitForSeconds(2f);
+                Destroy(gameObject);
+                break;
+            }
+        }
+        
+    }
 }
 
 
