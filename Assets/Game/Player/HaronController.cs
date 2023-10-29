@@ -110,6 +110,7 @@ namespace Haron
             velosity = rb.velocity;
             CaiotTime();
             ResetCooldownDash();
+            UI.SetDashValue(currentTimeCooldawnDash, cooldownDash);
         }
 
         private void ResetCooldownDash()
@@ -117,7 +118,7 @@ namespace Haron
             if (currentTimeCooldawnDash >= cooldownDash)
             {
                 isReloadDash = true;
-                UI.SetDashValue(currentTimeCooldawnDash, cooldownDash);
+               
             }
             else
             {
