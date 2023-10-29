@@ -11,6 +11,7 @@ public class LevelDirector : MonoBehaviour
     public static int deliveredSoulsCounter {  get; private set; }
     public static int keysCounter { get; private set; }
     public static Transform lastPier { get; private set; }
+    public static Transform firstPier { get; private set; }
 
     public static event Action OnSoulDeliveredEvent;
     public static event Action OnKeysValueChangedEvent;
@@ -35,13 +36,18 @@ public class LevelDirector : MonoBehaviour
     {
         Shop.OnItemPurchasedEvent -= OnItemPurchased;
     }
+    private void Start()
+    {
+        SendNewQuestTarget(firstPier);
+    }
     public static void Respawn()
     {
         OnRespawn?.Invoke();
     }
     public static void SetStartPier(Transform pier)
     {
-        lastPier = pier;
+        firstPier = pier;
+        lastPier = firstPier;
     }
     public static void SendNewQuestTarget(Transform target)
     {
