@@ -136,6 +136,7 @@ MonoBehaviour:
   countSouls: 0
   souldelivered: {fileID: 4359005499186849110}
   posForSoulDelivired: {fileID: 5331928598577529623}
+  target: {fileID: 4359005499186849110}
 --- !u!61 &7929029677172642686
 BoxCollider2D:
   m_ObjectHideFlags: 0
