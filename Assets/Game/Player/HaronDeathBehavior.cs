@@ -16,6 +16,7 @@ public class HaronDeathBehavior : IHaronBehavior
     }
     public void Enter()
     {
+        hc.GetDamage(1000);
         hc.State = HaronBehavior.Death;
         OnPlayerDeath?.Invoke();        
         Debug.Log("Behavior DEATH");
