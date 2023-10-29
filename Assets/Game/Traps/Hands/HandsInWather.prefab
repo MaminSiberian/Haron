@@ -227,7 +227,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _anim: {fileID: 337268951643624160}
+  _anim:
+  - {fileID: 337268951643624160}
 --- !u!60 &7626866548365822011
 PolygonCollider2D:
   m_ObjectHideFlags: 0
