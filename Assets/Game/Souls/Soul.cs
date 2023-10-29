@@ -8,7 +8,6 @@ public class Soul : MonoBehaviour
     private int _index;
     private int _marinaId;
     private Color _color;
-    public SpriteRenderer _renderer;
     [Range(9, 14)]public float minCooldown;
     [Range(15, 30)]public float maxCooldown;
     public float moveSpeed;
@@ -27,12 +26,6 @@ public class Soul : MonoBehaviour
             _index = _soulData.Index;
             _marinaId = _soulData.Marinaid;
             _color = _soulData.color;
-        }
-        else
-        {
-            Debug.Log("Занесите информацию об объекте, который отобразился белым красным цветом");
-            _renderer.color = Color.red;
-            return;
         }
         
     }
