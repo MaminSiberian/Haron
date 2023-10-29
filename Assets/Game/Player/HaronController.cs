@@ -60,6 +60,7 @@ namespace Haron
         internal IHaronBehavior behaviorCurrent;
         internal GameplayUI UI;
         internal bool isF = false;
+        
 
         public DirectionState DirectionState { get => directionState; internal set => directionState = value; }
         public HaronBehavior State { get => state; internal set => state = value; }
@@ -72,6 +73,14 @@ namespace Haron
             rb = GetComponent<Rigidbody2D>();
             CurrentHP = maxHP;
             UI.SetHPValue(CurrentHP);
+        }
+
+        
+        private void OnEnable()
+        {
+            CurrentHP = maxHP;
+            UI.SetHPValue(CurrentHP);
+            this.SetBehaviorDefault();
         }
 
         private void InitBehaviors()
