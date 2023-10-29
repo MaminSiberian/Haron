@@ -37,7 +37,7 @@ Transform:
   - {fileID: 387498857846833361}
   - {fileID: 5103101733982067139}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8430225651044717032
 MonoBehaviour:
@@ -62,6 +62,7 @@ MonoBehaviour:
   _hit: {fileID: 8300000, guid: 62f456268c301a64a8bc8a565e040030, type: 3}
   _attack: {fileID: 8300000, guid: ee01d5f1e2bc9a545836338894eb10d7, type: 3}
   _death: {fileID: 8300000, guid: f512c116b3f31b84aa94655142be48fe, type: 3}
+  delayDeath: 0.2
 --- !u!50 &2644056073240101705
 Rigidbody2D:
   serializedVersion: 4

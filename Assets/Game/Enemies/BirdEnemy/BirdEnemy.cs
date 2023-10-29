@@ -16,6 +16,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     [SerializeField] private AudioClip _hit;
     [SerializeField] private AudioClip _attack;
     [SerializeField] private AudioClip _death;
+    [SerializeField] private float delayDeath;
     private AudioSource _source;
     private float currentcdTime;
     private bool isAttack;
@@ -116,7 +117,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
 
     private IEnumerator StartDeath()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(delayDeath);
         Destroy(gameObject);
     }
 }
