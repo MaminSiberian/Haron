@@ -5713,7 +5713,7 @@ Transform:
   - {fileID: 7521935487439777339}
   - {fileID: 1753252337697498547}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6571534040944481402
 GameObject:
@@ -7474,6 +7474,9 @@ MonoBehaviour:
   _mapCam: {fileID: 7919854692500011422}
   _minimapCam: {fileID: 1370364493808830214}
   _messageBox: {fileID: 4863173995199043351}
+  maxHPText: {fileID: 5490377643698151838}
+  damageText: {fileID: 4862717048455006994}
+  cooldawnDashText: {fileID: 2852805067688464642}
 --- !u!1 &8632168668129134908
 GameObject:
   m_ObjectHideFlags: 0
