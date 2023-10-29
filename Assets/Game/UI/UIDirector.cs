@@ -70,15 +70,17 @@ namespace UI
         }
         private void OnEnable()
         {
-            //Haron.HaronController.OnPlayerDeath += OnPlayerDeath;
+            HaronDeathBehavior.OnPlayerDeath += OnPlayerDeath;
             LevelDirector.OnGameFinishedEvent += OnGameFinished;
             LevelDirector.OnQuestTargetChangedEvent += OnQuestTargetChanged;
+            LevelDirector.OnRespawn += UnpauseGame;
         }
         private void OnDisable()
         {
-            //TestPlayer.OnPlayerDeath -= OnPlayerDeath;
+            HaronDeathBehavior.OnPlayerDeath -= OnPlayerDeath;
             LevelDirector.OnGameFinishedEvent -= OnGameFinished;
             LevelDirector.OnQuestTargetChangedEvent -= OnQuestTargetChanged;
+            LevelDirector.OnRespawn -= UnpauseGame;
         }
         private void Update()
         {
