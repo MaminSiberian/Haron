@@ -55,7 +55,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 30
   moveSpeed: 1.5
-  distanceVisible: 7
+  distanceVisible: 10
   damage: 2
   cooldownTime: 2.54
   distanceForDamage: 2.89
