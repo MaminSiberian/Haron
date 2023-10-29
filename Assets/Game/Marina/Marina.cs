@@ -37,7 +37,7 @@ public class Marina : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            gameplayUI.ShowHelpText(HelpShop, true);
+            gameplayUI.ShowHelpText(HelpShop, false);
             canOpenShop = false;
         }
     }
