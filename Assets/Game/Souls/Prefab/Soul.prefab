@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f4a36992e5be44da149f1ee6c0c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1384394729413959694}
   _soulData: {fileID: 11400000, guid: 74674b64964430746a21184d526c0dfe, type: 2}
   minCooldown: 10.38
   maxCooldown: 19.7
