@@ -69,6 +69,7 @@ public class Soul : MonoBehaviour
     public void Reset()
     {
         transform.position = _startPos;
+        
 
     }
     public SoulsInfo GetSoulsInfo() { return _soulData; }
