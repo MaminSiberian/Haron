@@ -14,6 +14,7 @@ public class GameplayUI : MonoBehaviour
     [SerializeField] private Slider QTEBar;
     [SerializeField] private GameObject QTE;
     [SerializeField] private GameObject QTEpresF;
+    [SerializeField] private TextMeshProUGUI helpText;
 
     private int maxHP = 100;
     private int maxQTE = 100;
@@ -25,6 +26,7 @@ public class GameplayUI : MonoBehaviour
         SetSoulsValue();
         SetKeysValue();
         SetQTEValye();
+        helpText.enabled = false;
     }
 
     private void SetQTEValye()
@@ -47,6 +49,11 @@ public class GameplayUI : MonoBehaviour
         LevelDirector.OnKeysValueChangedEvent -= SetKeysValue;
     }
 
+    public void ShowHelpText(string text, bool state)
+    {
+        helpText.enabled = state;
+        helpText.text = text;
+    }
     public void SetHPValue(float value)
     {
         if (value > maxHP) maxHP = (int)value;
