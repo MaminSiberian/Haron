@@ -42,7 +42,6 @@ public class HandsInWather : MonoBehaviour
         UI = FindObjectOfType<GameplayUI>();
         _source = GetComponent<AudioSource>();
         startVolume = _source.volume;
-        LevelDirector.AddObject(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

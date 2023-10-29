@@ -42,15 +42,14 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             _anim.SetTrigger("Death");
             Death();
         }
-        LevelDirector.AddObject(this.gameObject);
     }
     private void OnEnable()
     {
-        LevelDirector.OnRespawn += Reset;
+        LevelDirector.OnRespawn += OnReset;
     }
     private void OnDisable()
     {
-        LevelDirector.OnRespawn -= Reset;
+        LevelDirector.OnRespawn -= OnReset;
     }
     private void Start()
     {
@@ -125,7 +124,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
         Destroy(gameObject);
     }
 
-    public void Reset()
+    public void OnReset()
     {
         isAlive = true;
         isAttack = false;

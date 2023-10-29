@@ -43,11 +43,11 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
 
     private void OnDisable()
     {
-        LevelDirector.OnRespawn -= Reset;
+        LevelDirector.OnRespawn -= OnReset;
     }
     private void OnEnable()
     {
-        LevelDirector.OnRespawn += Reset;
+        LevelDirector.OnRespawn += OnReset;
     }
     private void Start()
     {
@@ -56,7 +56,6 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
         canMoveToPoints = true;
         isAttack = false;
         currentCooldownTime = _cooldownTime;
-        LevelDirector.AddObject(this.gameObject);
         _startpos = transform;
     }
 
@@ -177,7 +176,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
         }
         
     }
-    public void Reset()
+    public void OnReset()
     {
         transform.position = _startpos.position;
         health = maxHealth;
