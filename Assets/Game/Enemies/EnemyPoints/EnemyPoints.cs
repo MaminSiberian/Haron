@@ -137,7 +137,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     {
         _source.PlayOneShot(_soundDeath);
         _anim.SetTrigger("Death");
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.6f);
         Destroy(gameObject);
     }
 

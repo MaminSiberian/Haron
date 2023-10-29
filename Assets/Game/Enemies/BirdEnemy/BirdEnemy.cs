@@ -105,7 +105,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
 
     private IEnumerator StartDeath()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
     }
 }

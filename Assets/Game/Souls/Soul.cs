@@ -37,6 +37,7 @@ public class Soul : MonoBehaviour
         {
             _source.PlayOneShot(FX[Random.Range(0, FX.Length - 1)]);
             currentCooldown = cooldown;
+
         }
         else if(currentCooldown > 0)
         {

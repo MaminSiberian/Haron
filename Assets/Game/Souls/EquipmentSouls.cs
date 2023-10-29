@@ -85,8 +85,12 @@ public class EquipmentSouls : MonoBehaviour
             }
             LevelDirector.OnSoulDelivered();
             _soul.GetAnim().SetBool("Idle", true);
+            
             _soul.gameObject.transform.position = _soulPos.position;
-
+            if (Random.Range(0, 1) == 1)
+            {
+                UIDirector.SendMessage(Messages.deliverSoul, 4f);
+            }
             _isPickUp = false;
             isSoul = true;
 
@@ -104,9 +108,12 @@ public class EquipmentSouls : MonoBehaviour
                 _soul.GetAnim().SetBool("Idle", false);
                 _soul = null;
                 isSoul = false;
-                
+                if (Random.Range(0, 1) == 1)
+                {
+                    UIDirector.SendMessage(Messages.sounIsWaiting, 4f);
+                }
             }
-            
+
         }
         if (_soul != null && isSoul)
         {
