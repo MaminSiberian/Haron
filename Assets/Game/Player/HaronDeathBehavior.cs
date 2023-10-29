@@ -1,4 +1,5 @@
 using Haron;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class HaronDeathBehavior : IHaronBehavior
 
 {
     private HaronController hc;
+    public static event Action OnOnPlayerDeath;
 
     public HaronDeathBehavior(HaronController hc)
     {
@@ -15,6 +17,7 @@ public class HaronDeathBehavior : IHaronBehavior
     public void Enter()
     {
         hc.State = HaronBehavior.Death;
+        OnOnPlayerDeath?.Invoke();        
         Debug.Log("Behavior DEATH");
     }
 
