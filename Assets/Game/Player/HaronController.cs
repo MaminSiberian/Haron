@@ -89,7 +89,8 @@ namespace Haron
         [Button]
         public void OnRespawn()
         {
-            transform.position = LevelDirector.lastPier.position;            
+            Debug.Log(1);
+            transform.position = LevelDirector.lastPier.position;
             CurrentHP = maxHP;
             UI.SetHPValue(CurrentHP);
             this.SetBehaviorDefault();
@@ -202,7 +203,6 @@ namespace Haron
             
             var behavior = this.GetBehavior<HaronDashBehavior>();
             this.SetBehavior(behavior);
-
         }
 
         public void SetBehaviorDeath()

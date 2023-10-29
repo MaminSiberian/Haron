@@ -149,7 +149,6 @@ public class Whirlpool : MonoBehaviour
         distanceCurrent = Vector2.Distance(transform.position, hc.transform.position);
         float onePercentDist = (distanceFirst * 0.01f);
         float percentDist = (100 - (distanceCurrent / onePercentDist)) * 0.01f;
-        Debug.Log(distanceFirst + " " + distanceCurrent + " " + percentDist);
         while (Time.time < startTime + duration)
         {
             var t = (Time.time - startTime) / duration;
