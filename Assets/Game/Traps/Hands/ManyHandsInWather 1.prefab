@@ -208,7 +208,7 @@ MonoBehaviour:
   - {fileID: 7363187385947915564}
   - {fileID: 8744148357078778942}
   - {fileID: 4336378303939651423}
-  _attack: {fileID: 8300000, guid: 028c02147a5f4fe40969014df9e534e1, type: 3}
+  _attack: {fileID: 8300000, guid: a49362344aaafad479514aa245665b95, type: 3}
 --- !u!60 &7639073627591901634
 PolygonCollider2D:
   m_ObjectHideFlags: 0
