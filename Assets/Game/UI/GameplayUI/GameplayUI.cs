@@ -80,14 +80,14 @@ public class GameplayUI : MonoBehaviour
 
     public void SetCoinsValue()
     {
-        coins.text = "Coins: " + Wallet.coinsValue.ToString();
+        coins.text = Wallet.coinsValue.ToString();
     }    
     public void SetSoulsValue()
     {
-        souls.text = "Souls: " + LevelDirector.deliveredSoulsCounter.ToString();
+        souls.text = LevelDirector.deliveredSoulsCounter.ToString();
     }
     public void SetKeysValue()
     {
-        keys.text = "Keys: " + LevelDirector.keysCounter.ToString();
+        keys.text = LevelDirector.keysCounter.ToString();
     }
 }

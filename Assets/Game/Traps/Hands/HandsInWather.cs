@@ -17,6 +17,8 @@ public class HandsInWather : MonoBehaviour
     [SerializeField] private float forceToPushObject;
     [SerializeField] private AnimationCurve forceCurve;
     [SerializeField] private Animator[] _anim;
+    [SerializeField] private AudioClip _attack;
+    
 
 
     //private float startTime;
@@ -26,10 +28,14 @@ public class HandsInWather : MonoBehaviour
     private bool isQTE = false;
     private float distanceFirst;
     private float distanceCurrent;
+    private AudioSource _source;
+    private float startVolume;
 
     private void Start()
     {
         UI = FindObjectOfType<GameplayUI>();
+        _source = GetComponent<AudioSource>();
+        startVolume = _source.volume;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,10 +53,26 @@ public class HandsInWather : MonoBehaviour
             StartCoroutine(Damage());
 
             StartCoroutine(Anim());
+            _source.PlayOneShot(_attack);
 
         }
     }
 
+    private IEnumerator FadeAudio()
+    {
+        while(true)
+        {
+            _source.volume -= 0.1f;  
+            if(_source.volume <= 0)
+            {
+                break;
+                
+            }
+            yield return new WaitForSeconds(0.35f);
+        }
+        _source.Stop();
+        _source.volume = startVolume;
+    }
     private IEnumerator Anim()
     {
         for (int i = 0; i < _anim.Length; i++)
@@ -142,7 +164,7 @@ public class HandsInWather : MonoBehaviour
             _anim[i].SetBool("IsAttack", false);
         }
         StopCoroutine(PushObject());
-
+        StartCoroutine(FadeAudio());
     }
 
 
