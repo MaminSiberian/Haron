@@ -25,6 +25,16 @@ public class EquipmentSouls : MonoBehaviour
         isSoul = false;
         marinas = GameObject.FindObjectsOfType<Marina>();
     }
+
+    private void OnEnable()
+    {
+        LevelDirector.OnRespawn += Reset;
+    }
+
+    private void OnDisable()
+    {
+        LevelDirector.OnRespawn -= Reset;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Soul"))
@@ -120,10 +130,19 @@ public class EquipmentSouls : MonoBehaviour
             _soul.gameObject.transform.position = _soulPos.position;
         }
     }
+    private void Reset()
+    {
+        if(isSoul)
+        {
+            _soul.transform.position = _soul._startPos.position;
+            _isPickUp = false;
+            isSoul = false;
+            _soul = null;
+        }
+    }
 
-    
-    
-    
+
+
     public void AddSoul(SoulsInfo info)
     {
         SoulsId.Add(info);

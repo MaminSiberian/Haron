@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -59,6 +60,7 @@ namespace Haron
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
         internal GameplayUI UI;
+        
         internal bool isF = false;
         
 
@@ -75,9 +77,19 @@ namespace Haron
             UI.SetHPValue(CurrentHP);
         }
 
-        
         private void OnEnable()
         {
+            LevelDirector.OnRespawn += OnRespawn;
+        }
+        private void OnDisable()
+        {            
+            LevelDirector.OnRespawn -= OnRespawn;
+        }
+
+        [Button]
+        public void OnRespawn()
+        {
+            transform.position = LevelDirector.lastPier.position;            
             CurrentHP = maxHP;
             UI.SetHPValue(CurrentHP);
             this.SetBehaviorDefault();

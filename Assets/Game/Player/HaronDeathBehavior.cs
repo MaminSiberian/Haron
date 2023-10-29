@@ -8,7 +8,7 @@ public class HaronDeathBehavior : IHaronBehavior
 
 {
     private HaronController hc;
-    public static event Action OnOnPlayerDeath;
+    public static event Action OnPlayerDeath;
 
     public HaronDeathBehavior(HaronController hc)
     {
@@ -17,7 +17,7 @@ public class HaronDeathBehavior : IHaronBehavior
     public void Enter()
     {
         hc.State = HaronBehavior.Death;
-        OnOnPlayerDeath?.Invoke();        
+        OnPlayerDeath?.Invoke();        
         Debug.Log("Behavior DEATH");
     }
 

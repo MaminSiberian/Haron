@@ -16,9 +16,11 @@ public class Soul : MonoBehaviour
     private AudioSource _source;
     private float currentCooldown;
     [SerializeField] private Animator _anim;
+    public Transform _startPos;
 
     private void Start()
     {
+
         _source = GetComponent<AudioSource>();
         currentCooldown = cooldown;
         cooldown = Random.Range(minCooldown, maxCooldown);
@@ -28,9 +30,11 @@ public class Soul : MonoBehaviour
             _marinaId = _soulData.Marinaid;
             _color = _soulData.color;
         }
+        _startPos = transform;
         
     }
 
+    
     private void Update()
     {
         if(currentCooldown < 0 && !_source.isPlaying)
