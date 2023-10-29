@@ -19,7 +19,6 @@ public class LevelDirector : MonoBehaviour
     public static event Action OnRespawn;
 
     private static LevelDirector instance;
-    private static DifficultyContoller dc;
     private static Transform nextPier = null;
 
     private void Awake()
@@ -27,7 +26,6 @@ public class LevelDirector : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         instance = this;
         deliveredSoulsCounter = 0;
-        dc = FindAnyObjectByType<DifficultyContoller>();
     }
     private void OnEnable()
     {
@@ -40,15 +38,10 @@ public class LevelDirector : MonoBehaviour
     public static void Respawn()
     {
         OnRespawn?.Invoke();
-        dc.ReloadWorld();
     }
     public static void SetStartPier(Transform pier)
     {
         lastPier = pier;
-    }
-    public static void AddObject(GameObject obj)
-    {
-        dc.AddObject(obj);
     }
     public static void SendNewQuestTarget(Transform target)
     {

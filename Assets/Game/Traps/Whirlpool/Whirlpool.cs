@@ -36,7 +36,6 @@ public class Whirlpool : MonoBehaviour
         UI = FindObjectOfType<GameplayUI>();
         _source = GetComponent<AudioSource>();
         startVolume = _source.volume;
-        LevelDirector.AddObject(this.gameObject);
     }
 
 
