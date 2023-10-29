@@ -7,7 +7,6 @@ namespace UI
     public class UIDirector : MonoBehaviour
     {
         #region FIELDS
-        [SerializeField] private Transform player;
         [SerializeField] private GameObject target;
         [SerializeField] private GameObject _pauseButton;
         [SerializeField] private GameObject _mapButton;
@@ -19,6 +18,7 @@ namespace UI
         [SerializeField] private GameObject _map;
         [SerializeField] private Camera _mapCam;
         [SerializeField] private Camera _minimapCam;
+        [SerializeField] private MessageBox _messageBox;
 
         private static GameObject pauseButton;
         private static GameObject mapButton;
@@ -28,7 +28,9 @@ namespace UI
         private static GameObject shopScreen;
 
         private static GameObject map;
+        private static MessageBox messageBox;
 
+        private Transform player;
         //public static event Action OnGamePaused;
         //public static event Action OnGameUnpaused;
         #endregion
@@ -45,6 +47,9 @@ namespace UI
             winScreen = _winScreen;
             shopScreen = _shopScreen;
             map = _map;
+            messageBox = _messageBox;
+
+            player = FindAnyObjectByType<Haron.HaronController>().transform;
         }
         private void OnEnable()
         {
@@ -65,6 +70,10 @@ namespace UI
         }
         #endregion
 
+        public static void SendMessage(string message, float time = 20f)
+        {
+            messageBox.SendMessage(message, time);
+        }
         private void OnQuestTargetChanged(Transform target)
         {
             if (target == null)
