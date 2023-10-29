@@ -25,6 +25,16 @@ public class EquipmentSouls : MonoBehaviour
         isSoul = false;
         marinas = GameObject.FindObjectsOfType<Marina>();
     }
+
+    private void OnEnable()
+    {
+        LevelDirector.OnRespawn += Reset;
+    }
+
+    private void OnDisable()
+    {
+        LevelDirector.OnRespawn -= Reset;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Soul"))
