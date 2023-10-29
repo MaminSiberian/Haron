@@ -87,6 +87,7 @@ MonoBehaviour:
   _renderer: {fileID: 0}
   minCooldown: 10.38
   maxCooldown: 19.7
+  moveSpeed: 0.09
   FX:
   - {fileID: 8300000, guid: c199888e1d1d0694391cbc432c8211bf, type: 3}
   - {fileID: 8300000, guid: 0cdfa1d55316cff48bd73eab209dc145, type: 3}
