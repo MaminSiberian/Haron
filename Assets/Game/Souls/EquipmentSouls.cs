@@ -80,7 +80,7 @@ public class EquipmentSouls : MonoBehaviour
             {
                 if (marina.index == _soul.GetMarinaId())
                 {
-                    LevelDirector.SendNewQuestTarget(marina.transform);
+                    LevelDirector.SendNewQuestTarget(marina.souldelivered);
                 }
             }
             LevelDirector.OnSoulDelivered();
