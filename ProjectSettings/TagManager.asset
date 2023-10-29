@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Trap
   - Dock
+  - Soul
+  - Door
+  - Marina
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Traps
   - Docks
   - Map
-  - 
+  - NotRender
   - 
   - 
   - 
