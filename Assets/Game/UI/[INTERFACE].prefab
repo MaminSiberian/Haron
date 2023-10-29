@@ -510,7 +510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press F
+  m_text: "\u0416\u043C\u0438 F!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 793e2afdc72050241a0ba8ae25b35251, type: 2}
   m_sharedMaterial: {fileID: 7226808001749171869, guid: 793e2afdc72050241a0ba8ae25b35251, type: 2}
