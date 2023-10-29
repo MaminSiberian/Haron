@@ -1050,6 +1050,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Haron
       objectReference: {fileID: 0}
+    - target: {fileID: 1762166813863632704, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_Size.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762166813863632704, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4250359074123360334, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
       propertyPath: delayAttack
       value: 0.4
@@ -1061,6 +1069,18 @@ PrefabInstance:
     - target: {fileID: 5220711469976147743, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220711469976147743, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220711469976147743, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220711469976147743, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5220711469976147743, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1129,6 +1149,22 @@ PrefabInstance:
     - target: {fileID: 8697396489445943262, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
       propertyPath: m_Name
       value: MapPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041542468023187736, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116681500984418034, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116681500984418034, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116681500984418034, guid: 2c4af21e8ce20e941bc9954a42074a77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
