@@ -55,7 +55,7 @@ public class HandsInWather : MonoBehaviour
 
             StartCoroutine(Anim());
             _source.PlayOneShot(_attack);
-            if (Random.Range(0, 1) == 1)
+            if (Random.Range(0, 2) == 1)
             {
                 UIDirector.SendMessage(Messages.handsAttacking, 3f);
             }
@@ -169,6 +169,10 @@ public class HandsInWather : MonoBehaviour
         }
         StopCoroutine(PushObject());
         StartCoroutine(FadeAudio());
+        if (Random.Range(0, 2) == 1)
+        {
+            UIDirector.SendMessage(Messages.handsStopped, 2f);
+        }
     }
 
 

@@ -87,7 +87,7 @@ public class EquipmentSouls : MonoBehaviour
             _soul.GetAnim().SetBool("Idle", true);
             
             _soul.gameObject.transform.position = _soulPos.position;
-            if (Random.Range(0, 1) == 1)
+            if (Random.Range(0, 2) == 1)
             {
                 UIDirector.SendMessage(Messages.deliverSoul, 4f);
             }
@@ -108,7 +108,7 @@ public class EquipmentSouls : MonoBehaviour
                 _soul.GetAnim().SetBool("Idle", false);
                 _soul = null;
                 isSoul = false;
-                if (Random.Range(0, 1) == 1)
+                if (Random.Range(0, 2) == 1)
                 {
                     UIDirector.SendMessage(Messages.sounIsWaiting, 4f);
                 }

@@ -1,6 +1,7 @@
 using Haron;
 using System;
 using System.Collections;
+using UI;
 using UnityEngine;
 //using UnityEngine.Windows;
 
@@ -45,6 +46,10 @@ public class Whirlpool : MonoBehaviour
             Rotation(hc.transform.position - transform.position);
             StartCoroutine(QTE());
             StartCoroutine(FadeAudioUp());
+            if (UnityEngine.Random.Range(0, 2) == 0)
+            {
+                UIDirector.SendMessage(Messages.whirlAttacking, 3f);
+            }
         }
     }
 
@@ -150,6 +155,10 @@ public class Whirlpool : MonoBehaviour
         
         StopCoroutine(PushObject());
         StartCoroutine(FadeAudioDown());
+        if (UnityEngine.Random.Range(0, 2) == 0)
+        {
+            UIDirector.SendMessage(Messages.whirlStopped, 3f);
+        }
     }
 
     private void Rotation(Vector2 direction)

@@ -20,6 +20,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     private bool isAttack;
     private GameObject _player;
     private bool isAlive = true;
+    private bool isVisible;
 
     public int MaxHP { get => maxHealth;  }
     public int CurrentHP { get => health; }
@@ -52,6 +53,8 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             float distance = Vector2.Distance(transform.position, _player.transform.position);
             if (distance < distanceVisible)
             {
+                isVisible = true;
+                
                 if (distance > distanceForDamage)
                 {
 
@@ -66,6 +69,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             }
             else
             {
+                isVisible = false;
                 isAttack = false;
             }
             currentcdTime -= Time.deltaTime;
