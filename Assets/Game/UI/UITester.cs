@@ -6,6 +6,7 @@ public class UITester : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float hpChange;
+    [SerializeField] private float dashChange;
 
     private GameplayUI gameplayUI;
 
@@ -13,6 +14,10 @@ public class UITester : MonoBehaviour
     {
         gameplayUI = FindAnyObjectByType<GameplayUI>();
         LevelDirector.SendNewQuestTarget(target);
+    }
+    private void Update()
+    {
+        gameplayUI.SetDashValue(dashChange);
     }
 
     [Button]
@@ -45,5 +50,10 @@ public class UITester : MonoBehaviour
     private void SendSoulIsWaiting()
     {
         UIDirector.SendMessage(Messages.sounIsWaiting, 3f);
+    }
+    [Button]
+    private void SetDash()
+    {
+        gameplayUI.SetDashValue(dashChange);
     }
 }
