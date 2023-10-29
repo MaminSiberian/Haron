@@ -24,7 +24,8 @@ namespace Haron
         [SerializeField] internal int CurrentHP;
 
         [SerializeField] internal Transform areaAttack;
-        [SerializeField] internal Transform pivotAttack;
+        //[SerializeField] internal Transform pivotAttack;
+        [SerializeField] internal float delayAttack;
         [Range(0f, 3f)][SerializeField] internal float distanceAttack;
         [Range(0f, 1f)][SerializeField] internal float durationAttack;
         [Range(0f, 1f)][SerializeField] internal float cooldownAttack;

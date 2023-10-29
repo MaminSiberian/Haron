@@ -152,10 +152,10 @@ TextureImporter:
       name: Ch-Sheet_0
       rect:
         serializedVersion: 2
-        x: 156
-        y: 136
-        width: 328
-        height: 288
+        x: 0
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: Ch-Sheet_1
       rect:
         serializedVersion: 2
-        x: 796
-        y: 136
-        width: 328
-        height: 288
+        x: 640
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Ch-Sheet_2
       rect:
         serializedVersion: 2
-        x: 1436
-        y: 136
-        width: 328
-        height: 288
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: Ch-Sheet_3
       rect:
         serializedVersion: 2
-        x: 2076
-        y: 136
-        width: 328
-        height: 288
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: Ch-Sheet_4
       rect:
         serializedVersion: 2
-        x: 2716
-        y: 136
-        width: 328
-        height: 288
+        x: 2560
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: Ch-Sheet_5
       rect:
         serializedVersion: 2
-        x: 3356
-        y: 196
-        width: 328
-        height: 318
+        x: 3200
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: Ch-Sheet_6
       rect:
         serializedVersion: 2
-        x: 3996
-        y: 86
-        width: 388
-        height: 398
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +299,10 @@ TextureImporter:
       name: Ch-Sheet_7
       rect:
         serializedVersion: 2
-        x: 4636
-        y: 86
-        width: 328
-        height: 338
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

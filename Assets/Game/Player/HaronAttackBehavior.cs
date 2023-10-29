@@ -6,6 +6,7 @@ namespace Haron
     internal class HaronAttackBehavior : IHaronBehavior
     {
         private HaronController hc;
+        private float cuurentDelayAttack;
         private float currentTimeAttack;
         private float currentTimeCooldown;
 
@@ -15,9 +16,9 @@ namespace Haron
         }
         public void Enter()
         {
+            cuurentDelayAttack = 0;
             hc.State = HaronBehavior.Attack;
-            currentTimeAttack = 0;
-            hc.areaAttack.gameObject.SetActive(true);
+            currentTimeAttack = 0;            
             currentTimeCooldown = 0;
         }
 
@@ -28,34 +29,43 @@ namespace Haron
 
         public void UpdateBehavior()
         {
-            currentTimeAttack += Time.fixedDeltaTime;
-            currentTimeCooldown += Time.fixedDeltaTime;
-            if (currentTimeAttack >= hc.durationAttack)
-            {
-                hc.areaAttack.gameObject.SetActive(false);
-            }
+            cuurentDelayAttack += Time.fixedDeltaTime;
 
-            if (hc.directionAttack != Vector2.zero)
+            if (cuurentDelayAttack >= hc.delayAttack)
             {
-                RotationPivotAttack();
-                DistanceAttack();
-            }
+                Debug.Log(1);
+                hc.areaAttack.gameObject.SetActive(true);
+                currentTimeAttack += Time.fixedDeltaTime;
+                currentTimeCooldown += Time.fixedDeltaTime;
+                if (currentTimeAttack >= hc.durationAttack)
+                {
+                    Debug.Log(2);
+                    hc.areaAttack.gameObject.SetActive(false);
+                }
 
-            if (currentTimeCooldown >= hc.cooldownAttack)
-            {
-                hc.SetBehaviorFloating();
+                //if (hc.directionAttack != Vector2.zero)
+                //{
+                //    RotationPivotAttack();
+                //    DistanceAttack();
+                //}
+
+                if (currentTimeCooldown >= hc.cooldownAttack)
+                {
+                    Debug.Log(3);
+                    hc.SetBehaviorFloating();
+                }            
             }
         }
 
-        private void DistanceAttack()
-        {
-            
-            hc.areaAttack.position =(Vector2)hc.transform.position + hc.directionAttack * hc.distanceAttack;
-        }
+        //private void DistanceAttack()
+        //{
 
-        private void RotationPivotAttack()
-        {
-            hc.pivotAttack.up = hc.directionAttack;
-        }
+        //    hc.areaAttack.position = (Vector2)hc.transform.position + hc.directionAttack * hc.distanceAttack;
+        //}
+
+        //private void RotationPivotAttack()
+        //{
+        //    hc.pivotAttack.up = hc.directionAttack;
+        //}
     }
 }
