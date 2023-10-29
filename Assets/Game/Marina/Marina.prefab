@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3599271364309216895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: -0.57, z: 0}
+  m_LocalPosition: {x: 5.23, y: -3.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 5
   countSouls: 0
-  souldelivered: {fileID: 0}
+  souldelivered: {fileID: 4359005499186849110}
   posForSoulDelivired: {fileID: 5331928598577529623}
 --- !u!61 &7929029677172642686
 BoxCollider2D:

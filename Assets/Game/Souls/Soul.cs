@@ -15,6 +15,7 @@ public class Soul : MonoBehaviour
     public AudioClip[] FX;
     private AudioSource _source;
     private float currentCooldown;
+    [SerializeField] private Animator _anim;
 
     private void Start()
     {
@@ -54,14 +55,20 @@ public class Soul : MonoBehaviour
     {
         StartCoroutine(MarinaMove(pos));
     }
+    public Animator GetAnim()
+    {
+        return _anim;
+    }
 
     private IEnumerator MarinaMove(Transform pos)
     {
+        _anim.SetBool("Idle", true);
         while(true)
         {
             transform.position = Vector2.Lerp(transform.position, pos.position, Time.deltaTime * moveSpeed);
             yield return new WaitForSeconds(Time.deltaTime);
-            if(transform.position == pos.position)
+            float distance = Vector2.Distance(transform.position, pos.position);
+            if(distance <= 0.3f)
             {
                 yield return new WaitForSeconds(2f);
                 Destroy(gameObject);
