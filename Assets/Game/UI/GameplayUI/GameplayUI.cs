@@ -56,7 +56,6 @@ public class GameplayUI : MonoBehaviour
     }
     public void SetDashValue(float currentValue, float maxValue)
     {
-        dashBar.gameObject.SetActive(currentValue < maxValue);
         dashBar.value = currentValue / maxValue;
     }
 
