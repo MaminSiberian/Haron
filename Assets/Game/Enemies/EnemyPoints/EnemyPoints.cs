@@ -42,12 +42,11 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
         if (distance < _distanceVisible)
         {
             isAttack = true;
-            _anim.SetBool("IsRun", true);
+
         }
         else
         {
             isAttack = false;
-            _anim.SetBool("IsRun", false);
         }
         if (!isAttack && canMoveToPoints)
         {
@@ -59,14 +58,12 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
             {
                 if(currentCooldownTime < 0)
                 {
-                    _anim.SetBool("IsRun", false);
                     _anim.SetTrigger("Attack");
                     
                 }
             }
             else if(distance > distanceForDamage)
             {
-                _anim.SetBool("IsRun", true);
                 transform.position = Vector2.Lerp(transform.position,
                     _player.transform.position, _moveSpeed * Time.deltaTime * 0.2f);
             }

@@ -10,7 +10,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     [SerializeField, Range(1, 7)] private float distanceVisible = 4f;
     [SerializeField, Range(1, 10)] private int damage = 2;
     [SerializeField] private float cooldownTime = 1f;
-    [SerializeField, Range(0.5f, 2f)] private float distanceForDamage = 0.7f;
+    [SerializeField, Range(0.5f, 4f)] private float distanceForDamage = 0.7f;
     [SerializeField] private Animator _anim;
     [SerializeField] private AudioClip _hit;
     [SerializeField] private AudioClip _attack;
@@ -28,6 +28,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     public void GetDamage(int damage)
     {
         health -= damage;
+        Debug.Log("5");
         _anim.SetTrigger("Hit");
         _source.PlayOneShot(_hit);
         if(health <= 0f)
