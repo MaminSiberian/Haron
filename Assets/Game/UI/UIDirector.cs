@@ -16,6 +16,7 @@ namespace UI
         [SerializeField] private GameObject _gameOverScreen;
         [SerializeField] private GameObject _winScreen;
         [SerializeField] private GameObject _shopScreen;
+        [SerializeField] private GameObject _HTPScreen;
 
         [SerializeField] private GameObject _map;
         [SerializeField] private Camera _mapCam;
@@ -32,6 +33,7 @@ namespace UI
         private static GameObject gameOverScreen;
         private static GameObject winScreen;
         private static GameObject shopScreen;
+        private static GameObject HTPScreen;
 
         private static GameObject map;
         private static MessageBox messageBox;
@@ -59,6 +61,7 @@ namespace UI
             gameOverScreen = _gameOverScreen;
             winScreen = _winScreen;
             shopScreen = _shopScreen;
+            HTPScreen = _HTPScreen;
             map = _map;
             messageBox = _messageBox;
 
@@ -150,6 +153,11 @@ namespace UI
             TurnOffAll();
             map.SetActive(true);
         }
+        public static void OpenHTP()
+        {
+            TurnOffAll();
+            HTPScreen.SetActive(true);
+        }
 
         private static void TurnOffAll()
         {
@@ -159,6 +167,7 @@ namespace UI
             gameOverScreen.SetActive(false);
             winScreen.SetActive(false);
             shopScreen.SetActive(false);
+            HTPScreen.SetActive(false);
             map.SetActive(false);
         }
     }
