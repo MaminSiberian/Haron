@@ -120,10 +120,19 @@ public class EquipmentSouls : MonoBehaviour
             _soul.gameObject.transform.position = _soulPos.position;
         }
     }
+    private void Reset()
+    {
+        if(isSoul)
+        {
+            _soul.transform.position = _soul._startPos.position;
+            _isPickUp = false;
+            isSoul = false;
+            _soul = null;
+        }
+    }
 
-    
-    
-    
+
+
     public void AddSoul(SoulsInfo info)
     {
         SoulsId.Add(info);
