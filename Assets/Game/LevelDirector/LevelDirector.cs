@@ -17,12 +17,14 @@ public class LevelDirector : MonoBehaviour
     public static event Action OnGameFinishedEvent;
 
     private static LevelDirector instance;
+    private static DifficultyContoller dc;
 
     private void Awake()
     {
         if (instance != null) Destroy(gameObject);
         instance = this;
         deliveredSoulsCounter = 0;
+        dc = FindAnyObjectByType<DifficultyContoller>();
     }
     private void OnEnable()
     {
@@ -31,6 +33,10 @@ public class LevelDirector : MonoBehaviour
     private void OnDisable()
     {
         Shop.OnItemPurchasedEvent -= OnItemPurchased;
+    }
+    public static void AddObject(GameObject obj)
+    {
+        dc.AddObject(obj);
     }
     public static void SendNewQuestTarget(Transform target)
     {

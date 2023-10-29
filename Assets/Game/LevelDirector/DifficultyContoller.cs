@@ -3,17 +3,8 @@ using UnityEngine;
 
 public class DifficultyContoller : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> level0 = new List<GameObject>();
-    [SerializeField] private List<GameObject> level1 = new List<GameObject>();
-    [SerializeField] private List<GameObject> level2 = new List<GameObject>();
-    [SerializeField] private List<GameObject> level3 = new List<GameObject>();
-    [SerializeField] private List<GameObject> level4 = new List<GameObject>();
+    [SerializeField] private List<GameObject> objects = new List<GameObject>();
 
-
-    private void Awake()
-    {
-        ReloadWorld();
-    }
     private void OnEnable()
     {
         LevelDirector.OnSoulDeliveredEvent += ReloadWorld;
@@ -22,61 +13,20 @@ public class DifficultyContoller : MonoBehaviour
     {
         LevelDirector.OnSoulDeliveredEvent -= ReloadWorld;
     }
-
+    public void AddObject(GameObject obj)
+    {
+        objects.Add(obj);
+    }
     public void ReloadWorld()
     {
-        TurnOffObjects();
-
-        switch (LevelDirector.deliveredSoulsCounter)
-        {
-            case 0:
-                TurnOnObjects(level0);
-                break;
-            case 1:
-                TurnOnObjects(level1);
-                break;
-            case 2:
-                TurnOnObjects(level2);
-                break;
-            case 3:
-                TurnOnObjects(level3);
-                break;
-            case 4:
-                TurnOnObjects(level4);
-                break;
-            default:
-                TurnOffObjects();
-                break;
-        }
+        ObjectsSetActive(false);
+        ObjectsSetActive(true);
     }
-    private void TurnOnObjects(List<GameObject> levelObjects)
+    private void ObjectsSetActive(bool state)
     {
-        foreach (var lvl in levelObjects)
+        foreach (var obj in objects)
         {
-            lvl.SetActive(true);
-        }
-    }
-    private void TurnOffObjects()
-    {
-        foreach (var lvl in level0)
-        {
-            lvl.SetActive(false);
-        }
-        foreach (var lvl in level1)
-        {
-            lvl.SetActive(false);
-        }
-        foreach (var lvl in level2)
-        {
-            lvl.SetActive(false);
-        }
-        foreach (var lvl in level3)
-        {
-            lvl.SetActive(false);
-        }
-        foreach (var lvl in level4)
-        {
-            lvl.SetActive(false);
+            obj.SetActive(state);
         }
     }
 }
