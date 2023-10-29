@@ -20,7 +20,8 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     [SerializeField] private AudioClip _soundDeath;
     [SerializeField] private AudioClip _soundAttack;
     [SerializeField] private float cooldownSound;
-    
+    [SerializeField] private GameObject bloodParticel;
+
 
     [SerializeField] private Rigidbody2D _rb;
     private bool isAttack;
@@ -169,12 +170,19 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
 
     public void GetDamage(int damage)
     {
+        StartCoroutine(Blood());
         health -= damage;
         if(health <= 0)
         {
             Death();
-        }
-        
+        }        
+    }
+    IEnumerator Blood()
+    {
+        bloodParticel.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        bloodParticel.SetActive(false);
+        StopCoroutine(Blood());
     }
     public void OnReset()
     {
