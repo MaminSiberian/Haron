@@ -70,7 +70,7 @@ public class EquipmentSouls : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && _isPickUp && !isSoul)
+        if (Input.GetKeyDown(KeyCode.E) && _isPickUp && !isSoul)
         {
 
             foreach (var marina in marinas)
@@ -89,7 +89,7 @@ public class EquipmentSouls : MonoBehaviour
 
 
         }
-        if (Input.GetKeyDown(KeyCode.F) && _isMarina && !_isPickUp && isSoul)
+        if (Input.GetKeyDown(KeyCode.E) && _isMarina && !_isPickUp && isSoul)
         {
 
             if (_soul.GetMarinaId() == _marina.index)
