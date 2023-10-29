@@ -17,6 +17,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     [SerializeField] private AudioClip _attack;
     [SerializeField] private AudioClip _death;
     [SerializeField] private float dalayDeath;
+    [SerializeField] private GameObject bloodParticel;
     private AudioSource _source;
     private float currentcdTime;
     private bool isAttack;
@@ -34,6 +35,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
 
     public void GetDamage(int damage)
     {
+        StartCoroutine(Blood());
         health -= damage;
         _anim.SetTrigger("Hit");
         _source.PlayOneShot(_hit);
@@ -43,6 +45,15 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             Death();
         }
     }
+
+    IEnumerator Blood()
+    {
+        bloodParticel.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        bloodParticel.SetActive(false);
+        StopCoroutine(Blood());
+    }
+
     private void OnEnable()
     {
         LevelDirector.OnRespawn += OnReset;
