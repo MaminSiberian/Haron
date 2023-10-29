@@ -14,7 +14,6 @@ public class Door : MonoBehaviour
         isOpen = false;
         _anim = GetComponent<Animator>();
         canOpen = false;
-        GameplayUI = FindObjectOfType<GameplayUI>();
     }
 
     

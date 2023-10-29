@@ -70,7 +70,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.25
+  m_Radius: 6
 --- !u!114 &1163405184314504729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1ff41b2daa39f4b4bb0ad88d3e046ae3, type: 3}
   - {fileID: 8300000, guid: ea2c10e298eca944a838d1b6898bac33, type: 3}
   _anim: {fileID: 582258431532304266}
+  _startPos: {fileID: 0}
 --- !u!50 &1779114254158785159
 Rigidbody2D:
   serializedVersion: 4
