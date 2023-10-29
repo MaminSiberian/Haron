@@ -16,7 +16,8 @@ public class HandsInWather : MonoBehaviour
     [SerializeField] private float duration;
     [SerializeField] private float forceToPushObject;
     [SerializeField] private AnimationCurve forceCurve;
-    [SerializeField] private Animator _anim;
+    [SerializeField] private Animator[] _anim;
+
 
     //private float startTime;
     private HaronController hc;
@@ -44,7 +45,18 @@ public class HandsInWather : MonoBehaviour
             hc.SetBehaviorQTE();
             StartCoroutine(QTE());
             StartCoroutine(Damage());
-            _anim.SetBool("IsAttack", true);
+
+            StartCoroutine(Anim());
+
+        }
+    }
+
+    private IEnumerator Anim()
+    {
+        for (int i = 0; i < _anim.Length; i++)
+        {
+            _anim[i].SetBool("IsAttack", true);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -58,6 +70,7 @@ public class HandsInWather : MonoBehaviour
         }
 
     }
+
 
 
     private IEnumerator Damage()
@@ -124,7 +137,10 @@ public class HandsInWather : MonoBehaviour
         }
         StopCoroutine(QTE());
         hc.SetBehaviorFloating();
-        _anim.SetBool("IsAttack", false);
+        for (int i = 0; i < _anim.Length; i++)
+        {
+            _anim[i].SetBool("IsAttack", false);
+        }
         StopCoroutine(PushObject());
 
     }
