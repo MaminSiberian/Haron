@@ -1682,6 +1682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 5
   countSouls: 0
+  posForSoulDelivired: {fileID: 0}
 --- !u!222 &215576331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2919,6 +2920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 4
   countSouls: 0
+  posForSoulDelivired: {fileID: 0}
 --- !u!222 &371911958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16095,7 +16097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_Tiles.Array.data[44].second.m_TileIndex
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_Tiles.Array.data[45].second.m_TileIndex
@@ -16223,7 +16225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileAssetArray.Array.data[10].m_RefCount
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileAssetArray.Array.data[18].m_RefCount
@@ -16247,7 +16249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileAssetArray.Array.data[60].m_RefCount
-      value: 1125
+      value: 1126
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileAssetArray.Array.data[62].m_RefCount
@@ -18711,7 +18713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[10].m_RefCount
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[18].m_RefCount
@@ -18735,7 +18737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[60].m_RefCount
-      value: 1125
+      value: 1126
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[62].m_RefCount
@@ -22507,7 +22509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_Tiles.Array.data[44].second.m_TileSpriteIndex
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5136713878655904054, guid: 2142cb6946d78e141bb12f6dff7a9b82, type: 3}
       propertyPath: m_Tiles.Array.data[45].second.m_TileSpriteIndex
@@ -30162,6 +30164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 2
   countSouls: 0
+  posForSoulDelivired: {fileID: 0}
 --- !u!222 &1023454881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32136,6 +32139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   countSouls: 0
+  posForSoulDelivired: {fileID: 0}
 --- !u!222 &1409658806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35613,6 +35617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   countSouls: 0
+  posForSoulDelivired: {fileID: 0}
 --- !u!222 &2015684287
 CanvasRenderer:
   m_ObjectHideFlags: 0
