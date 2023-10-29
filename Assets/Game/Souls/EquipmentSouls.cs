@@ -93,7 +93,7 @@ public class EquipmentSouls : MonoBehaviour
                     LevelDirector.SendNewQuestTarget(marina.souldelivered);
                 }
             }
-            LevelDirector.OnSoulDelivered();
+            
             _soul.GetAnim().SetBool("Idle", true);
             
             _soul.gameObject.transform.position = _soulPos.position;
@@ -118,6 +118,8 @@ public class EquipmentSouls : MonoBehaviour
                 _soul.GetAnim().SetBool("Idle", false);
                 _soul = null;
                 isSoul = false;
+                LevelDirector.OnSoulDelivered();
+                LevelDirector.SendNewQuestTarget(LevelDirector.firstPier);
                 if (Random.Range(0, 2) == 1)
                 {
                     UIDirector.SendMessage(Messages.sounIsWaiting, 4f);
