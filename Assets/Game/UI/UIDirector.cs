@@ -17,6 +17,7 @@ namespace UI
         [SerializeField] private GameObject _winScreen;
         [SerializeField] private GameObject _shopScreen;
         [SerializeField] private GameObject _HTPScreen;
+        [SerializeField] private GameObject _QTE;
 
         [SerializeField] private GameObject _map;
         [SerializeField] private Camera _mapCam;
@@ -34,6 +35,7 @@ namespace UI
         private static GameObject winScreen;
         private static GameObject shopScreen;
         private static GameObject HTPScreen;
+        private static GameObject QTE;
 
         private static GameObject map;
         private static MessageBox messageBox;
@@ -65,6 +67,7 @@ namespace UI
             HTPScreen = _HTPScreen;
             map = _map;
             messageBox = _messageBox;
+            QTE = _QTE;
 
             player = FindAnyObjectByType<Haron.HaronController>().transform;
         }
@@ -172,6 +175,7 @@ namespace UI
             shopScreen.SetActive(false);
             HTPScreen.SetActive(false);
             map.SetActive(false);
+            QTE.SetActive(false);
         }
     }
 }
