@@ -11,11 +11,14 @@ public class DamageArea : MonoBehaviour
     {        
         hc = FindObjectOfType<HaronController>();
     }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(1);
         if (collision.GetComponent<IDamagable>() != null)
         {
-            Debug.Log(1);
+            Debug.Log(2);
             collision.GetComponent<IDamagable>().GetDamage(hc.damage);
         }
         

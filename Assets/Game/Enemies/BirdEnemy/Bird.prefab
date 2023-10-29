@@ -57,7 +57,7 @@ MonoBehaviour:
   distanceVisible: 7
   damage: 2
   cooldownTime: 2.54
-  distanceForDamage: 3.16
+  distanceForDamage: 2.89
   _anim: {fileID: 3231264251989662946}
   _hit: {fileID: 8300000, guid: 62f456268c301a64a8bc8a565e040030, type: 3}
   _attack: {fileID: 8300000, guid: ee01d5f1e2bc9a545836338894eb10d7, type: 3}
@@ -143,7 +143,7 @@ AudioSource:
   m_GameObject: {fileID: 308277436389702658}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 759345075090503617, guid: 05ed8b25989fb0b4e98bbb001193011e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.056
