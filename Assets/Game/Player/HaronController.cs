@@ -57,7 +57,7 @@ namespace Haron
         //local
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
-        private GameplayUI UI;
+        internal GameplayUI UI;
         internal bool isF = false;
 
         public DirectionState DirectionState { get => directionState; internal set => directionState = value; }
@@ -117,6 +117,7 @@ namespace Haron
             if (currentTimeCooldawnDash >= cooldownDash)
             {
                 isReloadDash = true;
+                UI.SetDashValue(currentTimeCooldawnDash, cooldownDash);
             }
             else
             {
@@ -132,7 +133,7 @@ namespace Haron
             }
 
             if (isDash)
-            {
+            {                
                 Invoke("ResetIsActiveDash", timeCaiot);
             }
 
@@ -149,6 +150,7 @@ namespace Haron
         private void ResetIsActiveDash()
         {
             isDash = false;
+ 
         }
         private void ResetIsActiveF()
         {
@@ -174,8 +176,10 @@ namespace Haron
         }
         public void SetBehaviorDash()
         {
+            
             var behavior = this.GetBehavior<HaronDashBehavior>();
             this.SetBehavior(behavior);
+
         }
 
         public void SetBehaviorDeath()
