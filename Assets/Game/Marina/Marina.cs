@@ -31,13 +31,15 @@ public class Marina : MonoBehaviour
         {
             gameplayUI.ShowHelpText(HelpShop, true);
             canOpenShop = true;
+            UIDirector.SendMessage("Чтобы взять или сдать призрака нажмите E", 5f);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            gameplayUI.ShowHelpText(HelpShop, true);
+            gameplayUI.ShowHelpText(HelpShop, false);
+            
             canOpenShop = false;
         }
     }

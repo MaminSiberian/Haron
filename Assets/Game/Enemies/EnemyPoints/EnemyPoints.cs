@@ -44,11 +44,11 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
 
     private void OnDisable()
     {
-        LevelDirector.OnRespawn -= OnReset;
+        LevelDirector.OnRespawn -= Reset;
     }
     private void OnEnable()
     {
-        LevelDirector.OnRespawn += OnReset;
+        LevelDirector.OnRespawn += Reset;
     }
     private void Start()
     {
@@ -184,7 +184,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
         bloodParticel.SetActive(false);
         StopCoroutine(Blood());
     }
-    public void OnReset()
+    public void Reset()
     {
         transform.position = _startpos.position;
         health = maxHealth;
