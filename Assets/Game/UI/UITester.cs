@@ -36,4 +36,14 @@ public class UITester : MonoBehaviour
     {
         gameplayUI.SetHPValue(hpChange);
     }
+    [Button]
+    private void SendDeliverSoul()
+    {
+        UIDirector.SendMessage(Messages.deliverSoul, 3f);
+    }
+    [Button]
+    private void SendSoulIsWaiting()
+    {
+        UIDirector.SendMessage(Messages.sounIsWaiting, 3f);
+    }
 }
