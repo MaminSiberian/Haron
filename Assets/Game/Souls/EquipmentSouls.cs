@@ -40,7 +40,7 @@ public class EquipmentSouls : MonoBehaviour
             {
                 if(_soul.GetMarinaId() == _marina.index)
                 {
-                    UIDirector.ActivePressF();
+                    
                 }
             }
             
@@ -61,7 +61,7 @@ public class EquipmentSouls : MonoBehaviour
         {
             _isMarina = false;
             _marina = null;
-            UIDirector.DisablePressF();
+            
         }
 
     }
@@ -100,7 +100,7 @@ public class EquipmentSouls : MonoBehaviour
                 _soul = null;
                 isSoul = false;
             }
-            UIDirector.DisablePressF();
+            
         }
         if (_soul != null && isSoul)
         {
@@ -117,7 +117,7 @@ public class EquipmentSouls : MonoBehaviour
             SoulsInfo soul = SoulsId[i];
             if (soul.Marinaid == _marina.index)
             {
-                UIDirector.ActivePressF();
+                
             }
         }
 
