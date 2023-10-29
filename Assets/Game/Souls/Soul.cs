@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Soul : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private SoulsInfo _soulData;
 
     private int _index;
@@ -37,7 +38,10 @@ public class Soul : MonoBehaviour
     
     private void Update()
     {
-        if(currentCooldown < 0 && !_source.isPlaying)
+        if (Input.GetAxis("Horizontal") < 0) _spriteRenderer.flipX = true;
+        if (Input.GetAxis("Horizontal") > 0) _spriteRenderer.flipX = false;
+
+        if (currentCooldown < 0 && !_source.isPlaying)
         {
             _source.PlayOneShot(FX[Random.Range(0, FX.Length - 1)]);
             currentCooldown = cooldown;
