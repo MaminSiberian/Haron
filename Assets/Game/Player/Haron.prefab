@@ -58,13 +58,13 @@ MonoBehaviour:
   maxHP: 100
   CurrentHP: 0
   areaAttack: {fileID: 6567053885362655993}
-  delayAttack: 0.15
+  delayAttack: 0.4
   distanceAttack: 2
   durationAttack: 0.3
   cooldownAttack: 0.5
   damage: 10
   timeCaiot: 0.1
-  speedMove: 50
+  speedMove: 100
   dashCurve:
     serializedVersion: 2
     m_Curve:
@@ -102,8 +102,8 @@ MonoBehaviour:
   cooldownDash: 1.5
   durationDash: 0.2
   spriteRenderer: {fileID: 9041542468023187736}
-  bloodParticel: {fileID: 0}
-  healParticle: {fileID: 0}
+  bloodParticel: {fileID: 6348715660543492187}
+  healParticle: {fileID: 8357969441134616941}
   directionState: 0
   state: 0
   directionMove: {x: 0, y: 0}
@@ -898,6 +898,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6165478247620629044, guid: e01d61f1f25c32943ac78e6414e2e8ab, type: 3}
   m_PrefabInstance: {fileID: 6565614165371455894}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6348715660543492187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 218024417771030989, guid: e01d61f1f25c32943ac78e6414e2e8ab, type: 3}
+  m_PrefabInstance: {fileID: 6565614165371455894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8141361202983643296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -966,5 +971,10 @@ PrefabInstance:
 --- !u!4 &2696461204287650452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6165478247620629044, guid: e98286974901e764db9d06411c3a29c9, type: 3}
+  m_PrefabInstance: {fileID: 8141361202983643296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8357969441134616941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 218024417771030989, guid: e98286974901e764db9d06411c3a29c9, type: 3}
   m_PrefabInstance: {fileID: 8141361202983643296}
   m_PrefabAsset: {fileID: 0}
