@@ -1,7 +1,7 @@
 using Haron;
 using UnityEngine;
 
-public class BirdEnemy : MonoBehaviour, IDamagable, IHPÑontroller
+public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
 {
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;

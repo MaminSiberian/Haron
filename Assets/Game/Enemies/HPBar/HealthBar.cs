@@ -8,13 +8,13 @@ public class HealthBar : MonoBehaviour {
     MaterialPropertyBlock matBlock;
     MeshRenderer meshRenderer;
     Camera mainCamera;
-    IHPÑontroller HPconttroller;
+    IHPController HPconttroller;
 
     private void Awake() {
         meshRenderer = GetComponent<MeshRenderer>();
         matBlock = new MaterialPropertyBlock();
         // get the damageable parent we're attached to
-        HPconttroller = GetComponentInParent<IHPÑontroller>();
+        HPconttroller = GetComponentInParent<IHPController>();
     }
 
     private void Start() {
