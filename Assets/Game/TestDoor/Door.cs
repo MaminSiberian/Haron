@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
     private bool isOpen;
     private Animator _anim;
     private bool canOpen;
+    public GameplayUI GameplayUI;
+    private const string helpText = "Нажми Q, и дверь откроется, если у тебя есть ключ";
 
     private void Start()
     {
@@ -45,6 +47,7 @@ public class Door : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             canOpen = true;
+            GameplayUI.ShowHelpText(helpText, true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,6 +55,7 @@ public class Door : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             canOpen = false;
+            GameplayUI.ShowHelpText(helpText, false);
         }
     }
 

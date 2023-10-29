@@ -35,7 +35,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
 
     private void Awake()
     {
-        LevelDirector.AddObject(this.gameObject);
+        
     }
     private void Start()
     {
@@ -44,6 +44,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
         canMoveToPoints = true;
         isAttack = false;
         currentCooldownTime = _cooldownTime;
+        LevelDirector.AddObject(this.gameObject);
     }
 
     private void Update()

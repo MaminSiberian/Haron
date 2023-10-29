@@ -29,13 +29,14 @@ public class Whirlpool : MonoBehaviour
 
     private void Awake()
     {
-        LevelDirector.AddObject(this.gameObject);
+        
     }
     private void Start()
     {
         UI = FindObjectOfType<GameplayUI>();
         _source = GetComponent<AudioSource>();
         startVolume = _source.volume;
+        LevelDirector.AddObject(this.gameObject);
     }
 
 
