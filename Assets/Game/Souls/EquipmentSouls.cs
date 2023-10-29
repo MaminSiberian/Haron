@@ -134,7 +134,7 @@ public class EquipmentSouls : MonoBehaviour
     {
         if(isSoul)
         {
-            _soul.transform.position = _soul._startPos.position;
+            _soul.transform.position = _soul._startPos;
             _isPickUp = false;
             isSoul = false;
             _soul = null;

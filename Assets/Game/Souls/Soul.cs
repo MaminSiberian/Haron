@@ -16,7 +16,7 @@ public class Soul : MonoBehaviour
     private AudioSource _source;
     private float currentCooldown;
     [SerializeField] private Animator _anim;
-    public Transform _startPos;
+    public Vector3 _startPos;
 
     private void Start()
     {
@@ -30,11 +30,20 @@ public class Soul : MonoBehaviour
             _marinaId = _soulData.Marinaid;
             _color = _soulData.color;
         }
-        _startPos = transform;
+        
+        _startPos = transform.position;
+
         
     }
+    private void OnEnable()
+    {
+        LevelDirector.OnRespawn += Reset;
+    }
+    private void OnDisable()
+    {
+        LevelDirector.OnRespawn -= Reset;
+    }
 
-    
     private void Update()
     {
         if(currentCooldown < 0 && !_source.isPlaying)
@@ -52,7 +61,12 @@ public class Soul : MonoBehaviour
     public int GetIndex() { return _index; }
     public int GetMarinaId() { return _marinaId; }
 
-   
+
+    public void Reset()
+    {
+        transform.position = _startPos;
+
+    }
     public SoulsInfo GetSoulsInfo() { return _soulData; }
     public void SetSoulsInfo(SoulsInfo info) { _soulData = info; }
 
