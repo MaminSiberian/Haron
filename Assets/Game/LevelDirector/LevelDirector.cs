@@ -45,7 +45,6 @@ public class LevelDirector : MonoBehaviour
             FinishGame();
         }
         OnSoulDeliveredEvent?.Invoke();
-        Debug.Log("delivered");
     }
     private void OnItemPurchased(Item item)
     {
