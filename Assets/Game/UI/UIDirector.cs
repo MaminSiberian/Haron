@@ -117,9 +117,9 @@ namespace UI
 
         private void SetText()
         {
-            maxHPText.text = "Max HP - " + hc.maxHP.ToString();
-            damageText.text = "Damage - " + hc.damage.ToString();
-            cooldawnDashText.text = "Cooldawn Dash - " + hc.cooldownDash.ToString();
+            maxHPText.text = "Жизнь - " + hc.maxHP.ToString();
+            damageText.text = "Атака - " + hc.damage.ToString();
+            cooldawnDashText.text = "Перезарядка Ускорения - " + hc.cooldownDash.ToString();
         }
         public static void UnpauseGame()
         {
