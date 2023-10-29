@@ -32,6 +32,11 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     public int MaxHP { get => maxHealth; }
     public int CurrentHP { get => health; }
 
+
+    private void Awake()
+    {
+        LevelDirector.AddObject(this.gameObject);
+    }
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");

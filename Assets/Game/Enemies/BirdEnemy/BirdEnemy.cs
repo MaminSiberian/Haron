@@ -1,5 +1,6 @@
 using Haron;
 using System.Collections;
+using UI;
 using UnityEngine;
 
 public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
@@ -25,6 +26,11 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     public int MaxHP { get => maxHealth;  }
     public int CurrentHP { get => health; }
 
+
+    private void Awake()
+    {
+        LevelDirector.AddObject(this.gameObject);
+    }
 
     public void GetDamage(int damage)
     {
