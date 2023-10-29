@@ -16,6 +16,7 @@ public class LevelDirector : MonoBehaviour
     public static event Action OnKeysValueChangedEvent;
     public static event Action<Transform> OnQuestTargetChangedEvent;
     public static event Action OnGameFinishedEvent;
+    public static event Action OnRespawn;
 
     private static LevelDirector instance;
     private static DifficultyContoller dc;
@@ -35,6 +36,11 @@ public class LevelDirector : MonoBehaviour
     private void OnDisable()
     {
         Shop.OnItemPurchasedEvent -= OnItemPurchased;
+    }
+    public static void Respawn()
+    {
+        OnRespawn?.Invoke();
+        dc.ReloadWorld();
     }
     public static void SetStartPier(Transform pier)
     {
