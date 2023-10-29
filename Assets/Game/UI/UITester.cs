@@ -6,13 +6,19 @@ public class UITester : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float hpChange;
+    [SerializeField, Range(0, 100)] private float dashChange;
 
     private GameplayUI gameplayUI;
+    private float maxDash = 100;
 
     private void Start()
     {
         gameplayUI = FindAnyObjectByType<GameplayUI>();
         LevelDirector.SendNewQuestTarget(target);
+    }
+    private void Update()
+    {
+        gameplayUI.SetDashValue(dashChange, maxDash);
     }
 
     [Button]

@@ -7,7 +7,7 @@ public class GameplayUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI health;
     [SerializeField] private Slider healthBar;
-    [SerializeField] private Image dash;
+    [SerializeField] private Slider dashBar;
     [SerializeField] private TextMeshProUGUI coins;
     [SerializeField] private TextMeshProUGUI souls;
     [SerializeField] private TextMeshProUGUI keys;
@@ -25,8 +25,6 @@ public class GameplayUI : MonoBehaviour
         SetSoulsValue();
         SetKeysValue();
         SetQTEValye();
-
-        dash.enabled = true;
     }
 
     private void SetQTEValye()
@@ -56,13 +54,10 @@ public class GameplayUI : MonoBehaviour
         healthBar.value = value / maxHP;
         health.text = value.ToString();
     }
-    public void OnDashUsed()
+    public void SetDashValue(float currentValue, float maxValue)
     {
-        dash.enabled = false;
-    }
-    public void OnDashReady()
-    {
-        dash.enabled = true;
+        dashBar.gameObject.SetActive(currentValue < maxValue);
+        dashBar.value = currentValue / maxValue;
     }
 
     public void SetQTEValue(float value)
