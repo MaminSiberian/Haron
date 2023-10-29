@@ -32,6 +32,11 @@ public class HandsInWather : MonoBehaviour
     private AudioSource _source;
     private float startVolume;
 
+
+    private void Awake()
+    {
+        LevelDirector.AddObject(this.gameObject);
+    }
     private void Start()
     {
         UI = FindObjectOfType<GameplayUI>();
