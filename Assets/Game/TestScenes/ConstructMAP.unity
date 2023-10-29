@@ -1819,6 +1819,7 @@ MonoBehaviour:
   countSouls: 0
   souldelivered: {fileID: 0}
   posForSoulDelivired: {fileID: 0}
+  target: {fileID: 0}
 --- !u!222 &215576331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3131,6 +3132,7 @@ MonoBehaviour:
   countSouls: 0
   souldelivered: {fileID: 0}
   posForSoulDelivired: {fileID: 0}
+  target: {fileID: 0}
 --- !u!222 &371911958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -71356,6 +71358,7 @@ MonoBehaviour:
   countSouls: 0
   souldelivered: {fileID: 0}
   posForSoulDelivired: {fileID: 0}
+  target: {fileID: 0}
 --- !u!222 &1023454881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -73818,6 +73821,7 @@ MonoBehaviour:
   countSouls: 0
   souldelivered: {fileID: 0}
   posForSoulDelivired: {fileID: 0}
+  target: {fileID: 0}
 --- !u!222 &1409658806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -77302,6 +77306,7 @@ MonoBehaviour:
   countSouls: 0
   souldelivered: {fileID: 0}
   posForSoulDelivired: {fileID: 0}
+  target: {fileID: 0}
 --- !u!222 &2015684287
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -78008,10 +78013,6 @@ PrefabInstance:
     - target: {fileID: 439206585616091514, guid: 56c032cc86e12ed45857f8ec2b3e2481, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370364493808830214, guid: 56c032cc86e12ed45857f8ec2b3e2481, type: 3}
-      propertyPath: orthographic size
-      value: 12.43
       objectReference: {fileID: 0}
     - target: {fileID: 6504530409045283323, guid: 56c032cc86e12ed45857f8ec2b3e2481, type: 3}
       propertyPath: m_Name
