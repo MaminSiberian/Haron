@@ -21,11 +21,17 @@ public class InputController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             hc.isAttacking = true;
-            _anim.CrossFade("Attack", 0.01f);
+            Debug.Log("Animation commented");
+            //_anim.CrossFade("Attack", 0.01f);
         }
         if (Input.GetMouseButton(1))
         {
             hc.isDash = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            hc.isF = true;
         }
 
         DirectionAttack();

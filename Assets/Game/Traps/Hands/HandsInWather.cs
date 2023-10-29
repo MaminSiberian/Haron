@@ -23,6 +23,8 @@ public class HandsInWather : MonoBehaviour
     private IDamagable targetDamage;
     private GameplayUI UI;
     private bool isQTE = false;
+    private float distanceFirst;
+    private float distanceCurrent;
 
     private void Start()
     {
@@ -37,8 +39,9 @@ public class HandsInWather : MonoBehaviour
             currentForceQTE = 0;
             hc = collision.GetComponent<HaronController>();
             targetDamage = collision.GetComponent<IDamagable>();
-            hc.SetBehaviorQTE();
+            distanceFirst = Vector2.Distance(transform.position, hc.transform.position);
             Rotation(hc.transform.position - transform.position);
+            hc.SetBehaviorQTE();
             StartCoroutine(QTE());
             StartCoroutine(Damage());
             _anim.SetBool("IsAttack", true);
@@ -77,8 +80,9 @@ public class HandsInWather : MonoBehaviour
                 currentForceQTE -= reductionForceQTE * Time.fixedDeltaTime;
             else
                 currentForceQTE = 0;
-            if (Input.GetKeyDown(KeyCode.F))
+            if (hc.isF)
             {
+                hc.isF = false;
                 currentForceQTE += forceQTE;
             }
             UI.SetQTEValue(currentForceQTE);
@@ -109,7 +113,10 @@ public class HandsInWather : MonoBehaviour
     private IEnumerator PushObject()
     {
         var startTime = Time.time;
-        hc.SetBehaviorFloating();
+        distanceCurrent = Vector2.Distance(transform.position, hc.transform.position);
+        float onePercentDist = (distanceFirst * 0.01f);
+        float percentDist = (100 - (distanceCurrent / onePercentDist)) * 0.01f;
+        Debug.Log(distanceFirst + " " + distanceCurrent + " " + percentDist);
         while (Time.time < startTime + duration)
         {
             var t = (Time.time - startTime) / duration;
@@ -117,6 +124,7 @@ public class HandsInWather : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         StopCoroutine(QTE());
+        hc.SetBehaviorFloating();
         _anim.SetBool("IsAttack", false);
         StopCoroutine(PushObject());
 
@@ -129,12 +137,14 @@ public class HandsInWather : MonoBehaviour
         float angle = AccessoryMetods.GetAngleFromVectorFloat(direction);
         if ((angle < 90) || (angle >= 270))
         {
-            hc.transform.rotation = Quaternion.Euler(0, 0, 0);
+            hc.transform.localScale = Vector2.one;
+            //hc.transform.rotation = Quaternion.Euler(0, 0, 0);
             hc.DirectionState = DirectionState.right;
         }
         else if ((angle >= 90) && (angle < 270))
         {
-            hc.transform.rotation = Quaternion.Euler(0, 0, 180);
+            hc.transform.localScale = new Vector3(-1, 1, 1);
+            // hc.transform.rotation = Quaternion.Euler(0, 0, 180);
             hc.DirectionState = DirectionState.left;
         }
 

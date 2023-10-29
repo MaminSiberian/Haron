@@ -41,6 +41,7 @@ namespace Haron
         [Range(0f, 3f)][SerializeField] internal float cooldownDash;
         [Range(0f, 1f)][SerializeField] internal float durationDash;
         [Space]
+        [SerializeField] internal SpriteRenderer spriteRenderer;
 
 
         //debug
@@ -54,11 +55,11 @@ namespace Haron
         [SerializeField] internal bool isDash;
         [SerializeField] internal bool isReloadDash;
         [SerializeField] internal float currentTimeCooldawnDash;
-        [SerializeField] internal SpriteRenderer spriteRenderer;
         //local
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
         private GameplayUI UI;
+        internal bool isF = false;
 
         public DirectionState DirectionState { get => directionState; internal set => directionState = value; }
         public HaronBehavior State { get => state; internal set => state = value; }
@@ -143,6 +144,11 @@ namespace Haron
             {
                 Invoke("ResetIsActiveDash", timeCaiot);
             }
+
+            if (isF)
+            {
+                Invoke("ResetIsActiveF", timeCaiot);
+            }
         }
         private void ResetIsActiveAttack()
         {
@@ -152,7 +158,10 @@ namespace Haron
         private void ResetIsActiveDash()
         {
             isDash = false;
-
+        }
+        private void ResetIsActiveF()
+        {
+            isF = false;
         }
 
         public void SetBehaviorFloating()
