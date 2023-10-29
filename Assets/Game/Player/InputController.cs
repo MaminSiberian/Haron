@@ -22,7 +22,8 @@ public class InputController : MonoBehaviour
         {
             hc.isAttacking = true;
             Debug.Log("Animation commented");
-            _anim.CrossFade("Attack", 0.01f);
+            if (hc.isAttacEND) 
+                _anim.CrossFade("Attack", 0.01f);
         }
         if (Input.GetMouseButton(1))
         {
@@ -44,7 +45,7 @@ public class InputController : MonoBehaviour
         var y = Input.GetAxis("Vertical");
 
         hc.directionMove = new Vector2(x, y).normalized;
-        if(hc.directionMove != Vector2.zero)
+        if (hc.directionMove != Vector2.zero)
         {
             _anim.SetBool("Greblya", true);
         }

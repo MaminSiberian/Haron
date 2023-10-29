@@ -16,6 +16,7 @@ namespace Haron
         }
         public void Enter()
         {
+            hc.isAttacEND = false;
             cuurentDelayAttack = 0;
             hc.State = HaronBehavior.Attack;
             currentTimeAttack = 0;            
@@ -24,7 +25,7 @@ namespace Haron
 
         public void Exit()
         {
-
+            hc.isAttacEND = true;
         }
 
         public void UpdateBehavior()
@@ -35,12 +36,14 @@ namespace Haron
             {
                 Debug.Log(1);
                 hc.areaAttack.gameObject.SetActive(true);
+                hc.areaAttack.localScale = Vector3.one;
                 currentTimeAttack += Time.fixedDeltaTime;
                 currentTimeCooldown += Time.fixedDeltaTime;
                 if (currentTimeAttack >= hc.durationAttack)
                 {
                     Debug.Log(2);
                     hc.areaAttack.gameObject.SetActive(false);
+                    hc.areaAttack.localScale = Vector3.zero;
                 }
 
                 //if (hc.directionAttack != Vector2.zero)

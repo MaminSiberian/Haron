@@ -28,7 +28,6 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     public void GetDamage(int damage)
     {
         health -= damage;
-        Debug.Log("5");
         _anim.SetTrigger("Hit");
         _source.PlayOneShot(_hit);
         if(health <= 0f)

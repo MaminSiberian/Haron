@@ -51,6 +51,7 @@ namespace Haron
         [SerializeField] internal Rigidbody2D rb;
         [SerializeField] Vector2 velosity;
         [SerializeField] internal bool isAttacking = false;
+        [SerializeField] internal bool isAttacEND = true;
         [SerializeField] internal bool isDash;
         [SerializeField] internal bool isReloadDash;
         [SerializeField] internal float currentTimeCooldawnDash;
