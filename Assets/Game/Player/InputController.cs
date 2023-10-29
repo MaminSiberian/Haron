@@ -1,6 +1,7 @@
 using Haron;
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -9,6 +10,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private HaronController hc;
     [SerializeField] internal Camera mainCamera;
     [SerializeField] private Animator _anim;
+    
     private Ray ray;
 
     private void Start()
@@ -33,6 +35,16 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             hc.isF = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UIDirector.PauseGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            UIDirector.OpenMap();
         }
 
         DirectionAttack();
