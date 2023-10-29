@@ -115,7 +115,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3405090913461356731}
-  - component: {fileID: 1979286373230923518}
   - component: {fileID: 8552746934637260341}
   m_Layer: 0
   m_Name: 'KillingCollider (Missing Prefab with guid: 626aaddd8d0ff1e4e954a7e27b50406c)'
@@ -173,7 +172,7 @@ Transform:
   - {fileID: 3405090913461356731}
   - {fileID: 6172577359929089600}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6286860868283498375
 MonoBehaviour:
@@ -462,23 +461,8 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6032078762826273348, guid: 626aaddd8d0ff1e4e954a7e27b50406c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1979286373230923518}
-    - targetCorrespondingSourceObject: {fileID: 6032078762826273348, guid: 626aaddd8d0ff1e4e954a7e27b50406c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8552746934637260341}
   m_SourcePrefab: {fileID: 100100000, guid: 626aaddd8d0ff1e4e954a7e27b50406c, type: 3}
---- !u!114 &1979286373230923518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3974224424385125304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007e735fd002f0e428a215b040ec6ac2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &8552746934637260341
 PolygonCollider2D:
   m_ObjectHideFlags: 0

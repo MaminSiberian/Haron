@@ -265,7 +265,7 @@ Transform:
   - {fileID: 8652059222466401844}
   - {fileID: 5110281664609249539}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7107493108130261363
 GameObject:
@@ -365,6 +365,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 517a5179513d48e4986c6e1e9799484f, type: 3}
   - {fileID: 8300000, guid: 896844388855b924fa99de65e6be11af, type: 3}
   _soundDeath: {fileID: 8300000, guid: cd73b13bc7b05294aa4e9e71355a90fe, type: 3}
+  _soundAttack: {fileID: 8300000, guid: 7ab04f17794ad5043872bb1a12c481ad, type: 3}
   cooldownSound: 3.4
   _rb: {fileID: 1004250095876534139}
   _anim: {fileID: 7853957665580099876}

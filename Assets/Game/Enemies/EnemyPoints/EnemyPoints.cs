@@ -18,6 +18,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     [SerializeField] private GameObject _parentGameObject;
     [SerializeField] private AudioClip[] _soundsIdle;
     [SerializeField] private AudioClip _soundDeath;
+    [SerializeField] private AudioClip _soundAttack;
     [SerializeField] private float cooldownSound;
 
     [SerializeField] private Rigidbody2D _rb;
@@ -102,6 +103,7 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     private IEnumerator Attack()
     {
         yield return new WaitForSeconds(animOffsetTakeDamage);
+        _source.PlayOneShot(_soundAttack);
         _player.GetComponent<HaronController>().GetDamage(damage);
 
     }
