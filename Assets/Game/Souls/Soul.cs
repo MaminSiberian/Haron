@@ -67,7 +67,8 @@ public class Soul : MonoBehaviour
         {
             transform.position = Vector2.Lerp(transform.position, pos.position, Time.deltaTime * moveSpeed);
             yield return new WaitForSeconds(Time.deltaTime);
-            if(transform.position == pos.position)
+            float distance = Vector2.Distance(transform.position, pos.position);
+            if(distance <= 0.3f)
             {
                 yield return new WaitForSeconds(2f);
                 Destroy(gameObject);
