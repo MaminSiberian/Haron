@@ -9,7 +9,7 @@ namespace Haron
 {
     public enum DirectionState
     {
-        right,left
+        right, left
     }
 
     public enum HaronBehavior
@@ -42,7 +42,8 @@ namespace Haron
         [Range(0f, 1f)][SerializeField] internal float durationDash;
         [Space]
         [SerializeField] internal SpriteRenderer spriteRenderer;
-
+        [SerializeField] internal GameObject bloodParticel;
+        [SerializeField] internal GameObject healParticle;
 
         //debug
         [SerializeField] private DirectionState directionState;
@@ -60,9 +61,9 @@ namespace Haron
         private Dictionary<Type, IHaronBehavior> behavioraMap;
         internal IHaronBehavior behaviorCurrent;
         internal GameplayUI UI;
-        
+
         internal bool isF = false;
-        
+
 
         public DirectionState DirectionState { get => directionState; internal set => directionState = value; }
         public HaronBehavior State { get => state; internal set => state = value; }
@@ -82,7 +83,7 @@ namespace Haron
             LevelDirector.OnRespawn += OnRespawn;
         }
         private void OnDisable()
-        {            
+        {
             LevelDirector.OnRespawn -= OnRespawn;
         }
 
@@ -103,7 +104,7 @@ namespace Haron
             this.behavioraMap[typeof(HaronAttackBehavior)] = new HaronAttackBehavior(this);
             this.behavioraMap[typeof(HaronDashBehavior)] = new HaronDashBehavior(this);
             this.behavioraMap[typeof(HaronQTEBehavior)] = new HaronQTEBehavior(this);
-            this.behavioraMap[typeof(HaronDeathBehavior)] = new HaronDeathBehavior(this);          
+            this.behavioraMap[typeof(HaronDeathBehavior)] = new HaronDeathBehavior(this);
         }
         private void SetBehaviorDefault()
         {
@@ -141,7 +142,7 @@ namespace Haron
             if (currentTimeCooldawnDash >= cooldownDash)
             {
                 isReloadDash = true;
-               
+
             }
             else
             {
@@ -157,7 +158,7 @@ namespace Haron
             }
 
             if (isDash)
-            {                
+            {
                 Invoke("ResetIsActiveDash", timeCaiot);
             }
 
@@ -174,7 +175,7 @@ namespace Haron
         private void ResetIsActiveDash()
         {
             isDash = false;
- 
+
         }
         private void ResetIsActiveF()
         {
@@ -200,7 +201,7 @@ namespace Haron
         }
         public void SetBehaviorDash()
         {
-            
+
             var behavior = this.GetBehavior<HaronDashBehavior>();
             this.SetBehavior(behavior);
         }
@@ -216,7 +217,7 @@ namespace Haron
             if (CurrentHP - damage > 0)
             {
                 CurrentHP -= damage;
-                
+                StartCoroutine(Blood());
             }
             else
             {
@@ -229,6 +230,7 @@ namespace Haron
 
         public void GetHeal(int healPoint)
         {
+            StartCoroutine(Heal());
             if (CurrentHP + healPoint < maxHP)
             {
                 CurrentHP += healPoint;
@@ -238,6 +240,22 @@ namespace Haron
                 CurrentHP = maxHP;
             }
             UI.SetHPValue(CurrentHP);
+        }
+
+        IEnumerator Blood()
+        {
+            bloodParticel.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            bloodParticel.SetActive(false);
+            StopCoroutine(Blood());
+        }
+
+        IEnumerator Heal()
+        {
+            healParticle.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            healParticle.SetActive(false);
+            StopCoroutine(Heal());
         }
     }
 }
