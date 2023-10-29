@@ -1,7 +1,7 @@
 using Haron;
 using UnityEngine;
 
-public class EnemyPoints : MonoBehaviour, IDamagable, IHPÑontroller
+public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
 {
     private GameObject _player;
     [SerializeField] private int health;
