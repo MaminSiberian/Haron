@@ -3937,7 +3937,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -2283255441857533123, guid: 05ed8b25989fb0b4e98bbb001193011e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.171
+  m_Volume: 0.14
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9547,8 +9547,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bfb0481cb248ec54ebc1abb7fcb084ed, type: 3}
   - {fileID: 8300000, guid: 213d312c904fd534c820f07cd15111f3, type: 3}
   - {fileID: 8300000, guid: a49362344aaafad479514aa245665b95, type: 3}
-  - {fileID: 8300000, guid: 028c02147a5f4fe40969014df9e534e1, type: 3}
-  startCooldownMusic: 25
+  - {fileID: 8300000, guid: 66fec225565f36845b15081cc0d35f1f, type: 3}
+  - {fileID: 8300000, guid: 7d26eafea25654f4085c9c9fa203ac4d, type: 3}
+  - {fileID: 8300000, guid: 8d55552af1711164aad56fa3f9d10425, type: 3}
+  - {fileID: 8300000, guid: 7d64cfd5850f51244959e0cd3bf0163a, type: 3}
+  - {fileID: 8300000, guid: 9fc2aa41bd38fbb4eac88dc416ffb61a, type: 3}
+  startCooldownMusic: 10
 --- !u!1001 &1565500962
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -230,7 +230,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _anim:
   - {fileID: 337268951643624160}
-  _attack: {fileID: 8300000, guid: 028c02147a5f4fe40969014df9e534e1, type: 3}
+  _attack: {fileID: 8300000, guid: a49362344aaafad479514aa245665b95, type: 3}
 --- !u!60 &7626866548365822011
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -300,7 +300,7 @@ AudioSource:
   m_GameObject: {fileID: 7477705502040306477}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 759345075090503617, guid: 05ed8b25989fb0b4e98bbb001193011e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.087
