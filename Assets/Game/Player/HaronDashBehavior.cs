@@ -17,7 +17,6 @@ public class HaronDashBehavior : IHaronBehavior
     }
     public void Enter()
     {
-        //hc.UI.OnDashUsed();
         hc.State = HaronBehavior.Dash;
         DirectionDash = hc.directionMove;
         startDash = Time.time;
@@ -28,7 +27,6 @@ public class HaronDashBehavior : IHaronBehavior
     public void Exit()
     {
         hc.currentTimeCooldawnDash = 0;
-        //hc.UI.OnDashReady();
     }
 
     public void UpdateBehavior()
