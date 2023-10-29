@@ -59,7 +59,6 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             isAttack = false;
         }
         currentcdTime -= Time.deltaTime;
-        Debug.Log(currentcdTime);
     }
 
     private void OnDrawGizmos()
@@ -78,8 +77,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
     {
         if(currentcdTime < 0f)
         {
-            //Play Animation with event method GiveDamage()
-            Debug.Log("Attack");
+            _player.GetComponent<HaronController>().GetDamage(damage);
             _anim.SetTrigger("Attack");
             currentcdTime = cooldownTime;
         }

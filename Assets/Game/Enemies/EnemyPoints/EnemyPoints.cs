@@ -1,4 +1,5 @@
 using Haron;
+using NaughtyAttributes.Test;
 using UnityEngine;
 
 public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
@@ -7,10 +8,10 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private int damage;
+    [SerializeField] internal int damage;
     [SerializeField] private float _distanceVisible;
-    [SerializeField] private float _cooldownTime;
-    private float currentCooldownTime;
+    [SerializeField] internal float _cooldownTime;
+    internal float currentCooldownTime;
     [SerializeField] private Transform[] _points;
     [SerializeField, Range(0.5f, 5f)] private float distanceForDamage = 0.7f;
     [SerializeField] private GameObject _parentGameObject;
@@ -38,13 +39,16 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     {
         
         float distance = Vector2.Distance(_player.transform.position, transform.position);
-        if(distance < _distanceVisible)
+        if (distance < _distanceVisible)
         {
             isAttack = true;
+            _anim.SetBool("IsRun", true);
         }
-        else 
+        else
+        {
             isAttack = false;
-
+            _anim.SetBool("IsRun", false);
+        }
         if (!isAttack && canMoveToPoints)
         {
             Move();
@@ -55,12 +59,14 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
             {
                 if(currentCooldownTime < 0)
                 {
-                    //PlayAnimation with event
+                    _anim.SetBool("IsRun", false);
+                    _anim.SetTrigger("Attack");
                     
                 }
             }
             else if(distance > distanceForDamage)
             {
+                _anim.SetBool("IsRun", true);
                 transform.position = Vector2.Lerp(transform.position,
                     _player.transform.position, _moveSpeed * Time.deltaTime * 0.2f);
             }

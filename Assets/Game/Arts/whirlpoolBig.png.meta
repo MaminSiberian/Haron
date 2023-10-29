@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,9 +106,371 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: whirlpoolBig_0
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 15
+        width: 245
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa4f22a81e99704ebac24fa81b85a4d
+      internalID: -1826000902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_1
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 7
+        width: 245
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dde974d04a6080419a8ebbfa9ce5a8f
+      internalID: -1464752952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_2
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 7
+        width: 252
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95ebd25fe472ba4f84a6f4317708626
+      internalID: 1814442518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_3
+      rect:
+        serializedVersion: 2
+        x: 2256
+        y: 474
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71885ae6e89a33d40976a952d83002a8
+      internalID: 173832752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_4
+      rect:
+        serializedVersion: 2
+        x: 2766
+        y: 465
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7999f09ca8d66d84089d766b94a4cbc5
+      internalID: -739570304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_5
+      rect:
+        serializedVersion: 2
+        x: 4112
+        y: 0
+        width: 370
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a550147b5feea499080bae2d2d50f4
+      internalID: 2077821136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_6
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 28
+        width: 228
+        height: 442
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bbfbf34a263c74eaf80113960a3ae0
+      internalID: 875143750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_7
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 15
+        width: 245
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6e5e65c8c5b9e4f869951416724359
+      internalID: -911053553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_8
+      rect:
+        serializedVersion: 2
+        x: 2620
+        y: 15
+        width: 236
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11db225f5f240bd479dff1d5b48366db
+      internalID: -166099880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_9
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 28
+        width: 221
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f154e91e05e6fd4eac250becf7fe6de
+      internalID: 1375759636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_10
+      rect:
+        serializedVersion: 2
+        x: 3289
+        y: 441
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91c739731970a940b782a7f29e464a5
+      internalID: -2146822667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_11
+      rect:
+        serializedVersion: 2
+        x: 3624
+        y: 37
+        width: 221
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5f00cc20febde43ae1be3190fc2abb
+      internalID: 1465756919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_12
+      rect:
+        serializedVersion: 2
+        x: 3609
+        y: 341
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef31e882891a18d48a56deaeb7d9c768
+      internalID: 581192973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_13
+      rect:
+        serializedVersion: 2
+        x: 3103
+        y: 310
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5acbc373755c59b49b2fdc4620df9d42
+      internalID: 1260697177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_14
+      rect:
+        serializedVersion: 2
+        x: 2604
+        y: 256
+        width: 11
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4dbec90355dee448b93b2d925b054a
+      internalID: -1242409094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whirlpoolBig_15
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 225
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7dcaafd240ad34418f54f200f71de86
+      internalID: -1420720115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +481,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      whirlpoolBig_0: -1826000902
+      whirlpoolBig_1: -1464752952
+      whirlpoolBig_10: -2146822667
+      whirlpoolBig_11: 1465756919
+      whirlpoolBig_12: 581192973
+      whirlpoolBig_13: 1260697177
+      whirlpoolBig_14: -1242409094
+      whirlpoolBig_15: -1420720115
+      whirlpoolBig_2: 1814442518
+      whirlpoolBig_3: 173832752
+      whirlpoolBig_4: -739570304
+      whirlpoolBig_5: 2077821136
+      whirlpoolBig_6: 875143750
+      whirlpoolBig_7: -911053553
+      whirlpoolBig_8: -166099880
+      whirlpoolBig_9: 1375759636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
