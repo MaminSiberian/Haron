@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 30
+  maxHealth: 25
   moveSpeed: 1.5
   distanceVisible: 10
   damage: 2

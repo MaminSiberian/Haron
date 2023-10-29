@@ -11,7 +11,7 @@ public class HealingPotion : MonoBehaviour
         if (collision.GetComponent<IHealing>() != null)
         {
             collision.GetComponent<IHealing>().GetHeal(givesHP);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
