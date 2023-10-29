@@ -23,7 +23,7 @@ public class DifficultyContoller : MonoBehaviour
         LevelDirector.OnSoulDeliveredEvent -= ReloadWorld;
     }
 
-    private void ReloadWorld()
+    public void ReloadWorld()
     {
         TurnOffObjects();
 
