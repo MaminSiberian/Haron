@@ -73,7 +73,6 @@ public class HandsInWather : MonoBehaviour
         isQTE = true;
         UI.SetActiveQTE();
         StartCoroutine(BlinkF());
-        //currentForceQTE = targetForceQTE / 3;
         while (currentForceQTE < targetForceQTE)
         {
             if (currentForceQTE > 0)

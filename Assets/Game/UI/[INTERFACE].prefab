@@ -5713,7 +5713,7 @@ Transform:
   - {fileID: 7521935487439777339}
   - {fileID: 1753252337697498547}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6571534040944481402
 GameObject:
@@ -7644,7 +7644,7 @@ MonoBehaviour:
   _gameOverScreen: {fileID: 7320878038704111039}
   _winScreen: {fileID: 623788447293427020}
   _shopScreen: {fileID: 1838167875752834384}
-  _pressFScreen: {fileID: 0}
+  _pressFScreen: {fileID: 6618254475264692968}
   _map: {fileID: 3551166056972260212}
   _mapCam: {fileID: 7919854692500011422}
   _minimapCam: {fileID: 1370364493808830214}
