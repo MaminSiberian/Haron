@@ -29,7 +29,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
 
     private void Awake()
     {
-        LevelDirector.AddObject(this.gameObject);
+        
     }
 
     public void GetDamage(int damage)
@@ -42,6 +42,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPController
             _anim.SetTrigger("Death");
             Death();
         }
+        LevelDirector.AddObject(this.gameObject);
     }
 
     private void Start()
