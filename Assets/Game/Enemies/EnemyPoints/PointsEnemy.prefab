@@ -364,7 +364,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ae258616749713c42abb1c4e748b541e, type: 3}
   - {fileID: 8300000, guid: 517a5179513d48e4986c6e1e9799484f, type: 3}
   - {fileID: 8300000, guid: 896844388855b924fa99de65e6be11af, type: 3}
-  _soundDeath: {fileID: 8300000, guid: 6a1799e9a4495e844b0b7eeacedd6856, type: 3}
+  _soundDeath: {fileID: 8300000, guid: cd73b13bc7b05294aa4e9e71355a90fe, type: 3}
   cooldownSound: 3.4
   _rb: {fileID: 1004250095876534139}
   _anim: {fileID: 7853957665580099876}

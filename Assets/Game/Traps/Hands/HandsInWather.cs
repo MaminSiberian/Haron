@@ -1,6 +1,7 @@
 using Haron;
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class HandsInWather : MonoBehaviour
@@ -54,7 +55,10 @@ public class HandsInWather : MonoBehaviour
 
             StartCoroutine(Anim());
             _source.PlayOneShot(_attack);
-
+            if (Random.Range(0, 1) == 1)
+            {
+                UIDirector.SendMessage(Messages.handsAttacking, 3f);
+            }
         }
     }
 
