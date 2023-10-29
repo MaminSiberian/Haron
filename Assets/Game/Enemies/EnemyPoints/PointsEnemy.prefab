@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 5746842894231601223}
   - component: {fileID: 2374760914568995229}
   - component: {fileID: 7853957665580099876}
-  - component: {fileID: 1521450330311783311}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -138,19 +137,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1521450330311783311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013234333227638787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 653f88a69a4c2da4a903a377e22b1a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _parent: {fileID: 6661133386323786760}
 --- !u!1 &2165056267467012258
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,18 +349,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 15
   maxHealth: 15
-  _moveSpeed: 1
-  damage: 2
-  _distanceVisible: 4
-  _cooldownTime: 2
+  _moveSpeed: 1.64
+  damage: 8
+  _distanceVisible: 6.14
+  _cooldownTime: 1.4
   _points:
   - {fileID: 720062648816440030}
   - {fileID: 2555838855818545157}
   - {fileID: 7228624218362008302}
-  distanceForDamage: 3.31
+  distanceForDamage: 3.01
   _parentGameObject: {fileID: 5670907837631848384}
   _rb: {fileID: 1004250095876534139}
   _anim: {fileID: 7853957665580099876}
+  animOffsetTakeDamage: 0.06
 --- !u!50 &1004250095876534139
 Rigidbody2D:
   serializedVersion: 4

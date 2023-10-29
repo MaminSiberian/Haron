@@ -1,5 +1,6 @@
 using Haron;
 using NaughtyAttributes.Test;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
@@ -21,7 +22,8 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
     private bool canMoveToPoints;
     private bool cooldown;
     private int currentPoint;
-    [SerializeField]private Animator _anim;
+    [SerializeField] private Animator _anim;
+    [SerializeField] private float animOffsetTakeDamage;
 
     public int MaxHP { get => maxHealth; }
     public int CurrentHP { get => health; }
@@ -59,7 +61,8 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
                 if(currentCooldownTime < 0)
                 {
                     _anim.SetTrigger("Attack");
-                    
+                    StartCoroutine(Attack());
+                    currentCooldownTime = _cooldownTime;
                 }
             }
             else if(distance > distanceForDamage)
@@ -78,12 +81,13 @@ public class EnemyPoints : MonoBehaviour, IDamagable, IHPController
 
     }
 
-    private void Attack()
+    private IEnumerator Attack()
     {
+        yield return new WaitForSeconds(animOffsetTakeDamage);
         _player.GetComponent<HaronController>().GetDamage(damage);
-        currentCooldownTime = _cooldownTime;
 
     }
+    
     
 
     private void Move()
