@@ -53,6 +53,7 @@ namespace UI
         }
         private void Awake()
         {
+            Time.timeScale = 1f;
             target.SetActive(false);
 
             pauseButton = _pauseButton;
