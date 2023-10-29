@@ -1,16 +1,12 @@
 using System;
 using UnityEngine;
 using NaughtyAttributes;
-using Haron;
-using TMPro;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace UI
 {
     public class UIDirector : MonoBehaviour
     {
         #region FIELDS
-        [SerializeField] private Transform player;
         [SerializeField] private GameObject target;
         [SerializeField] private GameObject _pauseButton;
         [SerializeField] private GameObject _mapButton;
@@ -18,15 +14,11 @@ namespace UI
         [SerializeField] private GameObject _gameOverScreen;
         [SerializeField] private GameObject _winScreen;
         [SerializeField] private GameObject _shopScreen;
-        [SerializeField] private GameObject _pressFScreen;
 
         [SerializeField] private GameObject _map;
         [SerializeField] private Camera _mapCam;
         [SerializeField] private Camera _minimapCam;
-
-        [SerializeField] private TextMeshProUGUI maxHPText;
-        [SerializeField] private TextMeshProUGUI damageText;
-        [SerializeField] private TextMeshProUGUI cooldawnDashText;
+        [SerializeField] private MessageBox _messageBox;
 
         private static GameObject pauseButton;
         private static GameObject mapButton;
@@ -34,20 +26,15 @@ namespace UI
         private static GameObject gameOverScreen;
         private static GameObject winScreen;
         private static GameObject shopScreen;
-        private static GameObject pressFScreen;
 
         private static GameObject map;
+        private static MessageBox messageBox;
 
-        private HaronController hc;
-        private static bool isSetText = false;
+        private Transform player;
         //public static event Action OnGamePaused;
         //public static event Action OnGameUnpaused;
         #endregion
 
-        private void Start()
-        {
-            hc = FindObjectOfType<HaronController>();
-        }
         #region MONOBEHS
         private void Awake()
         {
@@ -60,7 +47,9 @@ namespace UI
             winScreen = _winScreen;
             shopScreen = _shopScreen;
             map = _map;
-            pressFScreen = _pressFScreen;
+            messageBox = _messageBox;
+
+            player = FindAnyObjectByType<Haron.HaronController>().transform;
         }
         private void OnEnable()
         {
@@ -78,14 +67,13 @@ namespace UI
         {
             _mapCam.transform.position = new Vector3(player.position.x, player.position.y, _mapCam.transform.position.z);
             _minimapCam.transform.position = new Vector3(player.position.x, player.position.y, _minimapCam.transform.position.z);
-            if (isSetText)
-            {
-                SetText();
-                isSetText = false;
-            }
         }
         #endregion
 
+        public static void SendMessage(string message, float time = 20f)
+        {
+            messageBox.SendMessage(message, time);
+        }
         private void OnQuestTargetChanged(Transform target)
         {
             if (target == null)
@@ -103,18 +91,7 @@ namespace UI
             Time.timeScale = 0f;
             TurnOffAll();
             pauseScreen.SetActive(true);
-            isSetText = true;
-            //maxHPText.text = value.ToString();
-
         }
-
-        private void SetText()
-        {
-            maxHPText.text = "Max HP - " + hc.maxHP.ToString();
-            damageText.text = "Damage - " + hc.damage.ToString();
-            cooldawnDashText.text = "Cooldawn Dash - " + hc.cooldownDash.ToString();
-        }
-
         public static void UnpauseGame()
         {
             TurnOffAll();
@@ -158,15 +135,5 @@ namespace UI
             shopScreen.SetActive(false);
             map.SetActive(false);
         }
-
-        public static void ActivePressF()
-        {
-            pressFScreen.SetActive(true);
-        }
-
-        public static void DisablePressF()
-        {
-            pressFScreen.SetActive(false);
-        }
-     }
+    }
 }

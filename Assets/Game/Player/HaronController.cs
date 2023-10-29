@@ -33,8 +33,6 @@ namespace Haron
         [Range(0f, 1f)][SerializeField] private float timeCaiot;
         [Space(10)]
         [Range(0f, 50f)][SerializeField] internal float speedMove;
-        //[SerializeField] internal AnimationCurve acceleration;
-        //[SerializeField] internal AnimationCurve deaceleration;
         [Space]
         [SerializeField] internal AnimationCurve dashCurve;
         [Range(0f, 100f)][SerializeField] internal float forceDash;
@@ -81,15 +79,7 @@ namespace Haron
             this.behavioraMap[typeof(HaronAttackBehavior)] = new HaronAttackBehavior(this);
             this.behavioraMap[typeof(HaronDashBehavior)] = new HaronDashBehavior(this);
             this.behavioraMap[typeof(HaronQTEBehavior)] = new HaronQTEBehavior(this);
-            this.behavioraMap[typeof(HaronDeathBehavior)] = new HaronDeathBehavior(this);
-            //this.behavioraMap[typeof(HookAIMBehavior)] = new HookAIMBehavior(this);
-            //this.behavioraMap[typeof(HookRotationBehavior)] = new HookRotationBehavior(this);
-            //this.behavioraMap[typeof(HookCatcEmptyhBehavior)] = new HookCatcEmptyhBehavior(this);
-            //this.behavioraMap[typeof(HookCatchPointBehavior)] = new HookCatchPointBehavior(this);
-            //this.behavioraMap[typeof(HookCathcEnemyAndProjectileBehavior)] = new HookCathcEnemyAndProjectileBehavior(this);
-            //this.behavioraMap[typeof(HookRotationWithObjectBehavior)] = new HookRotationWithObjectBehavior(this);
-            //this.behavioraMap[typeof(HookThrowCaptureObject)] = new HookThrowCaptureObject(this);
-            //this.behavioraMap[typeof(HookStunBehavior)] = new HookStunBehavior(this);
+            this.behavioraMap[typeof(HaronDeathBehavior)] = new HaronDeathBehavior(this);          
         }
         private void SetBehaviorDefault()
         {
