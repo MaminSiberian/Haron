@@ -84,6 +84,7 @@ public class EquipmentSouls : MonoBehaviour
                 }
             }
             LevelDirector.OnSoulDelivered();
+            _soul.GetAnim().SetBool("Idle", true);
             _soul.gameObject.transform.position = _soulPos.position;
 
             _isPickUp = false;
@@ -100,8 +101,10 @@ public class EquipmentSouls : MonoBehaviour
                 Wallet.GetCoins(2);
                 LevelDirector.SendNewQuestTarget(null);
                 _soul.StartMarinaMove(_marina.posForSoulDelivired);
+                _soul.GetAnim().SetBool("Idle", false);
                 _soul = null;
                 isSoul = false;
+                
             }
             
         }

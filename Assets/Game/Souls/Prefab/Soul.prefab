@@ -83,8 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f4a36992e5be44da149f1ee6c0c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soulData: {fileID: 0}
-  _renderer: {fileID: 0}
+  _soulData: {fileID: 11400000, guid: 74674b64964430746a21184d526c0dfe, type: 2}
   minCooldown: 10.38
   maxCooldown: 19.7
   moveSpeed: 0.09
@@ -94,6 +93,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 407cc0b7c07c28c47bf80520e1b8e807, type: 3}
   - {fileID: 8300000, guid: 1ff41b2daa39f4b4bb0ad88d3e046ae3, type: 3}
   - {fileID: 8300000, guid: ea2c10e298eca944a838d1b6898bac33, type: 3}
+  _anim: {fileID: 582258431532304266}
 --- !u!50 &1779114254158785159
 Rigidbody2D:
   serializedVersion: 4
@@ -312,7 +312,7 @@ Animator:
   m_GameObject: {fileID: 5911481481351000673}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2e1db67f50201d419ff30e112309a60, type: 2}
+  m_Controller: {fileID: 9100000, guid: 17baeb01880763e45abdf7dc78682636, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

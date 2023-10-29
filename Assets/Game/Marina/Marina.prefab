@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 5
   countSouls: 0
-  souldelivered: {fileID: 0}
+  souldelivered: {fileID: 4359005499186849110}
   posForSoulDelivired: {fileID: 5331928598577529623}
 --- !u!61 &7929029677172642686
 BoxCollider2D:
