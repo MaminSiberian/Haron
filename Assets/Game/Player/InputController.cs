@@ -44,6 +44,14 @@ public class InputController : MonoBehaviour
         var y = Input.GetAxis("Vertical");
 
         hc.directionMove = new Vector2(x, y).normalized;
+        if(hc.directionMove != Vector2.zero)
+        {
+            _anim.SetBool("Greblya", true);
+        }
+        else
+        {
+            _anim.SetBool("Greblya", false);
+        }
     }
 
     private void DirectionAttack()

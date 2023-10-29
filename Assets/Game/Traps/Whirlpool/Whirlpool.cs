@@ -15,16 +15,21 @@ public class Whirlpool : MonoBehaviour
     [SerializeField] private float duration;
     [SerializeField] private float forceToPushObject;
     [SerializeField] private AnimationCurve forceCurve;
+    [SerializeField] private AudioClip _attack;
 
     private bool isQTE = false;
     private HaronController hc;
     private GameplayUI UI;
     private float distanceFirst;
     private float distanceCurrent;
+    private AudioSource _source;
+    private float startVolume;
 
     private void Start()
     {
         UI = FindObjectOfType<GameplayUI>();
+        _source = GetComponent<AudioSource>();
+        startVolume = _source.volume;
     }
 
 
@@ -39,6 +44,7 @@ public class Whirlpool : MonoBehaviour
             hc.SetBehaviorQTE();
             Rotation(hc.transform.position - transform.position);
             StartCoroutine(QTE());
+            StartCoroutine(FadeAudioUp());
         }
     }
 
@@ -82,6 +88,39 @@ public class Whirlpool : MonoBehaviour
 
     }
 
+    private IEnumerator FadeAudioDown()
+    {
+        while (true)
+        {
+            _source.volume -= 0.05f;
+            if (_source.volume <= 0)
+            {
+                break;
+
+            }
+            yield return new WaitForSeconds(0.35f);
+        }
+        _source.Stop();
+        _source.volume = startVolume;
+    }
+
+    private IEnumerator FadeAudioUp()
+    {
+        _source.volume = 0f;
+        _source.PlayOneShot(_attack);
+        while (true)
+        {
+            _source.volume += 0.04f;
+            if (_source.volume >= startVolume)
+            {
+                break;
+
+            }
+            yield return new WaitForSeconds(0.35f);
+        }
+        _source.volume = startVolume;
+    }
+
     private IEnumerator BlinkF()
     {
         while (isQTE)
@@ -110,6 +149,7 @@ public class Whirlpool : MonoBehaviour
         StopCoroutine(QTE());
         
         StopCoroutine(PushObject());
+        StartCoroutine(FadeAudioDown());
     }
 
     private void Rotation(Vector2 direction)
