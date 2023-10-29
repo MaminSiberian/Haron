@@ -10,6 +10,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPÑontroller
     [SerializeField, Range(1, 10)] private int damage = 2;
     [SerializeField] private float cooldownTime = 1f;
     [SerializeField, Range(0.5f, 2f)] private float distanceForDamage = 0.7f;
+    [SerializeField] private Animator _anim;
     private float currentcdTime;
     private bool isAttack;
     private GameObject _player;
@@ -21,8 +22,10 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPÑontroller
     public void GetDamage(int damage)
     {
         health -= damage;
+        _anim.SetTrigger("Hit");
         if(health <= 0f)
         {
+            _anim.SetTrigger("Death");
             Death();
         }
     }
@@ -56,6 +59,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPÑontroller
             isAttack = false;
         }
         currentcdTime -= Time.deltaTime;
+        Debug.Log(currentcdTime);
     }
 
     private void OnDrawGizmos()
@@ -76,6 +80,7 @@ public class BirdEnemy : MonoBehaviour, IDamagable, IHPÑontroller
         {
             //Play Animation with event method GiveDamage()
             Debug.Log("Attack");
+            _anim.SetTrigger("Attack");
             currentcdTime = cooldownTime;
         }
         

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,19 +95,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -152,10 +139,10 @@ TextureImporter:
       name: Hand-Sheet_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 40
-        width: 160
-        height: 270
+        x: 81
+        y: 49
+        width: 169
+        height: 261
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd1d56444ee424d4ca350002325a849c
-      internalID: -747156140
+      spriteID: 04298a6cbece52c4a918bf1148996adf
+      internalID: 1600027189
       vertices: []
       indices: 
       edges: []
@@ -173,10 +160,10 @@ TextureImporter:
       name: Hand-Sheet_1
       rect:
         serializedVersion: 2
-        x: 410
-        y: 40
-        width: 150
-        height: 260
+        x: 409
+        y: 42
+        width: 156
+        height: 261
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ad6f2305c5653c40b71631da87841e8
-      internalID: -442897368
+      spriteID: 1578c44aae8ab8b4696600360ad2e2f4
+      internalID: -298856615
       vertices: []
       indices: 
       edges: []
@@ -194,10 +181,10 @@ TextureImporter:
       name: Hand-Sheet_2
       rect:
         serializedVersion: 2
-        x: 740
-        y: 40
-        width: 130
-        height: 250
+        x: 735
+        y: 42
+        width: 139
+        height: 249
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95d1ba1bb55d6bb4d9b66720a340b4b6
-      internalID: 308364581
+      spriteID: 8de6e1663da8eb34182bfd5ee7174c31
+      internalID: 845862952
       vertices: []
       indices: 
       edges: []
@@ -215,10 +202,10 @@ TextureImporter:
       name: Hand-Sheet_3
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 40
+        x: 1049
+        y: 37
         width: 150
-        height: 260
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,8 +213,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7beeed1f48fe61b499dab097aa6c04b6
-      internalID: 1548417016
+      spriteID: 1dc6599fc0bc3634ca846c1c0e7d1085
+      internalID: 1069102429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 167
+        width: 161
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a692f0cd5a9dd40acdb002d3987fcb
+      internalID: 144078607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 166
+        width: 163
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c6288a361dc2ff4798aad2e1aaf196e
+      internalID: 675088168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1999
+        y: 163
+        width: 167
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ab74151ab21bd4cbeb5a49cf97abb0
+      internalID: -1540018079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 155
+        width: 176
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fa69acbec90c4e42957cba9eff8065e
+      internalID: -377370854
       vertices: []
       indices: 
       edges: []
@@ -243,10 +314,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hand-Sheet_0: -747156140
-      Hand-Sheet_1: -442897368
-      Hand-Sheet_2: 308364581
-      Hand-Sheet_3: 1548417016
+      Hand-Sheet_0: 1600027189
+      Hand-Sheet_1: -298856615
+      Hand-Sheet_2: 845862952
+      Hand-Sheet_3: 1069102429
+      Hand-Sheet_4: 144078607
+      Hand-Sheet_5: 675088168
+      Hand-Sheet_6: -1540018079
+      Hand-Sheet_7: -377370854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -24,7 +24,7 @@ public class Soul : MonoBehaviour
             _renderer.color = Color.red;
             return;
         }
-        _renderer.color = _color;
+        
     }
 
     private void Update()

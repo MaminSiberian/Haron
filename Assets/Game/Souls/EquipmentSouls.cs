@@ -26,9 +26,11 @@ public class EquipmentSouls : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Soul"))
         {
-            _isPickUp = true;
-            _soul = collision.GetComponent<Soul>();
-           
+            if (!isSoul)
+            {
+                _isPickUp = true;
+                _soul = collision.GetComponent<Soul>();
+            }
         }
         if(collision.gameObject.CompareTag("Marina"))
         {
@@ -100,7 +102,7 @@ public class EquipmentSouls : MonoBehaviour
             }
             UIDirector.DisablePressF();
         }
-        if (_soul != null)
+        if (_soul != null && isSoul)
         {
             _soul.gameObject.transform.position = _soulPos.position;
         }
