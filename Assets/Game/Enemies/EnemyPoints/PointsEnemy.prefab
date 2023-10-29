@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34fedef92abf9e43a1bc78673604176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  maxHealth: 5
+  health: 15
+  maxHealth: 15
   _moveSpeed: 1
   damage: 2
   _distanceVisible: 4
@@ -543,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1905269637946675315, guid: da4109abf87891343b55390599e4d5d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 1905269637946675315, guid: da4109abf87891343b55390599e4d5d4, type: 3}
       propertyPath: m_LocalPosition.z

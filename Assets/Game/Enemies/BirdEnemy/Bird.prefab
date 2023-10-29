@@ -56,9 +56,9 @@ MonoBehaviour:
   moveSpeed: 1.5
   distanceVisible: 7
   damage: 2
-  cooldownTime: 1
-  distanceForDamage: 0.7
-  _anim: {fileID: 0}
+  cooldownTime: 2.54
+  distanceForDamage: 3.16
+  _anim: {fileID: 3231264251989662946}
   _hit: {fileID: 8300000, guid: 62f456268c301a64a8bc8a565e040030, type: 3}
   _attack: {fileID: 8300000, guid: ee01d5f1e2bc9a545836338894eb10d7, type: 3}
   _death: {fileID: 8300000, guid: f512c116b3f31b84aa94655142be48fe, type: 3}
@@ -70,7 +70,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308277436389702658}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
