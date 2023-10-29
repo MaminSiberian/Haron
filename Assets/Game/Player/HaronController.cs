@@ -33,7 +33,7 @@ namespace Haron
         [Range(0, 50)][SerializeField] internal int damage;
         [Range(0f, 1f)][SerializeField] private float timeCaiot;
         [Space(10)]
-        [Range(0f, 50f)][SerializeField] internal float speedMove;
+        [Range(0f, 100f)][SerializeField] internal float speedMove;
         [Space]
         [SerializeField] internal AnimationCurve dashCurve;
         [Range(0f, 100f)][SerializeField] internal float forceDash;
