@@ -34,14 +34,12 @@ namespace Haron
 
             if (cuurentDelayAttack >= hc.delayAttack)
             {
-                Debug.Log(1);
                 hc.areaAttack.gameObject.SetActive(true);
                 hc.areaAttack.localScale = Vector3.one;
                 currentTimeAttack += Time.fixedDeltaTime;
                 currentTimeCooldown += Time.fixedDeltaTime;
                 if (currentTimeAttack >= hc.durationAttack)
                 {
-                    Debug.Log(2);
                     hc.areaAttack.gameObject.SetActive(false);
                     hc.areaAttack.localScale = Vector3.zero;
                 }
@@ -54,7 +52,6 @@ namespace Haron
 
                 if (currentTimeCooldown >= hc.cooldownAttack)
                 {
-                    Debug.Log(3);
                     hc.SetBehaviorFloating();
                 }            
             }
